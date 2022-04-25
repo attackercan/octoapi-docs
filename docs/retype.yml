@@ -1,0 +1,11 @@
+input: .
+output: .retype
+url: # Add your website address here
+branding:
+  title: Scanfactory API
+  label: Docs
+links:
+- text: Scanfactory
+  link: https://scanfactory.io/
+footer:
+  copyright: "&copy; Copyright {{ year }}. All rights reserved."
