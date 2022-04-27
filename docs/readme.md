@@ -11,6 +11,7 @@ ____
 ### Статистика проекта
 
 [!ref](/projects/general-stats.md)
+[!ref](/projects/general-stats-multi.md)
 [!ref](/projects/timerange-alerts.md)
 [!ref](/projects/timerange-tasks.md)
 [!ref](/projects/timerange-hosts.md)
@@ -25,3 +26,5 @@ ____
 [!ref](/assets/hosts.md)
 [!ref](/assets/ports.md)
 
+### OpenAPI
+[!ref](/schema.md)
