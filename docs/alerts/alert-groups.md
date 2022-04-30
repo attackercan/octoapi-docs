@@ -32,6 +32,7 @@
         "total_groups_count": 3,
         "groups": [
             {
+                "id": "Some Title 12__6242e65364096281adcb7b02__8",
                 "count": 2,
                 "title": "Some Title 12",
                 "severity": 8,
@@ -39,6 +40,7 @@
                 "project_id": "6242e65364096281adcb7b02"
             },
             {
+                "id": "Some Title 2__6242e65364096281adcb7b02__8",
                 "count": 1,
                 "title": "Some Title 2",
                 "severity": 2,
@@ -46,6 +48,7 @@
                 "project_id": "6242e65364096281adcb7b02"
             },
             {
+                "id": "Some Title xxx__6242e65364096281adcb7b02__8",
                 "count": 1,
                 "title": "Some Title xxx",
                 "severity": 2,

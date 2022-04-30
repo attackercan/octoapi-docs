@@ -534,10 +534,9 @@ paths:
       parameters:
         - in: query
           name: project_id
-          description: projects to get combined stats for.
+          description: projects to get combined stats for. if not specified, all projects are selected.
           schema:
             type: string
-          required: true
       responses:
         '404':
           description: project not found
@@ -1175,6 +1174,8 @@ components:
           items:
             type: object
             properties:
+              id:
+                type: string
               count:
                 type: integer
               title:
@@ -1192,6 +1193,7 @@ components:
               - severity
               - last_seen
               - project_id
+              - id
       required:
         - total_groups_count
         - groups
