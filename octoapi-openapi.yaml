@@ -70,6 +70,17 @@ paths:
                 $ref: '#/components/schemas/ProjectGet'
         '404':
           description: Project not found
+    delete:
+      description: Delete project and all its data.
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectGet'
+        '404':
+          description: Project not found
   /projects/{projectId}/stats/:
     parameters:
     - in: path
@@ -127,12 +138,14 @@ paths:
           description: The time slice beginning in ISO format timestamp
           schema:
             type: string
+            example: 2022-01-27T11:06:34.727984
           required: true
         - in: query
           name: to
           description: The time slice end in ISO format timestamp
           schema:
             type: string
+            example: 2022-01-27T11:06:34.727984
           required: true
         - in: query
           name: steps
@@ -183,12 +196,14 @@ paths:
           description: The time slice beginning in ISO format timestamp
           schema:
             type: string
+            example: 2022-01-27T11:06:34.727984
           required: true
         - in: query
           name: to
           description: The time slice end in ISO format timestamp
           schema:
             type: string
+            example: 2022-01-27T11:06:34.727984
           required: true
         - in: query
           name: steps
@@ -219,12 +234,14 @@ paths:
           description: The time slice beginning in ISO format timestamp
           schema:
             type: string
+            example: 2022-01-27T11:06:34.727984
           required: true
         - in: query
           name: to
           description: The time slice end in ISO format timestamp
           schema:
             type: string
+            example: 2022-01-27T11:06:34.727984
           required: true
         - in: query
           name: steps
@@ -276,6 +293,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Timerange'
+  /projects/{projectId}/report/:
+    parameters:
+    - in: path
+      name: projectId
+      schema:
+        type: string
+      required: true
+    get:
+      description: Returns a report of the project's findings
+      responses:
+        '404':
+          description: project not found
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjReport'
+            text/html:
+              schema:
+                type: string
   /alerts/:
     get:
       description: Returns a list of alerts
@@ -294,34 +332,63 @@ paths:
           name: severity
           description: search for alerts with given severity level(s)
           schema:
-            type: integer
+            $ref: '#/components/schemas/AlertLevel'
         - in: query
           name: status
           description: search for alerts with given status(es)
           schema:
-            type: string
+            $ref: '#/components/schemas/AlertStatus'
         - in: query
           name: cdate
-          description: "alerts creating time in ISO fromat. This param name (and should) be prefixed with '$lt-' and '$gt-'
-          to search for alert with creation date less or greater than given date.
-          Example: /alerts?$lt-cdate=2022-01-27T11:06:34.727984&2022-04-27T11:06:34.727984&$gt-cdate=2020-04-27T11:06:34.727984
-          "
+          description: "filter alerts by creation time in ISO fromat.
+          to search for alert with creation time less or greater than given date use $lt-cdate and $gt-cdate."
           schema:
             type: string
+            example: 2022-01-27T11:06:34.727984
+        - in: query
+          name: $lt-cdate
+          description: "search for creation time before the provided value"
+          schema:
+            type: string
+            example: 2022-01-27T11:06:34.727984
+        - in: query
+          name: $gt-cdate
+          description: "search for creation time after the provided value"
+          schema:
+            type: string
+            example: 2022-01-27T11:06:34.727984
         - in: query
           name: last_seen
-          description: "alerts last seen time in ISO fromat. This param name (and should) be prefixed with '$lt-' and '$gt-'
-          to search for alert with creation date less or greater than given date.
-          Example: /alerts?$lt-cdate=2022-01-27T11:06:34.727984&2022-04-27T11:06:34.727984&$gt-cdate=2020-04-27T11:06:34.727984
-          "
+          description: "filter alerts by last_seen time in ISO fromat.
+          to search for alert with creation time less or greater than given date use $lt-last_seen and $gt-last_seen."
           schema:
             type: string
+            example: 2022-01-27T11:06:34.727984
+        - in: query
+          name: $lt-last_seen
+          description: "search for last_seen time before the provided value"
+          schema:
+            type: string
+            example: 2022-01-27T11:06:34.727984
+        - in: query
+          name: $gt-last_seen
+          description: "search for last_seen time after the provided value"
+          schema:
+            type: string
+            example: 2022-01-27T11:06:34.727984
         - in: query
           name: sort
-          description: "A key to sort the alerts by. Possible values: last_seen, cdate, severity.
+          description: "A key to sort the alerts by.
           The value may be prefixed with '-' to reverse the order (e.g. -cdate, -severity)."
           schema:
             type: string
+            enum:
+              - cdate
+              - -cdate
+              - last_seen
+              - -last_seen
+              - severity
+              - -severity
         - in: query
           name: skip
           description: number of items to be skipped for pagination
@@ -332,6 +399,13 @@ paths:
           description: max number of items to be shown for pagination
           schema:
             type: integer
+        - in: query
+          name: all
+          description: get all items. if specified, `limit` and `skip` params are ignored.
+          schema:
+            type: string
+            enum:
+              - '1'
       responses:
         '200':
           description: success
@@ -397,7 +471,7 @@ paths:
           name: severity
           description: search for the alerts with given severity level(s)
           schema:
-            type: integer
+            $ref: '#/components/schemas/AlertLevel'
         - in: query
           name: project_id
           description: search for the alerts with given project id(s)
@@ -407,13 +481,16 @@ paths:
           name: status
           description: search for the alerts with given status(es)
           schema:
-            type: string
+            $ref: '#/components/schemas/AlertStatus'
         - in: query
           name: sort
-          description: "A key to sort the alerts by. Possible values: severity.
+          description: "A key to sort the alerts by.
           The value may be prefixed with '-' to reverse the order (e.g. -severity)."
           schema:
             type: string
+            enum:
+              - severity
+              - -severity
         - in: query
           name: skip
           description: number of items to be skipped for pagination
@@ -449,7 +526,11 @@ paths:
           description: "search for hosts found by given tool.
           must be a tool name (e.g. 'crawler', 'altdns', etc.) or 'null'"
           schema:
-            type: string
+            allOf:
+              - $ref: '#/components/schemas/MinionType'
+              - type: string
+                enum:
+                - null
         - in: query
           name: pending
           description: "search for either pending or not pending hosts.
@@ -457,17 +538,33 @@ paths:
           for active ones"
           schema:
             type: string
+            enum:
+             - '1'
+             - '0'
         - in: query
           name: deleted
           description: "search for deleted hosts.
           Must be either 'True' or '1' to search for deleted hosts"
           schema:
             type: string
+            enum:
+             - '1'
+             - '0'
         - in: query
           name: port_count
-          description: "Search for hosts with the given port count. Can also be
-          used as '$lt-port_count' or '$gt-port_count' to search for hosts with number
+          description: "Search for hosts with the given port count.
+          Use '$lt-port_count' or '$gt-port_count' to search for hosts with number
           of ports less than or greater than given value respectively."
+          schema:
+            type: integer
+        - in: query
+          name: $lt-port_count
+          description: "Search for hosts with port count less than the given value"
+          schema:
+            type: integer
+        - in: query
+          name: $gt-port_count
+          description: "Search for hosts with port count greater than the given value"
           schema:
             type: integer
         - in: query
@@ -479,7 +576,12 @@ paths:
           name: sort
           schema:
             type: string
-          description: "the key to sort the output by. Must be on of: host, port_count.
+            enum:
+              - host
+              - -host
+              - port_count
+              - -port_count
+          description: "the key to sort the output by.
           The value maybe pe prefixed with '-' to reverse the order e.g. -port_count"
         - in: query
           name: skip
@@ -491,6 +593,13 @@ paths:
           description: max number of items to be shown for pagination
           schema:
             type: integer
+        - in: query
+          name: all
+          description: get all items. if specified, `limit` and `skip` params are ignored.
+          schema:
+            type: string
+            enum:
+              - '1'
       responses:
         '200':
           description: success
@@ -508,9 +617,12 @@ paths:
             type: string
         - in: query
           name: sort
-          description: "the key to sort the output by. Must be on of: rarest, newest."
+          description: "Sorting strategy"
           schema:
             type: string
+            enum:
+              - rarest
+              - newest
         - in: query
           name: skip
           description: number of items to be skipped for pagination
@@ -758,7 +870,7 @@ components:
             - ipv6
             - url
         status:
-          type: string
+          $ref: '#/components/schemas/ProjectStatus'
         allowed_ips:
           type: array
           items:
@@ -773,7 +885,7 @@ components:
             type: object
             properties:
               tool:
-                type: string
+                $ref: '#/components/schemas/MinionType'
               at:
                 type: string
                 nullable: true
@@ -1067,7 +1179,7 @@ components:
             - ipv6
             - url
         status:
-          type: string
+          $ref: '#/components/schemas/ProjectStatus'
         allowed_ips:
           type: array
           items:
@@ -1078,7 +1190,7 @@ components:
             type: object
             properties:
               tool:
-                type: string
+                $ref: '#/components/schemas/MinionType'
               at:
                 type: string
                 nullable: true
@@ -1102,9 +1214,9 @@ components:
         title:
           type: string
         severity:
-          type: integer
+          $ref: '#/components/schemas/AlertLevel'
         tool:
-          type: string
+          $ref: '#/components/schemas/ReporterType'
         description:
           type: string
         project_id:
@@ -1125,7 +1237,7 @@ components:
         recommendation_detail:
           type: string
         status:
-          type: string
+          $ref: '#/components/schemas/AlertStatus'
         cdate:
           type: string
           pattern: "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\\\.[0-9]+)?(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
@@ -1153,7 +1265,7 @@ components:
       type: object
       properties:
         severity:
-          type: integer
+          $ref: '#/components/schemas/AlertLevel'
         comment:
           type: string
         issue_detail:
@@ -1163,7 +1275,7 @@ components:
         recommendation_detail:
           type: string
         status:
-          type: string
+          $ref: '#/components/schemas/AlertStatus'
     AlertGroups:
       type: object
       properties:
@@ -1181,11 +1293,13 @@ components:
               title:
                 type: string
               severity:
-                type: integer
+                $ref: '#/components/schemas/AlertLevel'
               last_seen:
                 type: string
                 pattern: "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\\\.[0-9]+)?(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
               project_id:
+                type: string
+              project_name:
                 type: string
             required:
               - count
@@ -1217,8 +1331,9 @@ components:
                     port_number:
                       type: integer
                     found_by:
-                      type: string
-                      nullable: true
+                      allOf:
+                        - $ref: '#/components/schemas/MinionType'
+                        - nullable: true
                     protocol:
                       type: string
                     last_seen:
@@ -1240,8 +1355,9 @@ components:
               project_id:
                 type: string
               found_by:
-                type: string
-                nullable: true
+                allOf:
+                  - $ref: '#/components/schemas/MinionType'
+                  - nullable: true
               pending:
                 type: boolean
               cdate:
@@ -1465,3 +1581,184 @@ components:
           type: number
         count:
           type: integer
+    ProjectStatus:
+      type: string
+      enum:
+        - "new"
+        - "running"
+        - "paused"
+        - "deleted"
+    AlertStatus:
+      type: string
+      enum:
+        - "NEW"
+        - "FALSE_POSITIVE"
+        - "NOT_INTERESTING"
+        - "IN_PROGRESS"
+        - "DONE"
+    AlertLevel:
+      type: integer
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 5
+        - 8
+        - 10
+    MinionType:
+      type: string
+      enum:
+        - "altdns"
+        - "amass"
+        - "burp"
+        - "crawler"
+        - "dirsearch"
+        - "ffuf"
+        - "nessus"
+        - "nmap"
+        - "patator"
+        - "phuipfpizdam"
+        - "subfinder"
+        - "subjack"
+        - "waybackurls"
+        - "wpscan"
+        - "nuclei"
+        - "grep"
+    ReporterType:
+      type: string
+      enum:
+        - "altdns"
+        - "amass"
+        - "burp"
+        - "crawler"
+        - "dirsearch"
+        - "ffuf"
+        - "nessus"
+        - "nmap"
+        - "patator"
+        - "phuipfpizdam"
+        - "subfinder"
+        - "subjack"
+        - "waybackurls"
+        - "wpscan"
+        - "nuclei"
+        - "grep"
+        - "overmind"
+    ProjReport:
+      type: object
+      properties:
+        project_name:
+          type: string
+        rating:
+          type: number
+        rating_letter_grade:
+          type: string
+          enum:
+          - A+
+          - A
+          - A-
+          - B
+          - C-
+          - C
+          - D
+          - D-
+          - E
+        alert_group_stats:
+          type: object
+          properties:
+            critical:
+              type: integer
+            high:
+              type: integer
+            medium:
+              type: integer
+            low:
+              type: integer
+            info:
+              type: integer
+            new_data:
+              type: integer
+            unknown:
+              type: integer
+          required:
+          - critical
+          - high
+          - medium
+          - low
+          - info
+          - new_data
+          - unknown
+        hosts:
+          type: array
+          items:
+            type: object
+            properties:
+              host:
+                type: string
+              ports:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    port_number:
+                      type: integer
+                    protocol:
+                      type: string
+                    last_seen:
+                      type: string
+                      pattern: "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\\\.[0-9]+)?(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+                  required:
+                  - port_number
+                  - protocol
+                  - last_seen
+            required:
+            - host
+            - ports
+        alerts:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              count:
+                type: integer
+              tool:
+                $ref: '#/components/schemas/ReporterType'
+              recommendation:
+                type: string
+              http_request:
+                type: string
+                nullable: true
+              http_response:
+                type: string
+                nullable: true
+              severity:
+                type: string
+                enum:
+                  - critical
+                  - high
+                  - medium
+                  - low
+                  - info
+                  - new_data
+                  - unknown
+              description:
+                type: string
+            required:
+            - title
+            - count
+            - tool
+            - recommendation
+            - http_request
+            - http_response
+            - severity
+            - description
+      required:
+      - project_name
+      - rating
+      - rating_letter_grade
+      - alert_group_stats
+      - hosts
+      - alerts
