@@ -16,6 +16,7 @@ ____
 [!ref](/projects/timerange-tasks.md)
 [!ref](/projects/timerange-hosts.md)
 [!ref](/projects/timerange-ports.md)
+[!ref](/projects/report.md)
 
 ### Тревоги
 [!ref](/alerts/fetch-alerts.md)
