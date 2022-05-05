@@ -37,7 +37,8 @@
                 "title": "Some Title 12",
                 "severity": 8,
                 "last_seen": "2022-03-29T10:20:53.349000",
-                "project_id": "6242e65364096281adcb7b02"
+                "project_id": "6242e65364096281adcb7b02",
+                "project_name": "Some project name"
             },
             {
                 "id": "Some Title 2__6242e65364096281adcb7b02__8",
@@ -45,7 +46,8 @@
                 "title": "Some Title 2",
                 "severity": 2,
                 "last_seen": "2022-03-29T10:20:53.349000",
-                "project_id": "6242e65364096281adcb7b02"
+                "project_id": "6242e65364096281adcb7b02",
+                "project_name": "Some project name"
             },
             {
                 "id": "Some Title xxx__6242e65364096281adcb7b02__8",
@@ -53,7 +55,8 @@
                 "title": "Some Title xxx",
                 "severity": 2,
                 "last_seen": "2022-03-29T10:20:53.349000",
-                "project_id": "6242e65364096281adcb7b02"
+                "project_id": "6242e65364096281adcb7b02",
+                "project_name": "Some project name"
             }
         ]
     }
