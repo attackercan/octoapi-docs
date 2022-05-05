@@ -11,27 +11,28 @@
     <!-- Primary Meta Tags -->
     <title>Отчеты по проекту</title>
     <meta name="title" content="Отчеты по проекту">
-    <meta name="description" content="#TODO: Not implemented" />
+    <meta name="description" content="Отчет по проекту включающий в себя оценку угрозы проекту, статистику по разных видам тревог, список всех хостов, а также список всех тревог." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="/projects/report/">
     <meta property="og:title" content="Отчеты по проекту">
-    <meta property="og:description" content="#TODO: Not implemented">
+    <meta property="og:description" content="Отчет по проекту включающий в себя оценку угрозы проекту, статистику по разных видам тревог, список всех хостов, а также список всех тревог.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="/projects/report/">
     <meta property="twitter:title" content="Отчеты по проекту">
-    <meta property="twitter:description" content="#TODO: Not implemented">
+    <meta property="twitter:description" content="Отчет по проекту включающий в себя оценку угрозы проекту, статистику по разных видам тревог, список всех хостов, а также список всех тревог.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/resources/css/retype.css?v=2.2.705093442041" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=2.2.705100114658" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=2.2.705093442041" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=2.2.705100114658" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=2.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.705093442041" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.705100114658" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=2.2.705100114658" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -168,26 +169,117 @@
     </h1>
 </doc-anchor-target>
 <hr />
-<p>#TODO: Not implemented</p>
+<p>Отчет по проекту включающий в себя оценку угрозы проекту,
+статистику по разных видам тревог, список всех хостов, а также список всех тревог.</p>
+<p><strong>Важно:</strong> этот путь способен выдавать отчет в виде JSON документа или в виде HTML страницы (по умолчанию).
+Для того чтобы получить JSON, необходимо добавить значение <code v-pre>application/json</code> в заголовок запроса <code v-pre>Accept</code>.</p>
 <ul>
-<li><p><strong>URL</strong> <code v-pre>/projects/&lt;id&gt;/report/</code></p>
-</li>
-<li><p><strong>Метод:</strong>  <code v-pre>GET</code></p>
-</li>
-<li><p><strong>Параметры URL запроса</strong>
-<strong>Обязательные:</strong></p>
-<ul>
-<li><code v-pre>format=[str]</code> - формат отчета на выходе, <code v-pre>html</code> либо <code v-pre>json</code></li>
-</ul>
-</li>
-<li><p><strong>Успешное выполнение:</strong></p>
+<li><strong>URL</strong> <code v-pre>/projects/&lt;id&gt;/report/</code>
+Важно</li>
+<li><strong>Метод:</strong>  <code v-pre>GET</code></li>
+<li><strong>Успешное выполнение:</strong>
 <ul>
 <li><strong>Код:</strong> <code v-pre>200</code> <br />
-<strong>Тело:</strong><br />
-# TODO</li>
+<strong>Тело:</strong>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">  {
+    &quot;project_name&quot;: &quot;project-test-1324&quot;,
+    &quot;rating&quot;: 237.52,
+    &quot;rating_letter_grade&quot;: &quot;A&quot;,
+    &quot;alert_group_stats&quot;: {
+      &quot;critical&quot;: 0,
+      &quot;high&quot;: 2,
+      &quot;medium&quot;: 0,
+      &quot;low&quot;: 0,
+      &quot;info&quot;: 4,
+      &quot;new_data&quot;: 0,
+      &quot;unknown&quot;: 0
+    },
+    &quot;hosts&quot;: [
+      {
+        &quot;host&quot;: &quot;33.34.55.121&quot;,
+        &quot;ports&quot;: [
+          {
+            &quot;port_number&quot;: 8000,
+            &quot;protocol&quot;: &quot;http&quot;,
+            &quot;last_seen&quot;: &quot;2022-01-30T07:23:06&quot;
+          },
+          {
+            &quot;port_number&quot;: 443,
+            &quot;protocol&quot;: &quot;http&quot;,
+            &quot;last_seen&quot;: &quot;2022-01-30T07:23:06&quot;
+          }
+        ]
+      }
+    ],
+    &quot;alerts&quot;: [
+      {
+        &quot;title&quot;: &quot;Some Title 1&quot;,
+        &quot;count&quot;: 1,
+        &quot;tool&quot;: &quot;burp&quot;,
+        &quot;recommendation&quot;: &quot;Some Recommendation&quot;,
+        &quot;http_request&quot;: null,
+        &quot;http_response&quot;: null,
+        &quot;severity&quot;: &quot;high&quot;,
+        &quot;description&quot;: &quot;Descr&quot;
+      },
+      {
+        &quot;title&quot;: &quot;Some Title 12&quot;,
+        &quot;count&quot;: 2,
+        &quot;tool&quot;: &quot;burp&quot;,
+        &quot;recommendation&quot;: &quot;Some Recommendation 2&quot;,
+        &quot;http_request&quot;: null,
+        &quot;http_response&quot;: null,
+        &quot;severity&quot;: &quot;high&quot;,
+        &quot;description&quot;: &quot;Descr&quot;
+      },
+      {
+        &quot;title&quot;: &quot;Some Title xxx&quot;,
+        &quot;count&quot;: 1,
+        &quot;tool&quot;: &quot;burp&quot;,
+        &quot;recommendation&quot;: &quot;Some Recommendation&quot;,
+        &quot;http_request&quot;: null,
+        &quot;http_response&quot;: null,
+        &quot;severity&quot;: &quot;info&quot;,
+        &quot;description&quot;: &quot;Descr&quot;
+      },
+      {
+        &quot;title&quot;: &quot;Some Title 2&quot;,
+        &quot;count&quot;: 1,
+        &quot;tool&quot;: &quot;burp&quot;,
+        &quot;recommendation&quot;: &quot;Some Recommendation 2&quot;,
+        &quot;http_request&quot;: null,
+        &quot;http_response&quot;: null,
+        &quot;severity&quot;: &quot;info&quot;,
+        &quot;description&quot;: &quot;Descr&quot;
+      },
+      {
+        &quot;title&quot;: &quot;Some Title 3&quot;,
+        &quot;count&quot;: 1,
+        &quot;tool&quot;: &quot;nuclei&quot;,
+        &quot;recommendation&quot;: &quot;Some Recommendation 2&quot;,
+        &quot;http_request&quot;: null,
+        &quot;http_response&quot;: null,
+        &quot;severity&quot;: &quot;info&quot;,
+        &quot;description&quot;: &quot;Descr&quot;
+      },
+      {
+        &quot;title&quot;: &quot;Some Title 4&quot;,
+        &quot;count&quot;: 1,
+        &quot;tool&quot;: &quot;burp&quot;,
+        &quot;recommendation&quot;: &quot;Some Recommendation 2&quot;,
+        &quot;http_request&quot;: null,
+        &quot;http_response&quot;: null,
+        &quot;severity&quot;: &quot;info&quot;,
+        &quot;description&quot;: &quot;Descr&quot;
+      }
+    ]
+  }</code></pre>
+</doc-codeblock></div>
+</li>
 </ul>
 </li>
-<li><p><strong>Ошибки:</strong></p>
+<li><strong>Ошибки:</strong>
 <ul>
 <li><strong>Код:</strong> <code v-pre>404</code> Проект не найден <br>
 <strong>Тело:</strong> <code v-pre>{ error : &quot;Project 624b2cad2c04e8f0bdad7efc not found&quot; }</code></li>
@@ -260,6 +352,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Отчеты по проекту", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Отчеты по проекту", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>

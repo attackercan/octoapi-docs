@@ -27,12 +27,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/resources/css/retype.css?v=2.2.705093442041" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=2.2.705100114658" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=2.2.705093442041" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=2.2.705100114658" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=2.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.705093442041" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=2.2.705093442041" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.705100114658" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=2.2.705100114658" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -191,13 +191,14 @@
 <li><code v-pre>-ports.port_count</code> - сортировка по количеству портов (от большего)</li>
 </ul>
 </li>
-<li><code v-pre>host</code> - параметр для поиска конкретного хоста. Если указать несколько значений
+<li><code v-pre>host</code> - параметр для поиска конкретного хоста. Если указать несколько значений,
 то критерием фильтрации будет соответствие любому из указанных значений.</li>
 <li><code v-pre>$gt-port_count</code> - параметр для выдачи хостов с количеством портов больше чем указанное значение</li>
 <li><code v-pre>$lt-port_count</code> - параметр для выдачи хостов с количеством портов больше чем меньше значение</li>
 <li><code v-pre>pending</code> - фильтрация по признаку статуса хоста.
 <code v-pre>1</code> - выдать те что ожидают явного одобрения, <code v-pre>0</code> - только одобренные.</li>
 <li><code v-pre>ports.port_number</code> - выдать хосты у которых открыт указанный порт. По аналогии с <code v-pre>host</code>, может быть указано несколько значений.</li>
+<li><code v-pre>all</code> - если параметр равен <code v-pre>1</code> то выдается сразу все записи, а параметры пагинации (<code v-pre>skip</code>, <code v-pre>limit</code>) игнорируются.</li>
 </ul>
 </li>
 </ul>
