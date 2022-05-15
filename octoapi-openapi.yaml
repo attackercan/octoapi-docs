@@ -2,6 +2,7 @@ openapi: 3.0.0
 
 info:
   title: Octo Api
+  description: Scanfactory scan engine API.
   version: 0.0.1
 
 paths:
@@ -314,10 +315,106 @@ paths:
             text/html:
               schema:
                 type: string
+  /projects/{projectId}/dirsearch/{host}/{portNumber}:
+    parameters:
+      - in: path
+        name: projectId
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: host
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: portNumber
+        schema:
+          type: integer
+        required: true
+    get:
+      description: Get the latest dirsearch output for the specified hostname and port
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              example:
+                [
+                  {
+                    "contentLength": "243B ",
+                    "contentLengthBytes": 243,
+                    "contentType": "text/html; charset=UTF-8",
+                    "path": "%2e%2e//google.com",
+                    "redirect": "https://google-gruyere.appspot.com//google.com",
+                    "status": 302,
+                    "statusColorClass": "text-warning",
+                    "url": "https://google-gruyere.appspot.com:443/%2e%2e//google.com"
+                  },
+                  {
+                    "contentLength": "359B ",
+                    "contentLengthBytes": 359,
+                    "contentType": "text/html; charset=utf-8",
+                    "path": "0",
+                    "redirect": null,
+                    "status": 200,
+                    "statusColorClass": "text-success",
+                    "url": "https://google-gruyere.appspot.com:443/0"
+                  },
+                  {
+                    "contentLength": "359B ",
+                    "contentLengthBytes": 359,
+                    "contentType": "text/html; charset=utf-8",
+                    "path": "02",
+                    "redirect": null,
+                    "status": 200,
+                    "statusColorClass": "text-success",
+                    "url": "https://google-gruyere.appspot.com:443/02"
+                  },
+                  {
+                    "contentLength": "359B ",
+                    "contentLengthBytes": 359,
+                    "contentType": "text/html; charset=utf-8",
+                    "path": "05",
+                    "redirect": null,
+                    "status": 200,
+                    "statusColorClass": "text-success",
+                    "url": "https://google-gruyere.appspot.com:443/05"
+                  },
+                  {
+                    "contentLength": "359B ",
+                    "contentLengthBytes": 359,
+                    "contentType": "text/html; charset=utf-8",
+                    "path": "00",
+                    "redirect": null,
+                    "status": 200,
+                    "statusColorClass": "text-success",
+                    "url": "https://google-gruyere.appspot.com:443/00"
+                  },
+                  {
+                    "contentLength": "359B ",
+                    "contentLengthBytes": 359,
+                    "contentType": "text/html; charset=utf-8",
+                    "path": "01",
+                    "redirect": null,
+                    "status": 200,
+                    "statusColorClass": "text-success",
+                    "url": "https://google-gruyere.appspot.com:443/01"
+                  }
+                ]
+            text/html:
+              schema:
+                type: string
+
   /alerts/:
     get:
       description: Returns a list of alerts
       parameters:
+        - in: query
+          name: title
+          description: search for the alerts with the given title
+          schema:
+            type: string
         - in: query
           name: content_digest
           description: search for the alert(s) with given content_digest(s)
@@ -336,6 +433,11 @@ paths:
         - in: query
           name: status
           description: search for alerts with given status(es)
+          schema:
+            $ref: '#/components/schemas/AlertStatus'
+        - in: query
+          name: $ne-status
+          description: search for alerts with status not equal to the given one(s)
           schema:
             $ref: '#/components/schemas/AlertStatus'
         - in: query
@@ -508,6 +610,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AlertGroups'
+            text/html:
+              schema:
+                type: string
   /hosts/:
     get:
       parameters:
@@ -544,7 +649,7 @@ paths:
         - in: query
           name: deleted
           description: "search for deleted hosts.
-          Must be either 'True' or '1' to search for deleted hosts"
+          Must be either 'True' or '1' to search for deleted hosts. Defaults to 0"
           schema:
             type: string
             enum:
@@ -554,7 +659,7 @@ paths:
           name: port_count
           description: "Search for hosts with the given port count.
           Use '$lt-port_count' or '$gt-port_count' to search for hosts with number
-          of ports less than or greater than given value respectively."
+          of ports less than or greater than given value respectively. Defaults to 0"
           schema:
             type: integer
         - in: query
@@ -581,8 +686,13 @@ paths:
               - -host
               - port_count
               - -port_count
+              - last_seen
+              - -last_seen
+              - mdate
+              - -mdate
           description: "the key to sort the output by.
-          The value maybe pe prefixed with '-' to reverse the order e.g. -port_count"
+          The value maybe pe prefixed with '-' to reverse the order e.g. -port_count.
+          Defaults to 'host'"
         - in: query
           name: skip
           description: number of items to be skipped for pagination
@@ -607,6 +717,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Hosts'
+            text/html:
+              schema:
+                type: string
   /ports/:
     get:
       parameters:
@@ -1391,6 +1504,9 @@ components:
                 type: integer
               host:
                 type: string
+              last_seen:
+                type: string
+                example: 2022-01-27T11:06:34.727984
       required:
         - count
         - items
@@ -1762,3 +1878,10 @@ components:
       - alert_group_stats
       - hosts
       - alerts
+  securitySchemes:
+    tokenAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - tokenAuth: []
