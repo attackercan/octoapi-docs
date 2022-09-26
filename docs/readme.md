@@ -1,6 +1,11 @@
 # Scanfactory REST API
 ____
 
+
+### Быстрый старт
+[!ref](/quickstart/quickstart.md)
+
+
 ### Создание и настройка проекта (Projects)
 [!ref](/projects/create-project.md)
 [!ref](/projects/modify-project.md)
