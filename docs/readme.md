@@ -5,9 +5,9 @@ ____
 Платформа ScanFactory проводит автоматизированное сканирование внешней сетевой инфраструктуры и вебсайтов Заказчика на предмет выявления уязвимостей методом «чёрного» и «серого» ящика с помощью 16 сканеров безопасности.
 !!!
 
-### Быстрый старт
-[!ref](/quickstart/quickstart.md)
+[!ref](/quickstart.md)
 
-### Технический обзор ScanFactory
-[!ref](/quickstart/technical-overview.md)
+[!ref](/technical-overview.md)
+
+[!ref](/scanners.md)
 
