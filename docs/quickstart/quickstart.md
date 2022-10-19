@@ -5,37 +5,7 @@
 
 Платформа Scanfactory 
 
-```mermaid
-graph 
-    DB -->|Вайлдкарды|amass
-    amass(amass) -->|Домены| DB
-    altdns(altdns) -->|Домены| DB
-    DB -->|Вайлдкарды|altdns
-    crawler(crawler) -->|Домены, IP-адреса, HTTP запросы| DB(Хранилище)
-    DB -->|Порты| crawler
-    dirsearch(dirsearch) -->|HTTP запросы| DB(Хранилище)
-    DB -->|Порты| dirsearch
-    grep(grep) -->|Домены, IP-адреса, HTTP запросы| DB(Хранилище)
-    DB -->|HTTP запросы| grep
-    infrascan(infrascan) -->|Уязвимости| DB(Хранилище)
-    DB -->|IP-адреса| infrascan
-    nmap(nmap) -->|Порты| DB(Хранилище)
-    DB -->|IP-адреса| nmap
-    nuclei(nuclei) -->|Уязвимости| DB(Хранилище)
-    DB -->|HTTP запросы| nuclei
-    patator(patator) -->|Уязвимости| DB(Хранилище)
-    DB -->|Порты| patator
-    phuipfpizdam(phuipfpizdam) -->|Уязвимости| DB(Хранилище)
-    DB -->|HTTP запросы| phuipfpizdam
-    subfinder(subfinder) -->|Домены| DB(Хранилище)
-    DB -->|Вайлдкарды| subfinder
 
-
-
-
-
-
-```
 
 
 ### 1. Создайте и запустите новый проект.
@@ -110,8 +80,6 @@ graph
 
 ### 3. Дашборд
 
-
-
 ### 4. Активы
 
 ### 5. Уязвимости
@@ -121,7 +89,14 @@ graph
 ### 6. Графики
 
 
-### 6. Тонкая настройка сканирования
-#### Сканирование веб-приложений за авторизацией
+### 7. Тонкая настройка сканирования
+Читайте в разделе
 
-### 7. Телеграм бот
+### 8. Подключение телеграм-бота
+
+Начните диалог с телеграм-ботом: `@scanfactory_reporter_bot`
+
+Подключите бота к вашему Личному Кабинету с помощью команды:  
+`/connect https://yx-client.scanfactory.io/api/ token <TOKEN>`   
+
+Рабочий токен вы можете получить, связавшись с технической поддержкой.
