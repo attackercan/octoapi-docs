@@ -51,14 +51,14 @@
   - предназначение: проверка на уязвимость CVE-2019-11043
   - вход: HTTP-запрос
   - выход: уязвимость
-- **[subfinder](https://github.com/projectdiscovery/subfinder)**
-  - предназначение: пассивный поиск поддоменов
-  - вход: вайлдкард (`*.domain.ru`)
-  - выход: список найденных доменных имён
 - **[sdto](https://github.com/scanfactory/sdto)**
   - предназначение: проверка перехвата поддомена
   - вход: домен
   - выход: уязвимости
+- **[subfinder](https://github.com/projectdiscovery/subfinder)**
+  - предназначение: пассивный поиск поддоменов
+  - вход: вайлдкард (`*.domain.ru`)
+  - выход: список найденных доменных имён
 - **[waybackurls](https://github.com/tomnomnom/waybackurls)**
   - предназначение: поиск ссылок на этот домен в [Wayback Machine](https://archive.org/web/)
   - вход: домен/IP
