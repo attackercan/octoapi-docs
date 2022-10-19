@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.719510632107">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.719512062599">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>1 - Быстрый старт</title>
     <meta name="title" content="1 - Быстрый старт">
-    <meta name="description" content="С помощью данной статьи вы сможете оценить функционал и возможности решения" />
+    <meta name="description" content="С помощью данной статьи вы можете оценить функционал и возможности платформы ScanFactory на примере сканирования компании Yandex." />
 
     <!-- Canonical -->
     <link rel="canonical" href="/quickstart/" />
@@ -20,23 +20,23 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="/quickstart/">
     <meta property="og:title" content="1 - Быстрый старт">
-    <meta property="og:description" content="С помощью данной статьи вы сможете оценить функционал и возможности решения">
+    <meta property="og:description" content="С помощью данной статьи вы можете оценить функционал и возможности платформы ScanFactory на примере сканирования компании Yandex.">
     <meta property="og:image" content="/static/1-2.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="/quickstart/">
     <meta property="twitter:title" content="1 - Быстрый старт">
-    <meta property="twitter:description" content="С помощью данной статьи вы сможете оценить функционал и возможности решения">
+    <meta property="twitter:description" content="С помощью данной статьи вы можете оценить функционал и возможности платформы ScanFactory на примере сканирования компании Yandex.">
     <meta property="twitter:image" content="/static/1-2.png">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=2.4.0.719510632107" rel="stylesheet" />
+    <link href="../resources/css/retype.css?v=2.4.0.719512062599" rel="stylesheet" />
 
-    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.719510632107" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.719512062599" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.719510632107" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.719512062599" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -175,20 +175,7 @@
     </h1>
 </doc-anchor-target>
 <hr />
-<p>С помощью данной статьи вы сможете оценить функционал и возможности решения</p>
-<doc-anchor-target id="1-создайте-новый-проект">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#1-создайте-новый-проект">#</doc-anchor-trigger>
-        <span>1. Создайте новый проект</span>
-    </h3>
-</doc-anchor-target>
-<p>Перейдя во вкладку <code v-pre>Проекты</code> нажмите на кнопку <code v-pre>Создать проект</code> . Заполните появившуюся форму. Укажите имя проекта, цели сканирования: хотя бы один домен, вайлдкард, IP или подсеть (Рис. 1.2).</p>
-<p><figure class="content-center">
-    <img src="../static/1-2.png" alt="Рис. 1.2" />
-    <figcaption class="caption">Рис. 1.2</figcaption>
-</figure>
-</p>
-<p>Нажмите на кнопку <code v-pre>Создать</code>, если хотите провести более тонкую настройку проекта перед запуском сканирований, либо <code v-pre>Cоздать и сканировать</code>, если хотите оставить остальные параметры по умолчанию и начать скан немедленно.</p>
+<p>С помощью данной статьи вы можете оценить функционал и возможности платформы ScanFactory на примере сканирования компании Yandex.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -202,30 +189,43 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>Если у Вас есть WAF/IDS, то необходимо добавить в whitelist наши IP-адреса <code v-pre>158.160.8.240/28</code>, с которых будет проводиться сканирование.</p>
+<p>Перед стартом сканирования необходимо добавить наши IP-адреса <code v-pre>158.160.8.240/28</code> в whitelist на ваших WAF/IDS.</p>
         </div>
     </div>
 </div>
-<p>После создания проекта, выберите свой проект из списка и нажмите на него. Перед вами появится его страница. (Рис. 1.3.)</p>
+<doc-anchor-target id="1-создайте-новый-проект">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-создайте-новый-проект">#</doc-anchor-trigger>
+        <span>1. Создайте новый проект</span>
+    </h3>
+</doc-anchor-target>
+<p>Нажмите на кнопку <code v-pre>Создать проект</code>. Заполните появившуюся форму. Укажите имя проекта, цели сканирования: хотя бы один домен, вайлдкард, IP или подсеть (Рис. 1.1).</p>
 <p><figure class="content-center">
-    <img src="../static/1-3.png" alt="Рис. 1.3" />
-    <figcaption class="caption">Рис. 1.3</figcaption>
+    <img src="../static/1-2.png" alt="Рис. 1.1" />
+    <figcaption class="caption">Рис. 1.1</figcaption>
 </figure>
 </p>
-<p>Нажмите кнопку старта в правом врехнем углу страницы проекта. Поставить запущеный проект на паузу можно этой же кнопкой.</p>
+<p>Нажмите на кнопку <code v-pre>Создать</code>, если хотите провести более тонкую настройку проекта перед запуском сканирований,<br />
+либо <code v-pre>Cоздать и сканировать</code>, если хотите оставить остальные параметры по умолчанию и начать сканирование немедленно.</p>
 <doc-anchor-target id="2-настройте-проект">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#2-настройте-проект">#</doc-anchor-trigger>
         <span>2. Настройте проект</span>
     </h3>
 </doc-anchor-target>
-<p>Перед вами - панель управления целями сканирования (скоупом). Эти поля похожи на те, что были на этапе создания проекта, но имеют несколько дополнительных полей.</p>
+<p>Выберите созданный проект из списка. Перед вами появится страница настроек (Рис. 2.1)</p>
+<p><figure class="content-center">
+    <img src="../static/1-3.png" alt="Рис. 2.1" />
+    <figcaption class="caption">Рис. 2.1</figcaption>
+</figure>
+</p>
+<p>Вы можете управлять сканированием с помощью Настроек проекта. Сейчас перед вами - панель управления целями сканирования.</p>
 <ul>
 <li><strong>Домены:</strong> домены (например, <code v-pre>yandex.ru</code>) и вайлдкарды (например, <code v-pre>*.yandex.ru</code>). Вайлдкард <code v-pre>*.yandex.ru</code> означает, что сканированию подлежит домен <code v-pre>yandex.ru</code> и все его поддомены.</li>
 <li><strong>IP и подсети:</strong> адреса IPv4 и подсети (например, <code v-pre>11.22.33.44/24</code>).</li>
 </ul>
-<p>Переключатель <strong>&quot;Ручное подтверждение новых активов&quot;</strong> означает, ни один домен не будет просканирован пока его IP-адреса не будут занесены вами в <strong>IP и подсети</strong>.
-Используйте её, чтобы сканирование не шло по ресурсам, которые расположены на IP-адресах сторонних организаций.
+<p>Переключатель <strong>&quot;Ручное подтверждение новых активов&quot;</strong> означает, ни один домен не будет просканирован пока его IP-адреса не будут занесены вами в <strong>IP и подсети</strong>.<br />
+Используйте её, чтобы сканирование не шло по ресурсам, которые расположены на IP-адресах сторонних организаций.<br />
 Если Ручное подтверждение новых активов выключено (по умолчанию), IP адреса доменов проекта будут заноситься в скоуп автоматически.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
@@ -240,39 +240,47 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>Если ручное подтверждение новых активов включено, добавляйте IP адреса интересующих вас доменов вручную, иначе они не будут просканированы.</p>
+<p>Если ручное подтверждение новых активов включено, добавляйте IP адреса интересующих Вас доменов вручную, иначе они не будут просканированы.</p>
         </div>
     </div>
 </div>
-<doc-anchor-target id="3-дашборд">
+<p>Вы можете провести тонкую конфигурацию запускаемых сканеров. Подробнее об этом - в разделе [Технический обзор ScanFactory]](/technical-overview.md).</p>
+<doc-anchor-target id="3-запустите-проект">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#3-дашборд">#</doc-anchor-trigger>
-        <span>3. Дашборд</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3-запустите-проект">#</doc-anchor-trigger>
+        <span>3. Запустите проект</span>
     </h3>
 </doc-anchor-target>
-<p>В данном разделе отображается сводная статистика работы Системы.</p>
+<p>Начните сканирование, нажав на кнопку Старт в правом врехнем углу страницы. Поставить запущеный проект на паузу можно этой же кнопкой.</p>
+<doc-anchor-target id="4-дашборд">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#4-дашборд">#</doc-anchor-trigger>
+        <span>4. Дашборд</span>
+    </h3>
+</doc-anchor-target>
+<p>В этом разделе отображается сводная статистика работы Системы</p>
 <p><figure class="content-center">
     <img src="../static/3-1.png" alt="Рис. 3.1" />
     <figcaption class="caption">Рис. 3.1</figcaption>
 </figure>
 </p>
-<doc-anchor-target id="4-активы">
+<doc-anchor-target id="5-активы">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#4-активы">#</doc-anchor-trigger>
-        <span>4. Активы</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#5-активы">#</doc-anchor-trigger>
+        <span>5. Активы</span>
     </h3>
 </doc-anchor-target>
-<p>Активы - страница, которая отображает текущее состояние инфраструктуры Заказчика.</p>
-<p>После окончания сканирования на странице Активов будут отображены найденные IP, порты и домены.
-<figure class="content-center">
+<p>На странице Активов отображается текущее состояние вашей внешней инфраструктуры.<br />
+После окончания сканирования на странице Активов будут отображены найденные IP, порты и домены.</p>
+<p><figure class="content-center">
     <img src="../static/4-1.png" alt="Рис. 4.1" />
     <figcaption class="caption">Рис. 4.1</figcaption>
 </figure>
 </p>
-<doc-anchor-target id="5-уязвимости">
+<doc-anchor-target id="6-уязвимости">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#5-уязвимости">#</doc-anchor-trigger>
-        <span>5. Уязвимости</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#6-уязвимости">#</doc-anchor-trigger>
+        <span>6. Уязвимости</span>
     </h3>
 </doc-anchor-target>
 <p>Функциональность раздела “Уязвимости” позволяет:</p>
@@ -304,10 +312,10 @@
     <figcaption class="caption">Рис. 5.2</figcaption>
 </figure>
 </p>
-<doc-anchor-target id="6-подключение-телеграм-бота">
+<doc-anchor-target id="7-подключение-телеграм-бота-для-уведомлений">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#6-подключение-телеграм-бота">#</doc-anchor-trigger>
-        <span>6. Подключение телеграм-бота</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#7-подключение-телеграм-бота-для-уведомлений">#</doc-anchor-trigger>
+        <span>7. Подключение телеграм-бота для уведомлений</span>
     </h3>
 </doc-anchor-target>
 <p>Начните диалог с телеграм-ботом: <code v-pre>@scanfactory_reporter_bot</code></p>
