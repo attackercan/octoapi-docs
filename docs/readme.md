@@ -1,27 +1,13 @@
-# Scanfactory REST API
+# Документация ScanFactory
 ____
 
-### Создание и настройка проекта (Projects)
-[!ref](/projects/create-project.md)
-[!ref](/projects/modify-project.md)
-[!ref](/projects/fetch-project.md)
-[!ref](/projects/list-projects.md)
-[!ref](/projects/scope-check.md)
+!!!success 
+Платформа ScanFactory проводит автоматизированное сканирование внешней сетевой инфраструктуры и вебсайтов Заказчика на предмет выявления уязвимостей методом «чёрного» и «серого» ящика с помощью 16 сканеров безопасности.
+!!!
 
-### Активы (Assets)
-[!ref](/assets/hosts.md)
-[!ref](/assets/ports.md)
+[!ref](/quickstart.md)
 
-### Тревоги (Alerts)
-[!ref](/alerts/fetch-alerts.md)
-[!ref](/alerts/alert-groups.md)
-[!ref](/alerts/edit-alerts.md)
+[!ref](/technical-overview.md)
 
-### Статистика проекта
-[!ref](/projects/general-stats.md)
-[!ref](/projects/general-stats-multi.md)
-[!ref](/projects/timerange-alerts.md)
-[!ref](/projects/timerange-tasks.md)
-[!ref](/projects/timerange-hosts.md)
-[!ref](/projects/timerange-ports.md)
-[!ref](/projects/report.md)
+[!ref](/scanners.md)
+

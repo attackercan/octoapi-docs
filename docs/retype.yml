@@ -2,7 +2,7 @@ input: .
 output: .retype
 url: # Add your website address here
 branding:
-  title: Scanfactory API
+  title: Документация Scanfactory
   label: Docs
 links:
 - text: Scanfactory
