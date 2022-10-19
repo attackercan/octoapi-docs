@@ -11,3 +11,4 @@ ____
 
 [!ref](/scanners.md)
 
+Чтобы протестировать решение в вашей компании, запишитесь на пилот: [support@scanfactory.io](mailto:support@scanfactory.io)
