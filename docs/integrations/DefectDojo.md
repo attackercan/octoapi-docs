@@ -22,7 +22,7 @@ Scanfactory позволяет экспортировать отчеты по у
     Можно выполнить все команды по отдельности:  
     1. `git clone https://github.com/scanfactory/scanfactory-to-defectdojo`  
     2. `cd scanfactory-to-defectdojo`  
-    3. python3 -m pip install -r requirements.txt
+    3. `python3 -m pip install -r requirements.txt`  
 2. Инициализируйте ваш [`nessus_importer.env`](https://github.com/scanfactory/scanfactory-to-defectdojo/blob/main/README.md) необходимыми переменными  
 Можете поместить его в другую папку и переименовать  
 По умолчанию для запуска будет использован путь /root/.env  
