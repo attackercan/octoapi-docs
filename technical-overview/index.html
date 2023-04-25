@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.734859947106">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.735765313907">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -30,11 +30,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=2.4.0.734859947106" rel="stylesheet" />
+    <link href="../resources/css/retype.css?v=2.4.0.735765313907" rel="stylesheet" />
 
-    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.734859947106" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.735765313907" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.734859947106" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.735765313907" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -174,17 +174,17 @@
 </doc-anchor-target>
 <hr />
 <doc-anchor-target id="вступление">
-    <h3>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#вступление">#</doc-anchor-trigger>
         <span>Вступление</span>
-    </h3>
+    </h2>
 </doc-anchor-target>
 <p>На этой странице подробно описаны используемые инструменты и возможные параметры запуска.</p>
 <doc-anchor-target id="этапы-сканирования">
-    <h3>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#этапы-сканирования">#</doc-anchor-trigger>
         <span>Этапы сканирования</span>
-    </h3>
+    </h2>
 </doc-anchor-target>
 <p>Платформа проводит сканирование внешнего периметра в 3 логических этапа:</p>
 <div class="table-wrapper scrollbar overflow-hidden">
@@ -218,14 +218,8 @@
 <p>Для примера рассмотрим сканирование Компании со следующими входными данными:<br />
 Домены, принадлежащие компании: <code v-pre>*.company.ru</code><br />
 IP, принадлежащие компании: <code v-pre>11.22.33.44/23</code></p>
-<doc-anchor-target id="этап-1-сбор-активов-osint">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#этап-1-сбор-активов-osint">#</doc-anchor-trigger>
-        <span>Этап 1. Сбор активов (OSINT)</span>
-    </h3>
-</doc-anchor-target>
-<doc-panel id="развернуть" collapsed>
-    <template #title>Развернуть</template>
+<doc-panel id="h3-этап-1-сбор-активов-osint-h3" collapsed>
+    <template #title><h3>Этап 1. Сбор активов (OSINT)</h3></template>
 <p>Доступен следующий набор инструментов:</p>
 <p><span class="no-link inline-flex items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
     <span>amass</span>
@@ -255,17 +249,11 @@ IP, принадлежащие компании: <code v-pre>11.22.33.44/23</cod
 </span></li>
 </ul>
 </doc-panel>
-<doc-anchor-target id="этап-2-сканирование-сетевых-сервисов">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#этап-2-сканирование-сетевых-сервисов">#</doc-anchor-trigger>
-        <span>Этап 2. Сканирование сетевых сервисов</span>
-    </h3>
-</doc-anchor-target>
-<doc-panel id="развернуть" collapsed>
-    <template #title>Развернуть</template>
+<doc-panel id="h3-этап-2-сканирование-сетевых-сервисов-h3" collapsed>
+    <template #title><h3>Этап 2. Сканирование сетевых сервисов</h3></template>
 <p>Выбранные шаблоны инструментов будут запущены на все IP из диапазона <code v-pre>11.22.33.44/23</code>, а также на все IP, в которые резолвятся обнаруженные домены из Этапа 1.</p>
-<p>Доступен следующий набор инструментов:</p>
-<p><span class="no-link inline-flex items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
+<p>Доступен следующий набор инструментов:<br />
+<span class="no-link inline-flex items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
     <span>nmap</span>
 </span> - поиск открытых портов, а также определение версий сервисов<br />
 <span class="no-link inline-flex items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
@@ -295,7 +283,7 @@ IP, принадлежащие компании: <code v-pre>11.22.33.44/23</cod
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>Так как и все наши заказчики, и мы находимся в России - а значит, ответы о том, закрыт порт или нет, мы будем получать быстро, то мы используем разумные настройки, которые выполняют скан даже быстрее, чем nmap timing option -Т4, и при этом выдают достоверный результат</p>
+<p>Так как и все наши заказчики, и мы находимся в России - а значит, ответы о том, закрыт порт или нет, мы будем получать быстро, то мы используем разумные настройки, которые выполняют скан даже быстрее, чем <code v-pre>nmap timing option -Т4</code>, и при этом выдают достоверный результат</p>
         </div>
     </div>
 </div>
@@ -307,7 +295,7 @@ IP, принадлежащие компании: <code v-pre>11.22.33.44/23</cod
 <code v-pre>--max-retries 3</code> - количество повторных попыток на сканирование порта<br />
 <code v-pre>--max-scan-delay 100ms</code> - максимальная задержка между отправкой повторных пакетов</p>
 <p>С этими настройками 1000 портов на 1 сервере сканируются за 25 секунд. Таким образом, подсеть размера /23 (512 IP) на топ 1000 портов мы можем просканировать за 4,5 часа (имея 1 запущенную копию nmap)</p>
-<p>Пример работы:<br />
+<p><strong>Пример работы</strong><br />
 <span class="no-link inline-flex items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
     <span>nmap</span>
 </span> обнаруживает открытый порт <code v-pre>22</code>, и опредляет версию запущенного сервиса как <code v-pre>OpenSSH 7.9</code>. Сервер помечается как &quot;активный&quot;, и информацию по этому сервису теперь можно увидеть на вкладке Активы<br />
@@ -338,21 +326,18 @@ IP, принадлежащие компании: <code v-pre>11.22.33.44/23</cod
     </div>
 </div>
 </doc-panel>
-<doc-anchor-target id="этап-3-сканирование-веб-приложений">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#этап-3-сканирование-веб-приложений">#</doc-anchor-trigger>
-        <span>Этап 3. Сканирование веб-приложений</span>
-    </h3>
-</doc-anchor-target>
+<doc-panel id="h3-этап-3-сканирование-веб-приложений-h3" collapsed>
+    <template #title><h3>Этап 3. Сканирование веб-приложений</h3></template>
 <p>Сканирование веб-приложений проходит в 3 этапа: сбор информации о веб-приложении, отсев «неинтересных» запросов, и поиск уязвимостей</p>
-<doc-anchor-target id="этап-3а-сбор-информации-о-веб-приложении">
+<doc-tabs>
+<doc-tab id="этап-3-1">
+<template #title>Этап 3.1.</template>
+<doc-anchor-target id="сбор-информации-о-веб-приложении">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#этап-3а-сбор-информации-о-веб-приложении">#</doc-anchor-trigger>
-        <span>Этап 3а. Сбор информации о веб-приложении</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#сбор-информации-о-веб-приложении">#</doc-anchor-trigger>
+        <span>Сбор информации о веб-приложении</span>
     </h4>
 </doc-anchor-target>
-<doc-panel id="развернуть" collapsed>
-    <template #title>Развернуть</template>
 <p>Выбранные шаблоны инструментов будут запущены <strong>на все открытые порты</strong>:</p>
 <p><span class="no-link inline-flex items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
     <span>crawler</span>
@@ -364,47 +349,51 @@ IP, принадлежащие компании: <code v-pre>11.22.33.44/23</cod
     <span>dirsearch</span>
 </span> - поиск скрытых файлов и папок на веб-сервере<br />
 Результат работы – набор GET/POST запросов, которые передаются на следующий этап</p>
-</doc-panel>
-<doc-anchor-target id="этап-3б-отсев-неинтересных-запросов">
+<p>  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  </p>
+</doc-tab>
+<doc-tab id="этап-3-2">
+<template #title>Этап 3.2.</template>
+<doc-anchor-target id="отсев-неинтересных-запросов">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#этап-3б-отсев-неинтересных-запросов">#</doc-anchor-trigger>
-        <span>Этап 3б. Отсев «неинтересных» запросов</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#отсев-неинтересных-запросов">#</doc-anchor-trigger>
+        <span>Отсев «неинтересных» запросов</span>
     </h4>
 </doc-anchor-target>
-<doc-panel id="развернуть" collapsed>
-    <template #title>Развернуть</template>
-<p>Все обнаруженные запросы проходят через двухуровневую систему отсева «неинтересных» запросов:</p>
-<doc-anchor-target id="уровень-1-отсев-ссылок-с-похожим-форматом">
-    <h5>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#уровень-1-отсев-ссылок-с-похожим-форматом">#</doc-anchor-trigger>
-        <span>Уровень 1. Отсев ссылок с похожим форматом</span>
-    </h5>
-</doc-anchor-target>
-<p>Пример. Во время краулинга интернет-магазина были найдены следующие ссылки:<br />
-<a href="http://client.ru/products/book-1/">http://client.ru/products/book-1/</a><br />
-<a href="http://client.ru/products/book-2/">http://client.ru/products/book-2/</a><br />
-<a href="http://client.ru/products/book-3/">http://client.ru/products/book-3/</a><br />
-...<br />
-<a href="http://client.ru/products/book-31337/">http://client.ru/products/book-31337/</a><br />
-Все имеющиеся ссылки имеют одинаковый паттерн:  <code v-pre>http://client.ru/products/book-[\d]/</code></p>
+<p>Все обнаруженные запросы проходят через двухуровневую систему отсева «неинтересных» запросов:<br />
+<strong>Уровень 1. Отсев ссылок с похожим форматом</strong><br />
+Пример. Во время краулинга интернет-магазина были найдены следующие ссылки:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">http://client.ru/products/book-1/
+http://client.ru/products/book-2/
+http://client.ru/products/book-3/
+...
+http://client.ru/products/book-31337/</code></pre>
+</doc-codeblock></div>
+<p>Все имеющиеся ссылки имеют одинаковый паттерн:  <code v-pre>http://client.ru/products/book-[\d]/</code></p>
 <p>Как только в базу данных будет добавлено 50 (значение по умолчанию) ссылок с одинаковым паттерном, далее ссылки с таким же паттерном сохраняться не будут. В нашем примере будут сохранены только запросы к книгам с 1 по 50.</p>
-<doc-anchor-target id="уровень-2-отсев-страниц-с-похожим-содержимым">
-    <h5>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#уровень-2-отсев-страниц-с-похожим-содержимым">#</doc-anchor-trigger>
-        <span>Уровень 2. Отсев страниц с похожим содержимым</span>
-    </h5>
-</doc-anchor-target>
-<p>ScanFactory использует собственную технологию, основанную на <a href="https://en.wikipedia.org/wiki/SimHash">SimHash</a>, которая анализирует контент каждой веб-страницы перед сохранением в базу данных.<br />
+<p><strong>Уровень 2. Отсев страниц с похожим содержимым</strong><br />
+ScanFactory использует собственную технологию, основанную на <a href="https://en.wikipedia.org/wiki/SimHash">SimHash</a>, которая анализирует контент каждой веб-страницы перед сохранением в базу данных.<br />
 В случае, если большое количество страниц имеет одинаковую HTML-структуру (например, страницы блога, или карточки товаров), такие страницы не сохраняются</p>
-</doc-panel>
-<doc-anchor-target id="этап-3в-поиск-уязвимостей">
+</doc-tab>
+<doc-tab id="этап-3-3">
+<template #title>Этап 3.3.</template>
+<doc-anchor-target id="поиск-уязвимостей">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#этап-3в-поиск-уязвимостей">#</doc-anchor-trigger>
-        <span>Этап 3в. Поиск уязвимостей</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#поиск-уязвимостей">#</doc-anchor-trigger>
+        <span>Поиск уязвимостей</span>
     </h4>
 </doc-anchor-target>
-<doc-panel id="развернуть" collapsed>
-    <template #title>Развернуть</template>
 <p>На финальном этапе запускаются следующие шаблоны инструментов:</p>
 <p><span class="no-link inline-flex items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
     <span>webscan</span>
@@ -415,16 +404,8 @@ IP, принадлежащие компании: <code v-pre>11.22.33.44/23</cod
 <span class="no-link inline-flex items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
     <span>ffuf</span>
 </span> - поиск скрытых GET/POST параметров путём поиска аномалий в ответах сервера. На каждый имеющийся HTTP-запрос в базе данных инструмент отправляет более 1000 запросов (вида <code v-pre>http://client.ru/api/?DEBUG=1</code> , <code v-pre>http://client.ru/api/ADMIN?=1</code> , и другие). Мы рекомендуем включать этот инструмент, только если у вас в скоупе 1-5 веб-приложений, и НЕ включать его, если веб-приложений больше</p>
-</doc-panel>
-<doc-anchor-target id="дополнительно-сканирование-веб-приложений-методом-серого-ящика">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#дополнительно-сканирование-веб-приложений-методом-серого-ящика">#</doc-anchor-trigger>
-        <span>Дополнительно: Сканирование веб-приложений методом «серого ящика»</span>
-    </h3>
-</doc-anchor-target>
-<doc-panel id="развернуть" collapsed>
-    <template #title>Развернуть</template>
-<p>Авторизация в веб-приложениях работает путём добавления авторизационных HTTP-заголовок к краулерам<br />
+<p><strong>Сканирование веб-приложений методом «серого ящика»</strong><br />
+Авторизация в веб-приложениях работает путём добавления авторизационных HTTP-заголовок к краулерам<br />
 Для этого создайте новый шаблоны <span class="no-link inline-flex items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
     <span>crawler</span>
 </span> и <span class="no-link inline-flex items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 h-6 px-2 text-xs rounded-md">
@@ -432,6 +413,11 @@ IP, принадлежащие компании: <code v-pre>11.22.33.44/23</cod
 </span> с параметрами:<br />
 <code v-pre>&quot;extra_headers&quot;: {&quot;Cookie&quot;: &quot;a=b&quot;}</code> (подставить сюда хэдеры, по которому приложение авторизует пользователя)</p>
 <p>Так как указанные хэдеры будут добавляться ко всем запросам краулера, то нужно создавать отдельный проект под каждое веб-приложение, для которого настраивается авторизация</p>
+<p>  <br />
+  <br />
+  </p>
+</doc-tab>
+</doc-tabs>
 </doc-panel>
 
                                 
