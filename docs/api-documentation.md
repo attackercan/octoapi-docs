@@ -134,7 +134,7 @@ alive_hosts = requests.get(url, params=params, headers=headers).json()
 ```php
 <?php
 
-$url = 'https://yx-edge.sf-cloud.ru/api/hosts/?alive=1&token=<your_api_token>';
+$url = 'https://yx-test.sf-cloud.ru/api/hosts/?alive=1&token=<your_api_token>';
 $options = array(
   'http' => array(
     'header' => 'accept: application/json'
@@ -277,7 +277,7 @@ Parameter | Value | Description
 
 ```curl
 curl -X 'GET' \
-  https://yx-edge.sf-cloud.ru/api/alerts/\?active\=1\&gt-last_seen\="$(date +%s --date '7 days ago')"\&sort=-last_seen&token=<your_api_token> \     
+  https://yx-test.sf-cloud.ru/api/alerts/\?active\=1\&gt-last_seen\="$(date +%s --date '7 days ago')"\&sort=-last_seen&token=<your_api_token> \
   -H 'accept: application/json'
 ```
 
@@ -478,7 +478,7 @@ Parameter | Value | Description
 
 ```bash
 curl -X PATCH \
-  https://yx-test.sf-cloud.ru/api/projects/3de6d3a2-e2bb-11ed-94bd-8b648158417a \
+  https://yx-test.sf-cloud.ru/api/projects/3de6d3a2-e2bb-11ed-94bd-8b648158417a?token=<your_api_token> \
   -H 'Content-Type: application/json' \
   -H 'accept: application/json' \
   -d 'PAYLOAD FROM "Body запроса" SECTION'
@@ -491,7 +491,7 @@ curl -X PATCH \
 import requests
 import json
 
-url = 'https://yx-test.sf-cloud.ru/api/projects/3de6d3a2-e2bb-11ed-94bd-8b648158417a'
+url = 'https://yx-test.sf-cloud.ru/api/projects/3de6d3a2-e2bb-11ed-94bd-8b648158417a?token=<your_api_token>'
 headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
 payload = {'PAYLOAD FROM "Body запроса" SECTION'}
 response = requests.patch(url, headers=headers, data=json.dumps(payload))
@@ -505,7 +505,7 @@ project_config = response.json()
 ```php
 <?php
 
-$url = 'https://yx-test.sf-cloud.ru/api/projects/3de6d3a2-e2bb-11ed-94bd-8b648158417a';
+$url = 'https://yx-test.sf-cloud.ru/api/projects/3de6d3a2-e2bb-11ed-94bd-8b648158417a?token=<your_api_token>';
 $data = ['PAYLOAD FROM "Body запроса" SECTION'];
 
 $options = [
@@ -531,7 +531,7 @@ $response = json_decode($result);
 require 'net/http'
 require 'json'
 
-url = URI('https://yx-edge.sf-cloud.ru/api/projects/3de6d3a2-e2bb-11ed-94bd-8b648158417a')
+url = URI('https://yx-test.sf-cloud.ru/api/projects/3de6d3a2-e2bb-11ed-94bd-8b648158417a?token=<your_api_token>')
 headers = {
   'Content-Type' => 'application/json',
   'accept' => 'application/json'
