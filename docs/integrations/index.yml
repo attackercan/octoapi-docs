@@ -1,2 +1,4 @@
-order: -100
-label: Интеграции
+order: -5
+expanded: false
+label: 5 - Интеграции
+icon: plug
