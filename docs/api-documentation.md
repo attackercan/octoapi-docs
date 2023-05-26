@@ -9,7 +9,7 @@
 +++ Curl
 
 ```bash
-curl --location --request POST 'your_keycloak_url/auth/realms/scanfactory/protocol/openid-connect/token' \
+curl --location --request POST '<your_keycloak_url>/auth/realms/scanfactory/protocol/openid-connect/token' \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id=<your_address_prefix>' \
@@ -27,7 +27,7 @@ login='test@test.com'
 password='password'
 
 auth_token = requests.post(
-  'your_keycloak_url/auth/realms/scanfactory/protocol/openid-connect/token',
+  '<your_keycloak_url>/auth/realms/scanfactory/protocol/openid-connect/token',
   data={
       "client_id": "<your_address_prefix>",  # yx-<prefix>.sf-cloud.ru
       "username": login,
@@ -49,7 +49,7 @@ auth_token = requests.post(
 $login = 'test@test.com';
 $password = 'password';
 $address_prefix = '<your_address_prefix>'; // yx-<prefix>.sf-cloud.ru
-$url = 'your_keycloak_url/auth/realms/scanfactory/protocol/openid-connect/token';
+$url = '<your_keycloak_url>/auth/realms/scanfactory/protocol/openid-connect/token';
 
 $data = http_build_query([
     'client_id' => $address_prefix,
@@ -83,7 +83,7 @@ require 'json'
 login = 'test@test.com'
 password = 'password'
 address_prefix = '<your_address_prefix>'  # yx-<prefix>.sf-cloud.ru
-url = URI("your_keycloak_url/auth/realms/scanfactory/protocol/openid-connect/token")
+url = URI("<your_keycloak_url>/auth/realms/scanfactory/protocol/openid-connect/token")
 
 response = Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
   request = Net::HTTP::Post.new(url)
@@ -236,7 +236,7 @@ Parameter | Value | Description
             {
               "open": true,
               "at": "2022-06-14T17:27:25.024141",
-              "task_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+              "task_id": "<project_id: uuid | str>"
             }
           ],
           "last_seen": "2022-06-14T17:27:25.024141",
@@ -244,7 +244,7 @@ Parameter | Value | Description
           "mdate": "2022-06-14T17:27:25.024141"
         }
       ],
-      "project_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "project_id": "<project_id: uuid | str>",
       "found_by": "altdns",
       "pending": true,
       "hidden": true,
@@ -390,7 +390,7 @@ Parameter | Value | Description
             {
               "open": true,
               "at": "2022-06-14T17:27:25.024141",
-              "task_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+              "task_id": "<project_id: uuid | str>"
             }
           ],
           "last_seen": "2022-06-14T17:27:25.024141",
@@ -398,7 +398,7 @@ Parameter | Value | Description
           "mdate": "2022-06-14T17:27:25.024141"
         }
       ],
-      "project_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "project_id": "<project_id: uuid | str>",
       "found_by": "altdns",
       "pending": true,
       "hidden": true,
@@ -478,7 +478,7 @@ Parameter | Value | Description
 
 ```bash
 curl -X PATCH \
-  https://yx-test.sf-cloud.ru/api/projects/3de6d3a2-e2bb-11ed-94bd-8b648158417a?token=<your_api_token> \
+  https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token> \
   -H 'Content-Type: application/json' \
   -H 'accept: application/json' \
   -d 'PAYLOAD FROM "Body запроса" SECTION'
@@ -491,7 +491,7 @@ curl -X PATCH \
 import requests
 import json
 
-url = 'https://yx-test.sf-cloud.ru/api/projects/3de6d3a2-e2bb-11ed-94bd-8b648158417a?token=<your_api_token>'
+url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token>'
 headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
 payload = {'PAYLOAD FROM "Body запроса" SECTION'}
 response = requests.patch(url, headers=headers, data=json.dumps(payload))
@@ -505,7 +505,7 @@ project_config = response.json()
 ```php
 <?php
 
-$url = 'https://yx-test.sf-cloud.ru/api/projects/3de6d3a2-e2bb-11ed-94bd-8b648158417a?token=<your_api_token>';
+$url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token>';
 $data = ['PAYLOAD FROM "Body запроса" SECTION'];
 
 $options = [
@@ -531,7 +531,7 @@ $response = json_decode($result);
 require 'net/http'
 require 'json'
 
-url = URI('https://yx-test.sf-cloud.ru/api/projects/3de6d3a2-e2bb-11ed-94bd-8b648158417a?token=<your_api_token>')
+url = URI('https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token>')
 headers = {
   'Content-Type' => 'application/json',
   'accept' => 'application/json'
@@ -557,7 +557,7 @@ data = JSON.parse(response.body)
 
 ```json
 {
-    "id": "3de6d3a2-e2bb-11ed-94ad-8b648158417c",
+    "id": "<project_id: uuid | str>",
     "name": "Project name",
     "status": "running",
     "scan_settings": {
