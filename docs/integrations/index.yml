@@ -1,4 +1,4 @@
-order: -5
-expanded: false
-label: 5 - Интеграции
-icon: plug
+order: 95
+expanded: true
+label: Интеграции
+icon: gear
