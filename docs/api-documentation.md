@@ -423,26 +423,17 @@ Parameter | Value | Description
 
 ===
 
-## Добавление/удаление хостов в проекте
+## Добавление хостов в проекте
 
-Чтобы добавить или удалить хосты в проекте, необходимо выполнить `PATCH` запрос на `https://yx-test.sf-cloud.ru/api/projects/<project_UUID>`
+Чтобы добавить или удалить хосты в проекте, необходимо выполнить `POST` запрос на `https://yx-test.sf-cloud.ru/api/projects/<project_UUID>/scope-extension/`
 
 ### Body запроса
-
-Что вы отправите в запросе, то и будет находиться в настройках проекта, т.е. если в настройках было 3 домена, вы отправите 1 домен в запросе, значит только что отправленный один домен и будет в настройках
-
-Пустой отправленный список доменов или IP удалит из скоупа все домены или IP
 
 +++ Домены
 
 ```json
 {
-  "scope_settings": {
-    "root_domains": [
-      "домен.который.уже.был.в.настройках",
-      "some.new.domain.com"
-    ]
-  }
+    "root_domains": ["domain.com", "some.domain.com"]
 }
 ```
 
@@ -450,11 +441,7 @@ Parameter | Value | Description
 
 ```json
 {
-  "scope_settings": {
-    "root_ips": [
-      "33.55.1.0"
-    ]
-  }
+    "root_ips": ["25.65.9.0", "44.43.1.0"]
 }
 ```
 
@@ -462,15 +449,8 @@ Parameter | Value | Description
 
 ```json
 {
-  "scope_settings": {
-    "root_domains": [
-      "домен.уже.был",
-      "some.domain.com"
-    ],
-    "root_ips": [
-      "25.65.9.0"
-    ]
-  }
+    "root_domains": ["domain.com", "some.domain.com"],
+    "root_ips": ["25.65.9.0", "44.43.1.0"]
 }
 ```
 
@@ -481,8 +461,8 @@ Parameter | Value | Description
 +++ Curl
 
 ```bash
-curl -X PATCH \
-  https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token> \
+curl -X POST \
+  https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token>/scope-extension/ \
   -H 'Content-Type: application/json' \
   -H 'accept: application/json' \
   -d 'PAYLOAD FROM "Body запроса" SECTION'
@@ -495,10 +475,10 @@ curl -X PATCH \
 import requests
 import json
 
-url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token>'
+url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token>/scope-extension/'
 headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
 payload = {'PAYLOAD FROM "Body запроса" SECTION'}
-response = requests.patch(url, headers=headers, data=json.dumps(payload))
+response = requests.post(url, headers=headers, data=json.dumps(payload))
 
 project_config = response.json()
 
@@ -509,14 +489,14 @@ project_config = response.json()
 ```php
 <?php
 
-$url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token>';
+$url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token>/scope-extension/';
 $data = ['PAYLOAD FROM "Body запроса" SECTION'];
 
 $options = [
     'http' => [
         'header' => "Content-type: application/json\r\n" .
                     "Accept: application/json\r\n",
-        'method' => 'PATCH',
+        'method' => 'POST',
         'content' => json_encode($data)
     ]
 ];
@@ -535,14 +515,14 @@ $response = json_decode($result);
 require 'net/http'
 require 'json'
 
-url = URI('https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token>')
+url = URI('https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token>/scope-extension/')
 headers = {
   'Content-Type' => 'application/json',
   'accept' => 'application/json'
 }
 data = {'PAYLOAD FROM "Body запроса" SECTION'}
 response = Net::HTTP.start(url.host, url.port, :use_ssl => true) do |http|
-  request = Net::HTTP::Patch.new(url)
+  request = Net::HTTP::POST.new(url)
   headers.each do |key, value|
     request[key] = value
   end
@@ -561,41 +541,9 @@ data = JSON.parse(response.body)
 
 ```json
 {
-    "id": "<project_id: uuid | str>",
-    "name": "Project name",
-    "status": "running",
-    "scan_settings": {
-        "qtag": "",
-        "time_windows": [
-            {"from": 0, "to": 75600000},
-            {"from": 597600000, "to": 604800000},
-            {"from": 79200000, "to": 162000000},
-            {"from": 165600000, "to": 248400000},
-            {"from": 252000000, "to": 334800000},
-            {"from": 338400000, "to": 421200000},
-            {"from": 424800000, "to": 507600000},
-            {"from": 511200000, "to": 594000000}
-        ],
-        "task_templates": [
-            {
-                "id": "tool-id-24",
-                "tool": "tool_name",
-                "active": true,
-                "rescan_period": 86400.0,
-                "options": {},
-                "load": 30,
-                "is_osint": false,
-                "vqueue": "tool_name",
-                "retry_policy": {"ntimes": 0},
-                "timeout": 810.0
-            }
-        ],
-        "throttling": {},
-        "webauth": null
-    },
     "scope_settings": {
-        "root_domains": ["somedomain.com"],
-        "root_ips": [],
+        "root_domains": ["домен.который.уже.был.в.настройках", "domain.com", "some.domain.com"],
+        "root_ips": ["44.0.1.1" "25.65.9.0", "44.43.1.0"],
         "blacklist": {
             "domains": [],
             "ipv4": [],
@@ -608,17 +556,7 @@ data = JSON.parse(response.body)
         "manual_ip_approve": false,
         "exclude_private_ips": true,
         "hide_unreachable": false
-    },
-    "flood_protection": {
-        "urls": true,
-        "domains": true,
-        "url_pattern_ft": 200,
-        "url_exact_ft": 100,
-        "domain_pattern_ft": 50
-    },
-    "integrations": {"jira": null},
-    "cdate": "2023-04-24T16:15:34.365281+00:00",
-    "mdate": "2023-04-25T18:06:30.451492+00:00"
+    }
 }
 ```
 
