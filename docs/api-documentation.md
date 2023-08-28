@@ -423,9 +423,10 @@ Parameter | Value | Description
 
 ===
 
-## Добавление хостов в проекте
+## Добавление хостов в проект
 
-Чтобы добавить или удалить хосты в проекте, необходимо выполнить `POST` запрос на `https://yx-test.sf-cloud.ru/api/projects/<project_UUID>/scope-extension/`
+Чтобы добавить хосты в проект, необходимо выполнить `POST` запрос на `https://yx-test.sf-cloud.ru/api/projects/<project_UUID>/scope-extension/`
+Новые домены будут дописываться в конец уже существующего скоупа.
 
 ### Body запроса
 
