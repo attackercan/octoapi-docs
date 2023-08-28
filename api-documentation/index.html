@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.743114764605">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746532246560">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.0.3">
+    <meta name="generator" content="Retype 3.2.0">
 
     <!-- Primary Meta Tags -->
     <title>Документация по API</title>
     <meta name="title" content="Документация по API">
-    <meta name="description" content="Здесь описаны несколько полезных API-эндпоинтов для получения интересующих вас данных" />
+    <meta name="description" content="Здесь описаны несколько полезных API-эндпоинтов для получения интересующих вас данных">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.sf-cloud.ru/api-documentation/" />
+    <link rel="canonical" href="https://docs.sf-cloud.ru/api-documentation/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -28,21 +28,21 @@
     <meta property="twitter:title" content="Документация по API">
     <meta property="twitter:description" content="Здесь описаны несколько полезных API-эндпоинтов для получения интересующих вас данных">
 
-    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.0.3.743114764605" rel="stylesheet" />
+    <link href="../resources/css/retype.css?v=3.2.0.746532246560" rel="stylesheet">
 
-    <script type="text/javascript" src="../resources/js/config.js?v=3.0.3.743114764605" data-turbo-eval="false" defer></script>
-    <script type="text/javascript" src="../resources/js/retype.js?v=3.0.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=3.0.3.743114764605" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../resources/js/prism.js?v=3.0.3.743114764605" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.2.0.746532246560" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/retype.js?v=3.2.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.2.0.746532246560" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.2.0.746532246560" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
         <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
     
         <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
-            <div class="container relative flex items-center justify-between grow pr-6 md:justify-start">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
                 <!-- Mobile menu button skeleton -->
                 <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
                 <div v-cloak id="docs-sidebar-toggle"></div>
@@ -75,24 +75,22 @@
                         <!-- Search input mock -->
                         <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
                             <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
                             </div>
-        
-                            <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
-                            style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
                         </div>
         
-                        <!-- Mobile search button mock -->
+                        <!-- Mobile search button -->
                         <div class="flex items-center justify-center w-10 h-10 lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
                         </div>
         
-                        <!-- Dark mode switch placehokder -->
+                        <!-- Dark mode switch placeholder -->
                         <div class="w-10 h-10 lg:ml-2"></div>
         
-                        <!-- History button mock -->
+                        <!-- History button -->
                         <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
                         </div>
                     </div>
         
@@ -113,10 +111,10 @@
             
                 <!-- Render this div, if config.showSidebarFilter is `true` -->
                 <div class="flex items-center h-16 px-6">
-                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
                 </div>
             
-                <div class="pl-6 mb-4 mt-1">
+                <div class="pl-6 mt-1 mb-4">
                     <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
                     <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
                     <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
@@ -174,7 +172,7 @@
     </h1>
 </doc-anchor-target>
 <p>Здесь описаны несколько полезных API-эндпоинтов для получения интересующих вас данных</p>
-<hr />
+<hr>
 <doc-anchor-target id="получить-api-токен">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#получить-api-токен">#</doc-anchor-trigger>
@@ -182,7 +180,7 @@
     </h2>
 </doc-anchor-target>
 <doc-tabs>
-<doc-tab id="curl">
+<doc-tab v-cloak id="curl">
 <template #title>Curl</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">curl --location --request POST '&lt;your_keycloak_url&gt;/auth/realms/scanfactory/protocol/openid-connect/token' \
@@ -194,7 +192,7 @@
   --data-urlencode 'grant_type=password'</code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab id="python">
+<doc-tab v-cloak id="python">
 <template #title>Python</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-python"><code v-pre class="language-python">import requests
@@ -217,7 +215,7 @@ auth_token = requests.post(
 ).json().get(&quot;access_token&quot;, None)</code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab id="php">
+<doc-tab v-cloak id="php">
 <template #title>PHP</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-php"><code v-pre class="language-php">&lt;?php
@@ -249,7 +247,7 @@ $auth_token = json_decode($response, true)['access_token'] ?? null;
 ?&gt;</code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab id="ruby">
+<doc-tab v-cloak id="ruby">
 <template #title>Ruby</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-ruby"><code v-pre class="language-ruby">require 'uri'
@@ -286,7 +284,7 @@ auth_token = JSON.parse(response.body)['access_token'] || nil</code></pre>
 <p><a href="https://yx-test.sf-cloud.ru/api/hosts/?alive=1"><code v-pre>https://yx-test.sf-cloud.ru/api/hosts/?alive=1</code></a></p>
 <p>Или выполнить следующий код</p>
 <doc-tabs>
-<doc-tab id="curl">
+<doc-tab v-cloak id="curl">
 <template #title>Curl</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">curl -X 'GET' \
@@ -294,7 +292,7 @@ auth_token = JSON.parse(response.body)['access_token'] || nil</code></pre>
   -H 'accept: application/json'</code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab id="python">
+<doc-tab v-cloak id="python">
 <template #title>Python</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-python"><code v-pre class="language-python">import requests
@@ -306,7 +304,7 @@ headers = {'Accept': 'application/json'}
 alive_hosts = requests.get(url, params=params, headers=headers).json()</code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab id="php">
+<doc-tab v-cloak id="php">
 <template #title>PHP</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-php"><code v-pre class="language-php">&lt;?php
@@ -323,7 +321,7 @@ $data = json_decode($response, true);
 ?&gt;</code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab id="ruby">
+<doc-tab v-cloak id="ruby">
 <template #title>Ruby</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-ruby"><code v-pre class="language-ruby">require 'net/http'
@@ -437,7 +435,7 @@ alive_hosts = JSON.parse(response.body)</code></pre>
    </doc-panel>
    <doc-panel id="пример-ответа" collapsed>
        <template #title>Пример ответа</template>
-<p><span class="no-link inline-flex items-center justify-center font-medium leading-none whitespace-nowrap text-green-700 bg-green-100 h-6 px-2 text-xs rounded-md">
+<p><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-green-700 bg-green-100 h-6 px-2 text-xs rounded-md">
     <span>Status code: 200</span>
 </span></p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -522,7 +520,7 @@ alive_hosts = JSON.parse(response.body)</code></pre>
 <p><a href="https://yx-test.sf-cloud.ru/api/alerts/?active=1"><code v-pre>https://yx-test.sf-cloud.ru/api/alerts/?active=1</code></a></p>
 <p>Или выполнить следующий код</p>
 <doc-tabs>
-<doc-tab id="curl">
+<doc-tab v-cloak id="curl">
 <template #title>Curl</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">curl</div>
@@ -531,7 +529,7 @@ alive_hosts = JSON.parse(response.body)</code></pre>
   -H 'accept: application/json'</code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab id="python">
+<doc-tab v-cloak id="python">
 <template #title>Python</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-python"><code v-pre class="language-python">import requests
@@ -544,7 +542,7 @@ response = requests.get(url, headers=headers)
 alerts = response.json()</code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab id="php">
+<doc-tab v-cloak id="php">
 <template #title>PHP</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-php"><code v-pre class="language-php">&lt;?php
@@ -559,7 +557,7 @@ $alerts = json_decode($response, true);
 ?&gt;</code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab id="ruby">
+<doc-tab v-cloak id="ruby">
 <template #title>Ruby</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-ruby"><code v-pre class="language-ruby">require 'net/http'
@@ -621,7 +619,7 @@ data = JSON.parse(response.body)</code></pre>
    </doc-panel>
    <doc-panel id="пример-ответа" collapsed>
        <template #title>Пример ответа</template>
-<p><span class="no-link inline-flex items-center justify-center font-medium leading-none whitespace-nowrap text-green-700 bg-green-100 h-6 px-2 text-xs rounded-md">
+<p><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-green-700 bg-green-100 h-6 px-2 text-xs rounded-md">
     <span>Status code: 200</span>
 </span></p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -696,60 +694,42 @@ data = JSON.parse(response.body)</code></pre>
 </doc-codeblock></div>
    </doc-panel>
 </doc-panels>
-<doc-anchor-target id="добавлениеудаление-хостов-в-проекте">
+<doc-anchor-target id="добавление-хостов-в-проекте">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#добавлениеудаление-хостов-в-проекте">#</doc-anchor-trigger>
-        <span>Добавление/удаление хостов в проекте</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#добавление-хостов-в-проекте">#</doc-anchor-trigger>
+        <span>Добавление хостов в проекте</span>
     </h2>
 </doc-anchor-target>
-<p>Чтобы добавить или удалить хосты в проекте, необходимо выполнить <code v-pre>PATCH</code> запрос на <code v-pre>https://yx-test.sf-cloud.ru/api/projects/&lt;project_UUID&gt;</code></p>
+<p>Чтобы добавить или удалить хосты в проекте, необходимо выполнить <code v-pre>POST</code> запрос на <code v-pre>https://yx-test.sf-cloud.ru/api/projects/&lt;project_UUID&gt;/scope-extension/</code></p>
 <doc-anchor-target id="body-запроса">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#body-запроса">#</doc-anchor-trigger>
         <span>Body запроса</span>
     </h3>
 </doc-anchor-target>
-<p>Что вы отправите в запросе, то и будет находиться в настройках проекта, т.е. если в настройках было 3 домена, вы отправите 1 домен в запросе, значит только что отправленный один домен и будет в настройках</p>
-<p>Пустой отправленный список доменов или IP удалит из скоупа все домены или IP</p>
 <doc-tabs>
-<doc-tab id="домены">
+<doc-tab v-cloak id="домены">
 <template #title>Домены</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-json"><code v-pre class="language-json">{
-  &quot;scope_settings&quot;: {
-    &quot;root_domains&quot;: [
-      &quot;домен.который.уже.был.в.настройках&quot;,
-      &quot;some.new.domain.com&quot;
-    ]
-  }
+    &quot;root_domains&quot;: [&quot;domain.com&quot;, &quot;some.domain.com&quot;]
 }</code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab id="ip-адреса">
+<doc-tab v-cloak id="ip-адреса">
 <template #title>IP-адреса</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-json"><code v-pre class="language-json">{
-  &quot;scope_settings&quot;: {
-    &quot;root_ips&quot;: [
-      &quot;33.55.1.0&quot;
-    ]
-  }
+    &quot;root_ips&quot;: [&quot;25.65.9.0&quot;, &quot;44.43.1.0&quot;]
 }</code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab id="домены-и-ip">
+<doc-tab v-cloak id="домены-и-ip">
 <template #title>Домены и IP</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-json"><code v-pre class="language-json">{
-  &quot;scope_settings&quot;: {
-    &quot;root_domains&quot;: [
-      &quot;домен.уже.был&quot;,
-      &quot;some.domain.com&quot;
-    ],
-    &quot;root_ips&quot;: [
-      &quot;25.65.9.0&quot;
-    ]
-  }
+    &quot;root_domains&quot;: [&quot;domain.com&quot;, &quot;some.domain.com&quot;],
+    &quot;root_ips&quot;: [&quot;25.65.9.0&quot;, &quot;44.43.1.0&quot;]
 }</code></pre>
 </doc-codeblock></div>
 </doc-tab>
@@ -761,45 +741,45 @@ data = JSON.parse(response.body)</code></pre>
     </h3>
 </doc-anchor-target>
 <doc-tabs>
-<doc-tab id="curl">
+<doc-tab v-cloak id="curl">
 <template #title>Curl</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">curl -X PATCH \
-  https://yx-test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;?token=&lt;your_api_token&gt; \
+<pre class="language-bash"><code v-pre class="language-bash">curl -X POST \
+  https://yx-test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;?token=&lt;your_api_token&gt;/scope-extension/ \
   -H 'Content-Type: application/json' \
   -H 'accept: application/json' \
   -d 'PAYLOAD FROM &quot;Body запроса&quot; SECTION'
 </code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab id="python">
+<doc-tab v-cloak id="python">
 <template #title>Python</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-python"><code v-pre class="language-python">import requests
 import json
 
-url = 'https://yx-test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;?token=&lt;your_api_token&gt;'
+url = 'https://yx-test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;?token=&lt;your_api_token&gt;/scope-extension/'
 headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
 payload = {'PAYLOAD FROM &quot;Body запроса&quot; SECTION'}
-response = requests.patch(url, headers=headers, data=json.dumps(payload))
+response = requests.post(url, headers=headers, data=json.dumps(payload))
 
 project_config = response.json()
 </code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab id="php">
+<doc-tab v-cloak id="php">
 <template #title>PHP</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-php"><code v-pre class="language-php">&lt;?php
 
-$url = 'https://yx-test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;?token=&lt;your_api_token&gt;';
+$url = 'https://yx-test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;?token=&lt;your_api_token&gt;/scope-extension/';
 $data = ['PAYLOAD FROM &quot;Body запроса&quot; SECTION'];
 
 $options = [
     'http' =&gt; [
         'header' =&gt; &quot;Content-type: application/json\r\n&quot; .
                     &quot;Accept: application/json\r\n&quot;,
-        'method' =&gt; 'PATCH',
+        'method' =&gt; 'POST',
         'content' =&gt; json_encode($data)
     ]
 ];
@@ -812,20 +792,20 @@ $response = json_decode($result);
 </code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab id="ruby">
+<doc-tab v-cloak id="ruby">
 <template #title>Ruby</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-ruby"><code v-pre class="language-ruby">require 'net/http'
 require 'json'
 
-url = URI('https://yx-test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;?token=&lt;your_api_token&gt;')
+url = URI('https://yx-test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;?token=&lt;your_api_token&gt;/scope-extension/')
 headers = {
   'Content-Type' =&gt; 'application/json',
   'accept' =&gt; 'application/json'
 }
 data = {'PAYLOAD FROM &quot;Body запроса&quot; SECTION'}
 response = Net::HTTP.start(url.host, url.port, :use_ssl =&gt; true) do |http|
-  request = Net::HTTP::Patch.new(url)
+  request = Net::HTTP::POST.new(url)
   headers.each do |key, value|
     request[key] = value
   end
@@ -839,46 +819,14 @@ data = JSON.parse(response.body)</code></pre>
 </doc-tabs>
 <doc-panel id="пример-ответа" collapsed>
     <template #title>Пример ответа</template>
-<p><span class="no-link inline-flex items-center justify-center font-medium leading-none whitespace-nowrap text-green-700 bg-green-100 h-6 px-2 text-xs rounded-md">
+<p><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-green-700 bg-green-100 h-6 px-2 text-xs rounded-md">
     <span>Status code: 200</span>
 </span></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-json"><code v-pre class="language-json">{
-    &quot;id&quot;: &quot;&lt;project_id: uuid | str&gt;&quot;,
-    &quot;name&quot;: &quot;Project name&quot;,
-    &quot;status&quot;: &quot;running&quot;,
-    &quot;scan_settings&quot;: {
-        &quot;qtag&quot;: &quot;&quot;,
-        &quot;time_windows&quot;: [
-            {&quot;from&quot;: 0, &quot;to&quot;: 75600000},
-            {&quot;from&quot;: 597600000, &quot;to&quot;: 604800000},
-            {&quot;from&quot;: 79200000, &quot;to&quot;: 162000000},
-            {&quot;from&quot;: 165600000, &quot;to&quot;: 248400000},
-            {&quot;from&quot;: 252000000, &quot;to&quot;: 334800000},
-            {&quot;from&quot;: 338400000, &quot;to&quot;: 421200000},
-            {&quot;from&quot;: 424800000, &quot;to&quot;: 507600000},
-            {&quot;from&quot;: 511200000, &quot;to&quot;: 594000000}
-        ],
-        &quot;task_templates&quot;: [
-            {
-                &quot;id&quot;: &quot;tool-id-24&quot;,
-                &quot;tool&quot;: &quot;tool_name&quot;,
-                &quot;active&quot;: true,
-                &quot;rescan_period&quot;: 86400.0,
-                &quot;options&quot;: {},
-                &quot;load&quot;: 30,
-                &quot;is_osint&quot;: false,
-                &quot;vqueue&quot;: &quot;tool_name&quot;,
-                &quot;retry_policy&quot;: {&quot;ntimes&quot;: 0},
-                &quot;timeout&quot;: 810.0
-            }
-        ],
-        &quot;throttling&quot;: {},
-        &quot;webauth&quot;: null
-    },
     &quot;scope_settings&quot;: {
-        &quot;root_domains&quot;: [&quot;somedomain.com&quot;],
-        &quot;root_ips&quot;: [],
+        &quot;root_domains&quot;: [&quot;домен.который.уже.был.в.настройках&quot;, &quot;domain.com&quot;, &quot;some.domain.com&quot;],
+        &quot;root_ips&quot;: [&quot;44.0.1.1&quot; &quot;25.65.9.0&quot;, &quot;44.43.1.0&quot;],
         &quot;blacklist&quot;: {
             &quot;domains&quot;: [],
             &quot;ipv4&quot;: [],
@@ -891,20 +839,10 @@ data = JSON.parse(response.body)</code></pre>
         &quot;manual_ip_approve&quot;: false,
         &quot;exclude_private_ips&quot;: true,
         &quot;hide_unreachable&quot;: false
-    },
-    &quot;flood_protection&quot;: {
-        &quot;urls&quot;: true,
-        &quot;domains&quot;: true,
-        &quot;url_pattern_ft&quot;: 200,
-        &quot;url_exact_ft&quot;: 100,
-        &quot;domain_pattern_ft&quot;: 50
-    },
-    &quot;integrations&quot;: {&quot;jira&quot;: null},
-    &quot;cdate&quot;: &quot;2023-04-24T16:15:34.365281+00:00&quot;,
-    &quot;mdate&quot;: &quot;2023-04-25T18:06:30.451492+00:00&quot;
+    }
 }</code></pre>
 </doc-codeblock></div>
-<p><span class="no-link inline-flex items-center justify-center font-medium leading-none whitespace-nowrap text-red-600 bg-red-100 h-6 px-2 text-xs rounded-md">
+<p><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-red-600 bg-red-100 h-6 px-2 text-xs rounded-md">
     <span>Status code: 400</span>
 </span></p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -914,7 +852,7 @@ data = JSON.parse(response.body)</code></pre>
 
                                 
                                 <!-- Required only on API pages -->
-                                <doc-toolbar-member-filter-no-results />
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
                             </div>
                             <footer class="clear-both">
                             
@@ -977,6 +915,6 @@ data = JSON.parse(response.body)</code></pre>
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Документация по API", level: 1, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Документация по API", level: 1, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>
