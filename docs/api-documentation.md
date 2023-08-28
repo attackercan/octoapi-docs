@@ -462,7 +462,7 @@ Parameter | Value | Description
 
 ```bash
 curl -X POST \
-  https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token>/scope-extension/ \
+  https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-extension/?token=<your_api_token> \
   -H 'Content-Type: application/json' \
   -H 'accept: application/json' \
   -d 'PAYLOAD FROM "Body запроса" SECTION'
@@ -475,7 +475,7 @@ curl -X POST \
 import requests
 import json
 
-url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token>/scope-extension/'
+url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-extension/?token=<your_api_token>'
 headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
 payload = {'PAYLOAD FROM "Body запроса" SECTION'}
 response = requests.post(url, headers=headers, data=json.dumps(payload))
@@ -489,7 +489,7 @@ project_config = response.json()
 ```php
 <?php
 
-$url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token>/scope-extension/';
+$url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-extension/?token=<your_api_token>';
 $data = ['PAYLOAD FROM "Body запроса" SECTION'];
 
 $options = [
@@ -515,7 +515,7 @@ $response = json_decode($result);
 require 'net/http'
 require 'json'
 
-url = URI('https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>?token=<your_api_token>/scope-extension/')
+url = URI('https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-extension/?token=<your_api_token>')
 headers = {
   'Content-Type' => 'application/json',
   'accept' => 'application/json'
