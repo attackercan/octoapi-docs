@@ -4,7 +4,7 @@ Scanfactory позволяет экспортировать отчеты по у
 
 ## Установка и запуск
 
-Для работы необходим `Python 3.10+` и менеджер пакетов `pip`  
+Для работы необходим `Python 3.11` и менеджер пакетов `pip`  
 
 1. Выполните команды:  
 
@@ -15,17 +15,11 @@ Scanfactory позволяет экспортировать отчеты по у
     ```
 
     При неудаче проверьте наличие и версии `python3` и `pip/pip3` и попробуйте снова  
-2. Добавьте ваши логины-пароли от ScanFactory и DefectDojo в файл [`nessus_importer.env`](https://github.com/scanfactory/scanfactory-to-defectdojo/blob/main/README.md)  
-Переместите env-файл в /root/.env, или в любое другое место  
-3. Создайте `crontab` на ежедневный запуск скрипта:  
-`0 8 * * * python3 /root/nessus_importer.py --log-path=/path/to/.log --env-path=/root/.env`  
-4. Проверьте работу скрипта, запустив его в ручном режиме 
-
-[Дополнительная информация](https://github.com/scanfactory/scanfactory-to-defectdojo/blob/main/README.md)
+2. Внимательно прочитайте [документацию](https://github.com/scanfactory/scanfactory-to-defectdojo/blob/main/README.md) и следуйте пунктам, указанным в ней
 
 ## Возможные проблемы
 
-1. Проблемы при первом запуске - взгляните на логи  
+1. Проблемы при первом запуске - сверьтесь с документацией, проверьте логи. При первом запуске рекомендуется видеть логи в консоли, включаются параметром `--log-to-console`  
 2. Проблемы с дедупликацией отчетов в Defect Dojo  
-    Возможные варианты решения  
-    [Первый](https://github.com/DefectDojo/django-DefectDojo/issues/6407) [Второй](https://github.com/DefectDojo/django-DefectDojo/issues/2772)  
+    Настройки дедупликации DD находятся в Боковая панель -> Кнопка настроек -> System settings
+    Если дедупликация все еще не работает: [это может помочь](https://github.com/DefectDojo/django-DefectDojo/issues/2772)
