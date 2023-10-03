@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746728184916">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.749665476276">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.2.0">
+    <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
     <title>Интеграция с Defect Dojo</title>
@@ -30,12 +30,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.2.0.746728184916" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.749665476276" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.2.0.746728184916" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.2.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.2.0.746728184916" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.2.0.746728184916" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.749665476276" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.749665476276" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.749665476276" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -163,7 +163,6 @@
                             <div class="docs-markdown" id="docs-content">
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
-                
                                 <!-- Page content  -->
 <doc-anchor-target id="интеграция-с-defect-dojo" class="break-words">
     <h1>
@@ -178,7 +177,7 @@
         <span>Установка и запуск</span>
     </h2>
 </doc-anchor-target>
-<p>Для работы необходим <code v-pre>Python 3.10+</code> и менеджер пакетов <code v-pre>pip</code></p>
+<p>Для работы необходим <code v-pre>Python 3.11</code> и менеджер пакетов <code v-pre>pip</code></p>
 <ol>
 <li><p>Выполните команды:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -188,16 +187,9 @@ python3 -m pip install -r requirements.txt</code></pre>
 </doc-codeblock></div>
 <p>При неудаче проверьте наличие и версии <code v-pre>python3</code> и <code v-pre>pip/pip3</code> и попробуйте снова</p>
 </li>
-<li><p>Добавьте ваши логины-пароли от ScanFactory и DefectDojo в файл <a href="https://github.com/scanfactory/scanfactory-to-defectdojo/blob/main/README.md"><code v-pre>nessus_importer.env</code></a><br />
-Переместите env-файл в /root/.env, или в любое другое место</p>
-</li>
-<li><p>Создайте <code v-pre>crontab</code> на ежедневный запуск скрипта:<br />
-<code v-pre>0 8 * * * python3 /root/nessus_importer.py --log-path=/path/to/.log --env-path=/root/.env</code></p>
-</li>
-<li><p>Проверьте работу скрипта, запустив его в ручном режиме</p>
+<li><p>Внимательно прочитайте <a href="https://github.com/scanfactory/scanfactory-to-defectdojo/blob/main/README.md">документацию</a> и следуйте пунктам, указанным в ней</p>
 </li>
 </ol>
-<p><a href="https://github.com/scanfactory/scanfactory-to-defectdojo/blob/main/README.md">Дополнительная информация</a></p>
 <doc-anchor-target id="возможные-проблемы">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#возможные-проблемы">#</doc-anchor-trigger>
@@ -205,10 +197,10 @@ python3 -m pip install -r requirements.txt</code></pre>
     </h2>
 </doc-anchor-target>
 <ol>
-<li>Проблемы при первом запуске - взгляните на логи</li>
+<li>Проблемы при первом запуске - сверьтесь с документацией, проверьте логи. При первом запуске рекомендуется видеть логи в консоли, включаются параметром <code v-pre>--log-to-console</code></li>
 <li>Проблемы с дедупликацией отчетов в Defect Dojo<br />
-Возможные варианты решения<br />
-<a href="https://github.com/DefectDojo/django-DefectDojo/issues/6407">Первый</a> <a href="https://github.com/DefectDojo/django-DefectDojo/issues/2772">Второй</a></li>
+Настройки дедупликации DD находятся в Боковая панель -&gt; Кнопка настроек -&gt; System settings
+Если дедупликация все еще не работает: <a href="https://github.com/DefectDojo/django-DefectDojo/issues/2772">это может помочь</a></li>
 </ol>
 
                                 
@@ -276,6 +268,6 @@ python3 -m pip install -r requirements.txt</code></pre>
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Интеграция с Defect Dojo", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Интеграция с Defect Dojo", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
