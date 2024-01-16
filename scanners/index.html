@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.749665476276">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.758739733491">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Список используемых сканеров</title>
     <meta name="title" content="Список используемых сканеров">
-    <meta name="description" content="В этом разделе перечислены сканеры, используемые в ScanFactory, а также какие данные инструменты получают на вход, и что производят на выходе.">
+    <meta name="description" content="В этом разделе перечислены сканеры, используемые в ScanFactory">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.sf-cloud.ru/scanners/">
@@ -20,21 +20,21 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.sf-cloud.ru/scanners/">
     <meta property="og:title" content="Список используемых сканеров">
-    <meta property="og:description" content="В этом разделе перечислены сканеры, используемые в ScanFactory, а также какие данные инструменты получают на вход, и что производят на выходе.">
+    <meta property="og:description" content="В этом разделе перечислены сканеры, используемые в ScanFactory">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.sf-cloud.ru/scanners/">
     <meta property="twitter:title" content="Список используемых сканеров">
-    <meta property="twitter:description" content="В этом разделе перечислены сканеры, используемые в ScanFactory, а также какие данные инструменты получают на вход, и что производят на выходе.">
+    <meta property="twitter:description" content="В этом разделе перечислены сканеры, используемые в ScanFactory">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.5.0.749665476276" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.5.0.758739733491" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.749665476276" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.758739733491" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.749665476276" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.758739733491" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -170,132 +170,118 @@
     </h1>
 </doc-anchor-target>
 <hr>
-<p>В этом разделе перечислены сканеры, используемые в ScanFactory, а также какие данные инструменты получают на вход, и что производят на выходе.</p>
+<p>В этом разделе перечислены сканеры, используемые в ScanFactory</p>
+<doc-anchor-target id="коммерческие-сканеры">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#коммерческие-сканеры">#</doc-anchor-trigger>
+        <span>Коммерческие сканеры</span>
+    </h3>
+</doc-anchor-target>
 <ul>
-<li><strong><a href="https://github.com/infosec-au/altdns">altnds</a></strong>
+<li><strong>Коммерческий Веб-сканер #1</strong>
 <ul>
-<li>предназначение: активный брутфорс поддоменов</li>
-<li>вход: вайлдкард (<code v-pre>*.domain.ru</code>)</li>
-<li>выход: список найденных доменных имён</li>
+<li>Поиск уязвимостей на веб-сайтах методом чёрного ящика</li>
 </ul>
 </li>
+<li><strong>Коммерческий Веб-сканер #2</strong>
+<ul>
+<li>Поиск OWASP Top 10 уязвимостей в API-запросах</li>
+</ul>
+</li>
+<li><strong>Коммерческий Сканер Инфраструктуры</strong>
+<ul>
+<li>Поиск CVE-уязвимостей, PCI DSS сканирование</li>
+</ul>
+</li>
+</ul>
+<doc-anchor-target id="osint">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#osint">#</doc-anchor-trigger>
+        <span>OSINT</span>
+    </h3>
+</doc-anchor-target>
+<ul>
 <li><strong><a href="https://github.com/OWASP/Amass">amass</a></strong>
 <ul>
-<li>предназначение: пассивный поиск поддоменов</li>
-<li>вход: вайлдкард (<code v-pre>*.domain.ru</code>)</li>
-<li>выход: список найденных доменных имён</li>
-</ul>
-</li>
-<li><strong>crawler</strong>
-<ul>
-<li>предназначение: рекурсивный обход сайтов, сбор HTTP-запросов и доменов</li>
-<li>вход: порт</li>
-<li>выход: транзакции</li>
-</ul>
-</li>
-<li><strong><a href="https://github.com/Qianlitp/crawlergo">crawlergo</a></strong>
-<ul>
-<li>предназначение: рекурсивный обход сайтов, сбор HTTP-запросов и доменов</li>
-<li>вход: порт</li>
-<li>выход: транзакции</li>
-</ul>
-</li>
-<li><strong><a href="https://github.com/maurosoria/dirsearch">dirsearch</a></strong>
-<ul>
-<li>предназначение: поиск скрытых файлов и папок</li>
-<li>вход: порт</li>
-<li>выход: HTTP-запросы</li>
-</ul>
-</li>
-<li><strong><a href="https://github.com/musana/fuzzuli">fuzzuli</a></strong>
-<ul>
-<li>предназначение: поиск бэкапов веб-сайтов, на основе динамически генерируемого словаря</li>
-<li>вход: порт</li>
-<li>выход: уязвимость</li>
-</ul>
-</li>
-<li><strong>grep</strong>
-<ul>
-<li>предназначение: скачивает веб-страницу, и вытаскивает из неё: новые домены - из хэдеров и боди запроса, ссылки на подгружаемые js-файлы, ссылки на страницы сайта</li>
-<li>вход: HTTP-запрос</li>
-<li>выход: HTTP-запросы, домены</li>
-</ul>
-</li>
-<li><strong>infrascan</strong>
-<ul>
-<li>предназначение: поиск CVE-уязвимостей</li>
-<li>вход: IP-адрес</li>
-<li>выход: уязвимости</li>
-</ul>
-</li>
-<li><strong><a href="https://nmap.org/">nmap</a></strong>
-<ul>
-<li>предназначение: поиск открытых портов и определение запущенных сервисов</li>
-<li>вход: IP</li>
-<li>выход: открытые порты</li>
-</ul>
-</li>
-<li><strong><a href="https://github.com/projectdiscovery/nuclei">nuclei</a></strong>
-<ul>
-<li>предназначение: автоматизированный поиск уязвимостей</li>
-<li>вход: HTTP-запрос</li>
-<li>выход: уязвимости</li>
-</ul>
-</li>
-<li><strong>brute</strong>
-<ul>
-<li>предназначение: автоматизированный перебор паролей к сетевым сервисам ftp, ftps, mssql, postgres, radmin2, rdp, redis, amqp, smb, snmp, ssh, vnc, telnet; брутфорсер веб форм</li>
-<li>вход: порт</li>
-<li>выход: уязвимости</li>
-</ul>
-</li>
-<li><strong><a href="https://github.com/neex/phuip-fpizdam">phuip-fpizdam</a></strong>
-<ul>
-<li>предназначение: проверка на уязвимость CVE-2019-11043</li>
-<li>вход: HTTP-запрос</li>
-<li>выход: уязвимость</li>
-</ul>
-</li>
-<li><strong><a href="https://github.com/scanfactory/sdto">sdto</a></strong>
-<ul>
-<li>предназначение: проверка перехвата поддомена</li>
-<li>вход: домен</li>
-<li>выход: уязвимости</li>
+<li>Пассивный поиск поддоменов по открытым источникам</li>
 </ul>
 </li>
 <li><strong><a href="https://github.com/projectdiscovery/subfinder">subfinder</a></strong>
 <ul>
-<li>предназначение: пассивный поиск поддоменов</li>
-<li>вход: вайлдкард (<code v-pre>*.domain.ru</code>)</li>
-<li>выход: список найденных доменных имён</li>
+<li>Пассивный поиск поддоменов по открытым источникам</li>
+</ul>
+</li>
+<li><strong><a href="https://github.com/subfinder/goaltdns">goaltnds</a></strong>
+<ul>
+<li>Активный поиск поддоменов, методом брутфорса по словарю</li>
+</ul>
+</li>
+</ul>
+<doc-anchor-target id="opensource-инструменты">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#opensource-инструменты">#</doc-anchor-trigger>
+        <span>Opensource инструменты</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><strong><a href="https://github.com/projectdiscovery/nuclei">nuclei</a></strong>
+<ul>
+<li>Поиск популярных уязвимостей. Регулярно разрабатываем собственные плагины</li>
+</ul>
+</li>
+<li><strong><a href="https://nmap.org/">nmap</a></strong>
+<ul>
+<li>Поиск открытых портов и определение запущенных сервисов</li>
+</ul>
+</li>
+<li><strong>brute</strong>
+<ul>
+<li>Перебор паролей к веб-формам, а также сетевым сервисам ftp, ftps, mssql, postgres, radmin2, rdp, redis, amqp, smb, snmp, ssh, vnc, telnet</li>
+</ul>
+</li>
+<li><strong><a href="https://github.com/scanfactory/sdto">sdto</a></strong>
+<ul>
+<li>Проверка перехвата поддомена</li>
+</ul>
+</li>
+<li><strong><a href="https://github.com/maurosoria/dirsearch">dirsearch</a></strong>
+<ul>
+<li>Поиск скрытых файлов и папок</li>
+</ul>
+</li>
+<li><strong>Chrome crawler</strong>
+<ul>
+<li>Рекурсивный обход веб-сайтов, сбор HTTP-запросов</li>
+</ul>
+</li>
+<li><strong><a href="https://github.com/Qianlitp/crawlergo">crawlergo</a></strong>
+<ul>
+<li>Рекурсивный обход веб-сайтов, сбор HTTP-запросов</li>
+</ul>
+</li>
+<li><strong><a href="https://github.com/musana/fuzzuli">fuzzuli</a></strong>
+<ul>
+<li>Поиск бэкапов веб-сайтов, на основе динамически генерируемого словаря</li>
+</ul>
+</li>
+<li><strong>grep</strong>
+<ul>
+<li>Анализ веб-страниц: поиск доменов, ссылок на подгружаемые js-файлы, и тд</li>
 </ul>
 </li>
 <li><strong><a href="https://github.com/tomnomnom/waybackurls">waybackurls</a></strong>
 <ul>
-<li>предназначение: поиск ссылок на этот домен в <a href="https://archive.org/web/">Wayback Machine</a></li>
-<li>вход: домен/IP</li>
-<li>выход: HTTP-запросы</li>
-</ul>
-</li>
-<li><strong>webscan</strong>
-<ul>
-<li>предназначение: поиск OWASP Top 10 уязвимостей</li>
-<li>вход: HTTP-запрос</li>
-<li>выход: уязвимости</li>
+<li>Поиск ссылок на этот домен в <a href="https://archive.org/web/">Wayback Machine</a></li>
 </ul>
 </li>
 <li><strong><a href="https://github.com/wpscanteam/wpscan">wpscan</a></strong>
 <ul>
-<li>предназначение: поиск уязвимостей Wordpress</li>
-<li>вход: порт</li>
-<li>выход: уязвимости</li>
+<li>Поиск уязвимостей Wordpress</li>
 </ul>
 </li>
 <li><strong><a href="https://github.com/sh1yo/x8">x8</a></strong>
 <ul>
-<li>предназначение: сканер скрытых параметров в ссылках</li>
-<li>вход: HTTP-запрос (ссылка)</li>
-<li>выход: HTTP-запросы</li>
+<li>Поиск скрытых параметров в HTTP-запросах</li>
 </ul>
 </li>
 </ul>
@@ -336,7 +322,7 @@
                                     <ul class="flex flex-wrap items-center text-sm">
                                     </ul>
                                 </div>
-                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2023. All rights reserved.</p></div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2024. All rights reserved.</p></div>
                             </footer>
                         </div>
                     </div>
