@@ -706,12 +706,6 @@ data = JSON.parse(response.body)
 }
 ```
 
-[!badge size="m" text="Status code: 400" variant="danger"]
-
-```json
-{"error": "bad request body", "field": "scope_settings.root_ips: 127.0.0.1 is not allowed (private IP)"}
-```
-
 [!badge size="m" text="Status code: 404" variant="danger"]
 
 ```json
