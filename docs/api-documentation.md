@@ -13,10 +13,10 @@ order: 96
 +++ Curl
 
 ```bash
-curl --location --request POST '<your_keycloak_url>/auth/realms/scanfactory/protocol/openid-connect/token' \
+curl --location --request POST 'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token' \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=<your_address_prefix>' \
+  --data-urlencode 'client_id=<Поддомен вашего ЛК>' \
   --data-urlencode 'username=test@test.com' \
   --data-urlencode 'password=password' \
   --data-urlencode 'grant_type=password'
@@ -31,9 +31,9 @@ login='test@test.com'
 password='password'
 
 auth_token = requests.post(
-  '<your_keycloak_url>/auth/realms/scanfactory/protocol/openid-connect/token',
+  'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token',
   data={
-      "client_id": "<your_address_prefix>",  # yx-<prefix>.sf-cloud.ru
+      "client_id": "<Поддомен вашего ЛК>",  # yx-<prefix>.sf-cloud.ru
       "username": login,
       "password": password,
       "grant_type": "password"
@@ -52,8 +52,8 @@ auth_token = requests.post(
 
 $login = 'test@test.com';
 $password = 'password';
-$address_prefix = '<your_address_prefix>'; // yx-<prefix>.sf-cloud.ru
-$url = '<your_keycloak_url>/auth/realms/scanfactory/protocol/openid-connect/token';
+$address_prefix = '<Поддомен вашего ЛК>'; // yx-<prefix>.sf-cloud.ru
+$url = 'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token';
 
 $data = http_build_query([
     'client_id' => $address_prefix,
@@ -86,8 +86,8 @@ require 'json'
 
 login = 'test@test.com'
 password = 'password'
-address_prefix = '<your_address_prefix>'  # yx-<prefix>.sf-cloud.ru
-url = URI("<your_keycloak_url>/auth/realms/scanfactory/protocol/openid-connect/token")
+address_prefix = '<Поддомен вашего ЛК>'  # yx-<prefix>.sf-cloud.ru
+url = URI("https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token")
 
 response = Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
   request = Net::HTTP::Post.new(url)
