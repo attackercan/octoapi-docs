@@ -568,3 +568,154 @@ data = JSON.parse(response.body)
 ```
 
 ===
+
+## Удаление хостов из проекта
+
+Чтобы удалить хост из проекта, необходимо выполнить `POST` запрос на `https://yx-test.sf-cloud.ru/api/projects/<project_UUID>/scope-deletion`
+
+### Body запроса
+
++++ Домены
+
+```json
+{
+    "root_domains": ["domain.com", "some.domain.com"]
+}
+```
+
++++ IP-адреса
+
+```json
+{
+    "root_ips": ["25.65.9.0", "44.43.1.0"]
+}
+```
+
++++ Домены и IP
+
+```json
+{
+    "root_domains": ["domain.com", "some.domain.com"],
+    "root_ips": ["25.65.9.0", "44.43.1.0"]
+}
+```
+
++++
+
+### Код
+
++++ Curl
+
+```bash
+curl -X POST \
+  https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-deletion/?token=<your_api_token> \
+  -H 'Content-Type: application/json' \
+  -H 'accept: application/json' \
+  -d 'PAYLOAD FROM "Body запроса" SECTION'
+
+```
+
++++ Python
+
+```python
+import requests
+import json
+
+url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-deletion/?token=<your_api_token>'
+headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
+payload = {'PAYLOAD FROM "Body запроса" SECTION'}
+response = requests.post(url, headers=headers, data=json.dumps(payload))
+
+project_config = response.json()
+
+```
+
++++ PHP
+
+```php
+<?php
+
+$url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-deletion/?token=<your_api_token>';
+$data = ['PAYLOAD FROM "Body запроса" SECTION'];
+
+$options = [
+    'http' => [
+        'header' => "Content-type: application/json\r\n" .
+                    "Accept: application/json\r\n",
+        'method' => 'POST',
+        'content' => json_encode($data)
+    ]
+];
+
+$context = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+
+$response = json_decode($result);
+?>
+
+```
+
++++ Ruby
+
+```ruby
+require 'net/http'
+require 'json'
+
+url = URI('https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-deletion/?token=<your_api_token>')
+headers = {
+  'Content-Type' => 'application/json',
+  'accept' => 'application/json'
+}
+data = {'PAYLOAD FROM "Body запроса" SECTION'}
+response = Net::HTTP.start(url.host, url.port, :use_ssl => true) do |http|
+  request = Net::HTTP::POST.new(url)
+  headers.each do |key, value|
+    request[key] = value
+  end
+  request.body = data.to_json
+  http.request(request)
+end
+
+data = JSON.parse(response.body)
+```
+
++++
+
+==- Пример ответа
+
+[!badge size="m" text="Status code: 200" variant="success"]
+
+```json
+{
+    "scope_settings": {
+        "root_domains": ["оставшиеся домены", ...],
+        "root_ips": ["оставшиеся айпи", ...],
+        "blacklist": {
+            "domains": [],
+            "ipv4": [],
+            "ipv6": [],
+            "url": ["http://somedomain.com/?\\?path=([^&=?]+)"],
+            "url_exceptions": [],
+            "domains_exceptions": [],
+            "ipv4_exceptions": []
+        },
+        "manual_ip_approve": false,
+        "exclude_private_ips": true,
+        "hide_unreachable": false
+    }
+}
+```
+
+[!badge size="m" text="Status code: 400" variant="danger"]
+
+```json
+{"error": "bad request body", "field": "scope_settings.root_ips: 127.0.0.1 is not allowed (private IP)"}
+```
+
+[!badge size="m" text="Status code: 404" variant="danger"]
+
+```json
+{"error": "project <project_id> not found"}
+```
+
+===
