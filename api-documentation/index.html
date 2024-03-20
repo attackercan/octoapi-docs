@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.759259944046">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.764257542263">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -30,12 +30,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.5.0.759259944046" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.5.0.764257542263" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.759259944046" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.764257542263" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.759259944046" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.759259944046" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.764257542263" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.764257542263" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -182,10 +182,10 @@
 <doc-tab v-cloak id="curl">
 <template #title>Curl</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">curl --location --request POST '&lt;your_keycloak_url&gt;/auth/realms/scanfactory/protocol/openid-connect/token' \
+<pre class="language-bash"><code v-pre class="language-bash">curl --location --request POST 'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token' \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=&lt;your_address_prefix&gt;' \
+  --data-urlencode 'client_id=&lt;Поддомен вашего ЛК&gt;' \
   --data-urlencode 'username=test@test.com' \
   --data-urlencode 'password=password' \
   --data-urlencode 'grant_type=password'</code></pre>
@@ -200,9 +200,9 @@ login='test@test.com'
 password='password'
 
 auth_token = requests.post(
-  '&lt;your_keycloak_url&gt;/auth/realms/scanfactory/protocol/openid-connect/token',
+  'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token',
   data={
-      &quot;client_id&quot;: &quot;&lt;your_address_prefix&gt;&quot;,  # yx-&lt;prefix&gt;.sf-cloud.ru
+      &quot;client_id&quot;: &quot;&lt;Поддомен вашего ЛК&gt;&quot;,  # yx-&lt;prefix&gt;.sf-cloud.ru
       &quot;username&quot;: login,
       &quot;password&quot;: password,
       &quot;grant_type&quot;: &quot;password&quot;
@@ -221,8 +221,8 @@ auth_token = requests.post(
 
 $login = 'test@test.com';
 $password = 'password';
-$address_prefix = '&lt;your_address_prefix&gt;'; // yx-&lt;prefix&gt;.sf-cloud.ru
-$url = '&lt;your_keycloak_url&gt;/auth/realms/scanfactory/protocol/openid-connect/token';
+$address_prefix = '&lt;Поддомен вашего ЛК&gt;'; // yx-&lt;prefix&gt;.sf-cloud.ru
+$url = 'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token';
 
 $data = http_build_query([
     'client_id' =&gt; $address_prefix,
@@ -255,8 +255,8 @@ require 'json'
 
 login = 'test@test.com'
 password = 'password'
-address_prefix = '&lt;your_address_prefix&gt;'  # yx-&lt;prefix&gt;.sf-cloud.ru
-url = URI(&quot;&lt;your_keycloak_url&gt;/auth/realms/scanfactory/protocol/openid-connect/token&quot;)
+address_prefix = '&lt;Поддомен вашего ЛК&gt;'  # yx-&lt;prefix&gt;.sf-cloud.ru
+url = URI(&quot;https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token&quot;)
 
 response = Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
   request = Net::HTTP::Post.new(url)
@@ -849,6 +849,161 @@ data = JSON.parse(response.body)</code></pre>
 <pre class="language-json"><code v-pre class="language-json">{&quot;error&quot;:&quot;bad request body&quot;,&quot;field&quot;:&quot;scope_settings.root_ips: 127.0.0.1 is not allowed (private IP)&quot;}</code></pre>
 </doc-codeblock></div>
 </doc-panel>
+<doc-anchor-target id="удаление-хостов-из-проекта">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#удаление-хостов-из-проекта">#</doc-anchor-trigger>
+        <span>Удаление хостов из проекта</span>
+    </h2>
+</doc-anchor-target>
+<p>Чтобы удалить хост из проекта, необходимо выполнить <code v-pre>POST</code> запрос на <code v-pre>https://yx-test.sf-cloud.ru/api/projects/&lt;project_UUID&gt;/scope-deletion</code></p>
+<doc-anchor-target id="body-запроса-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#body-запроса-1">#</doc-anchor-trigger>
+        <span>Body запроса</span>
+    </h3>
+</doc-anchor-target>
+<doc-tabs>
+<doc-tab v-cloak id="домены">
+<template #title>Домены</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+    &quot;root_domains&quot;: [&quot;domain.com&quot;, &quot;some.domain.com&quot;]
+}</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="ip-адреса">
+<template #title>IP-адреса</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+    &quot;root_ips&quot;: [&quot;25.65.9.0&quot;, &quot;44.43.1.0&quot;]
+}</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="домены-и-ip">
+<template #title>Домены и IP</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+    &quot;root_domains&quot;: [&quot;domain.com&quot;, &quot;some.domain.com&quot;],
+    &quot;root_ips&quot;: [&quot;25.65.9.0&quot;, &quot;44.43.1.0&quot;]
+}</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<doc-anchor-target id="код-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#код-1">#</doc-anchor-trigger>
+        <span>Код</span>
+    </h3>
+</doc-anchor-target>
+<doc-tabs>
+<doc-tab v-cloak id="curl">
+<template #title>Curl</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">curl -X POST \
+  https://yx-test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;your_api_token&gt; \
+  -H 'Content-Type: application/json' \
+  -H 'accept: application/json' \
+  -d 'PAYLOAD FROM &quot;Body запроса&quot; SECTION'
+</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="python">
+<template #title>Python</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">import requests
+import json
+
+url = 'https://yx-test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;your_api_token&gt;'
+headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
+payload = {'PAYLOAD FROM &quot;Body запроса&quot; SECTION'}
+response = requests.post(url, headers=headers, data=json.dumps(payload))
+
+project_config = response.json()
+</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="php">
+<template #title>PHP</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">&lt;?php
+
+$url = 'https://yx-test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;your_api_token&gt;';
+$data = ['PAYLOAD FROM &quot;Body запроса&quot; SECTION'];
+
+$options = [
+    'http' =&gt; [
+        'header' =&gt; &quot;Content-type: application/json\r\n&quot; .
+                    &quot;Accept: application/json\r\n&quot;,
+        'method' =&gt; 'POST',
+        'content' =&gt; json_encode($data)
+    ]
+];
+
+$context = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+
+$response = json_decode($result);
+?&gt;
+</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="ruby">
+<template #title>Ruby</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-ruby"><code v-pre class="language-ruby">require 'net/http'
+require 'json'
+
+url = URI('https://yx-test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;your_api_token&gt;')
+headers = {
+  'Content-Type' =&gt; 'application/json',
+  'accept' =&gt; 'application/json'
+}
+data = {'PAYLOAD FROM &quot;Body запроса&quot; SECTION'}
+response = Net::HTTP.start(url.host, url.port, :use_ssl =&gt; true) do |http|
+  request = Net::HTTP::POST.new(url)
+  headers.each do |key, value|
+    request[key] = value
+  end
+  request.body = data.to_json
+  http.request(request)
+end
+
+data = JSON.parse(response.body)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<doc-panel id="пример-ответа" collapsed>
+    <template #title>Пример ответа</template>
+<p><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-green-700 bg-green-100 h-6 px-2 text-xs rounded-md">
+    <span>Status code: 200</span>
+</span></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+    &quot;scope_settings&quot;: {
+        &quot;root_domains&quot;: [&quot;оставшиеся домены&quot;, ...],
+        &quot;root_ips&quot;: [&quot;оставшиеся айпи&quot;, ...],
+        &quot;blacklist&quot;: {
+            &quot;domains&quot;: [],
+            &quot;ipv4&quot;: [],
+            &quot;ipv6&quot;: [],
+            &quot;url&quot;: [&quot;http://somedomain.com/?\\?path=([^&amp;=?]+)&quot;],
+            &quot;url_exceptions&quot;: [],
+            &quot;domains_exceptions&quot;: [],
+            &quot;ipv4_exceptions&quot;: []
+        },
+        &quot;manual_ip_approve&quot;: false,
+        &quot;exclude_private_ips&quot;: true,
+        &quot;hide_unreachable&quot;: false
+    }
+}</code></pre>
+</doc-codeblock></div>
+<p><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-red-600 bg-red-100 h-6 px-2 text-xs rounded-md">
+    <span>Status code: 404</span>
+</span></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{&quot;error&quot;: &quot;project &lt;project_id&gt; not found&quot;}</code></pre>
+</doc-codeblock></div>
+</doc-panel>
 
                                 
                                 <!-- Required only on API pages -->
@@ -868,10 +1023,10 @@ data = JSON.parse(response.body)</code></pre>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../integrations/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../task_status/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Интеграции</span>
+                                                <span class="block mt-1">Статусы задач</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
