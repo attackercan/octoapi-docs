@@ -20,4 +20,4 @@ ____
 
 [!ref](./integrations/README.md)
 
-[!ref](./problems.md)
+[!ref](./licence.md)
