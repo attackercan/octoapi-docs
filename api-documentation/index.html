@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.779272571124">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.779273252314">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -30,12 +30,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.5.0.779272571124" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.5.0.779273252314" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.779272571124" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.779273252314" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.779272571124" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.779272571124" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.779273252314" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.779273252314" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -342,7 +342,8 @@ alive_hosts = JSON.parse(response.body)</code></pre>
 <doc-panels>
    <doc-panel id="параметры" collapsed>
        <template #title>Параметры</template>
-<p>Каждый из них опционален</p>
+<p>Актуальный список параметров находится в Swagger в Вашем Личном Кабинете. Ссылка на Swagger: <a href="https://xn--__-6kccfb0audgmi1ag0f8cn3d.sf-cloud.ru/api/docs">https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs</a></p>
+<p>Ниже приведён краткий пример, какие параметры возможно передать</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -374,11 +375,6 @@ alive_hosts = JSON.parse(response.body)</code></pre>
 <td>Поиск хостов с указанными доменными именами. Формат: &#x27;google.com&#x27;</td>
 </tr>
 <tr>
-<td><code v-pre>found_by</code></td>
-<td>string</td>
-<td>Поиск хостов, найденных указанным <a href="../scanners/">сканером</a></td>
-</tr>
-<tr>
 <td><code v-pre>pending</code></td>
 <td>True/1 or string/int</td>
 <td>Поиск ожидающих хостов (True или 1), поиск активных (любое дргугое значение)</td>
@@ -386,27 +382,17 @@ alive_hosts = JSON.parse(response.body)</code></pre>
 <tr>
 <td><code v-pre>hidden</code></td>
 <td>1 or 0</td>
-<td>Поиск скрытых хостов</td>
+<td>Отображение скрытых хостов - всегда нужно передавать 0</td>
 </tr>
 <tr>
 <td><code v-pre>include_dead_ports</code></td>
 <td>1 or 0</td>
-<td>Включить в ответ порты, помеченные мертвыми, по умолчанию 0</td>
+<td>Включить в ответ порты, помеченные &quot;мёртвыми&quot;, по умолчанию - 0</td>
 </tr>
 <tr>
 <td><code v-pre>ports.port_number</code></td>
 <td>int</td>
 <td>Поиск хостов с указанными портами</td>
-</tr>
-<tr>
-<td><code v-pre>$gt-ports.last_seen</code></td>
-<td>string(datetime)</td>
-<td>Поиск хостов, у которых хотя бы один порт был замечен <strong>после</strong> указанного времени. Формат &#x27;<code v-pre>2022-06-14T17:27:25.024141</code>&#x27;</td>
-</tr>
-<tr>
-<td><code v-pre>$lt-ports.last_seen</code></td>
-<td>string(datetime)</td>
-<td>Поиск хостов, у которых хотя бы один порт был замечен <strong>до</strong> указанного времени. Формат &#x27;<code v-pre>2022-06-14T17:27:25.024141</code>&#x27;</td>
 </tr>
 <tr>
 <td><code v-pre>sort</code></td>
