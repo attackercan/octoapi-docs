@@ -33,7 +33,7 @@ password='password'
 auth_token = requests.post(
   'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token',
   data={
-      "client_id": "<Поддомен вашего ЛК>",  # yx-<prefix>.sf-cloud.ru
+      "client_id": "<Поддомен вашего ЛК>",  # <prefix>.sf-cloud.ru
       "username": login,
       "password": password,
       "grant_type": "password"
@@ -52,7 +52,7 @@ auth_token = requests.post(
 
 $login = 'test@test.com';
 $password = 'password';
-$address_prefix = '<Поддомен вашего ЛК>'; // yx-<prefix>.sf-cloud.ru
+$address_prefix = '<Поддомен вашего ЛК>'; // <prefix>.sf-cloud.ru
 $url = 'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token';
 
 $data = http_build_query([
@@ -86,7 +86,7 @@ require 'json'
 
 login = 'test@test.com'
 password = 'password'
-address_prefix = '<Поддомен вашего ЛК>'  # yx-<prefix>.sf-cloud.ru
+address_prefix = '<Поддомен вашего ЛК>'  # <prefix>.sf-cloud.ru
 url = URI("https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token")
 
 response = Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
@@ -107,9 +107,9 @@ auth_token = JSON.parse(response.body)['access_token'] || nil
 
 ## Получить список живых хостов
 
-Необходимо авторизоваться, зайти по вашей ссылке scanfactory `/api/hosts/?alive=1`:  
+Необходимо авторизоваться, зайти по вашей ссылке scanfactory `/api/hosts/?alive=1&hidden=0`:  
 
-[`https://yx-test.sf-cloud.ru/api/hosts/?alive=1`](https://yx-test.sf-cloud.ru/api/hosts/?alive=1)
+[`https://test.sf-cloud.ru/api/hosts/?alive=1&hidden=0`](https://test.sf-cloud.ru/api/hosts/?alive=1&hidden=0)
 
 Или выполнить следующий код
 
@@ -117,7 +117,7 @@ auth_token = JSON.parse(response.body)['access_token'] || nil
 
 ```bash
 curl -X 'GET' \
-  'https://yx-test.sf-cloud.ru/api/hosts/?alive=1&token=<your_api_token>' \
+  'https://test.sf-cloud.ru/api/hosts/?alive=1&hidden=0&token=<your_api_token>' \
   -H 'accept: application/json'
 ```
 
@@ -126,7 +126,7 @@ curl -X 'GET' \
 ```python
 import requests
 
-url = 'https://yx-test.sf-cloud.ru/api/hosts/'
+url = 'https://test.sf-cloud.ru/api/hosts/'
 params = {'alive': 1, 'token': '<your_api_token>'}
 
 headers = {'Accept': 'application/json'}
@@ -138,7 +138,7 @@ alive_hosts = requests.get(url, params=params, headers=headers).json()
 ```php
 <?php
 
-$url = 'https://yx-test.sf-cloud.ru/api/hosts/?alive=1&token=<your_api_token>';
+$url = 'https://test.sf-cloud.ru/api/hosts/?alive=1&hidden=0&token=<your_api_token>';
 $options = array(
   'http' => array(
     'header' => 'accept: application/json'
@@ -157,7 +157,7 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-url = URI('https://yx-test.sf-cloud.ru/api/hosts/')
+url = URI('https://test.sf-cloud.ru/api/hosts/')
 params = { alive: 1, token: '<your_api_token>' }
 
 url.query = URI.encode_www_form(params)
@@ -273,7 +273,7 @@ Parameter | Value | Description
 
 Необходимо авторизоваться, зайти по вашей ссылке scanfactory `/api/alerts/?active=1`:  
 
-[`https://yx-test.sf-cloud.ru/api/alerts/?active=1`](https://yx-test.sf-cloud.ru/api/alerts/?active=1)
+[`https://test.sf-cloud.ru/api/alerts/?active=1`](https://test.sf-cloud.ru/api/alerts/?active=1)
 
 Или выполнить следующий код
 
@@ -281,7 +281,7 @@ Parameter | Value | Description
 
 ```curl
 curl -X 'GET' \
-  https://yx-test.sf-cloud.ru/api/alerts/\?active\=1\&gt-last_seen\="$(date +%s --date '7 days ago')"\&sort=-last_seen&token=<your_api_token> \
+  https://test.sf-cloud.ru/api/alerts/\?active\=1\&gt-last_seen\="$(date +%s --date '7 days ago')"\&sort=-last_seen&token=<your_api_token> \
   -H 'accept: application/json'
 ```
 
@@ -291,7 +291,7 @@ curl -X 'GET' \
 import requests
 import time
 
-url = 'https://yx-test.sf-cloud.ru/api/alerts/?active=1&gt-last_seen={}&sort=-last_seen&token=<your_api_token>'.format(int(time.time()) - 7*24*60*60)
+url = 'https://test.sf-cloud.ru/api/alerts/?active=1&gt-last_seen={}&sort=-last_seen&token=<your_api_token>'.format(int(time.time()) - 7*24*60*60)
 headers = {'accept': 'application/json'}
 response = requests.get(url, headers=headers)
 
@@ -302,7 +302,7 @@ alerts = response.json()
 
 ```php
 <?php
-$url = 'https://yx-test.sf-cloud.ru/api/alerts/?active=1&gt-last_seen=' . (time() - 7 * 24 * 60 * 60) . '&sort=-last_seen&token=<your_api_token>';
+$url = 'https://test.sf-cloud.ru/api/alerts/?active=1&gt-last_seen=' . (time() - 7 * 24 * 60 * 60) . '&sort=-last_seen&token=<your_api_token>';
 $options = array(
     'http' => array(
         'header' => 'accept: application/json'
@@ -320,7 +320,7 @@ require 'net/http'
 require 'json'
 require 'time'
 
-url = URI('https://yx-test.sf-cloud.ru/api/alerts/?active=1&gt-last_seen=' + (Time.now.to_i - 7 * 24 * 60 * 60).to_s + '&sort=-last_seen&token=<your_api_token>')
+url = URI('https://test.sf-cloud.ru/api/alerts/?active=1&gt-last_seen=' + (Time.now.to_i - 7 * 24 * 60 * 60).to_s + '&sort=-last_seen&token=<your_api_token>')
 headers = {
   'accept' => 'application/json'
 }
@@ -425,7 +425,7 @@ Parameter | Value | Description
 
 ## Добавление хостов в проект
 
-Чтобы добавить хосты в проект, необходимо выполнить `POST` запрос на `https://yx-test.sf-cloud.ru/api/projects/<project_UUID>/scope-extension/`
+Чтобы добавить хосты в проект, необходимо выполнить `POST` запрос на `https://test.sf-cloud.ru/api/projects/<project_UUID>/scope-extension/`
 Новые домены будут дописываться в конец уже существующего скоупа.
 
 ### Body запроса
@@ -463,7 +463,7 @@ Parameter | Value | Description
 
 ```bash
 curl -X POST \
-  https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-extension/?token=<your_api_token> \
+  https://test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-extension/?token=<your_api_token> \
   -H 'Content-Type: application/json' \
   -H 'accept: application/json' \
   -d 'PAYLOAD FROM "Body запроса" SECTION'
@@ -476,7 +476,7 @@ curl -X POST \
 import requests
 import json
 
-url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-extension/?token=<your_api_token>'
+url = 'https://test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-extension/?token=<your_api_token>'
 headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
 payload = {'PAYLOAD FROM "Body запроса" SECTION'}
 response = requests.post(url, headers=headers, data=json.dumps(payload))
@@ -490,7 +490,7 @@ project_config = response.json()
 ```php
 <?php
 
-$url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-extension/?token=<your_api_token>';
+$url = 'https://test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-extension/?token=<your_api_token>';
 $data = ['PAYLOAD FROM "Body запроса" SECTION'];
 
 $options = [
@@ -516,7 +516,7 @@ $response = json_decode($result);
 require 'net/http'
 require 'json'
 
-url = URI('https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-extension/?token=<your_api_token>')
+url = URI('https://test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-extension/?token=<your_api_token>')
 headers = {
   'Content-Type' => 'application/json',
   'accept' => 'application/json'
@@ -571,7 +571,7 @@ data = JSON.parse(response.body)
 
 ## Удаление хостов из проекта
 
-Чтобы удалить хост из проекта, необходимо выполнить `POST` запрос на `https://yx-test.sf-cloud.ru/api/projects/<project_UUID>/scope-deletion`
+Чтобы удалить хост из проекта, необходимо выполнить `POST` запрос на `https://test.sf-cloud.ru/api/projects/<project_UUID>/scope-deletion`
 
 ### Body запроса
 
@@ -608,7 +608,7 @@ data = JSON.parse(response.body)
 
 ```bash
 curl -X POST \
-  https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-deletion/?token=<your_api_token> \
+  https://test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-deletion/?token=<your_api_token> \
   -H 'Content-Type: application/json' \
   -H 'accept: application/json' \
   -d 'PAYLOAD FROM "Body запроса" SECTION'
@@ -621,7 +621,7 @@ curl -X POST \
 import requests
 import json
 
-url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-deletion/?token=<your_api_token>'
+url = 'https://test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-deletion/?token=<your_api_token>'
 headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
 payload = {'PAYLOAD FROM "Body запроса" SECTION'}
 response = requests.post(url, headers=headers, data=json.dumps(payload))
@@ -635,7 +635,7 @@ project_config = response.json()
 ```php
 <?php
 
-$url = 'https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-deletion/?token=<your_api_token>';
+$url = 'https://test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-deletion/?token=<your_api_token>';
 $data = ['PAYLOAD FROM "Body запроса" SECTION'];
 
 $options = [
@@ -661,7 +661,7 @@ $response = json_decode($result);
 require 'net/http'
 require 'json'
 
-url = URI('https://yx-test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-deletion/?token=<your_api_token>')
+url = URI('https://test.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-deletion/?token=<your_api_token>')
 headers = {
   'Content-Type' => 'application/json',
   'accept' => 'application/json'
