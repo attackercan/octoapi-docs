@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.779274200070">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.779449321748">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Алгоритм подсчёта лицензии</title>
     <meta name="title" content="Алгоритм подсчёта лицензии">
-    <meta name="description" content="Программное обеспечение лицензируется по количеству Живых хостов (на которых есть хотя бы 1 открытый порт).">
+    <meta name="description" content="Программное обеспечение лицензируется по количеству Живых хостов. Живой Хост - это либо IP-адрес с хотя бы 1 открытым TCP/UDP портом, либо доменное...">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.sf-cloud.ru/licence/">
@@ -20,21 +20,21 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.sf-cloud.ru/licence/">
     <meta property="og:title" content="Алгоритм подсчёта лицензии">
-    <meta property="og:description" content="Программное обеспечение лицензируется по количеству Живых хостов (на которых есть хотя бы 1 открытый порт).">
+    <meta property="og:description" content="Программное обеспечение лицензируется по количеству Живых хостов. Живой Хост - это либо IP-адрес с хотя бы 1 открытым TCP/UDP портом, либо доменное...">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.sf-cloud.ru/licence/">
     <meta property="twitter:title" content="Алгоритм подсчёта лицензии">
-    <meta property="twitter:description" content="Программное обеспечение лицензируется по количеству Живых хостов (на которых есть хотя бы 1 открытый порт).">
+    <meta property="twitter:description" content="Программное обеспечение лицензируется по количеству Живых хостов. Живой Хост - это либо IP-адрес с хотя бы 1 открытым TCP/UDP портом, либо доменное...">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.5.0.779274200070" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.5.0.779449321748" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.779274200070" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.779449321748" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.779274200070" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.779449321748" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -176,12 +176,25 @@
         <span>Алгоритм подсчёта лицензии</span>
     </h2>
 </doc-anchor-target>
-<p>Программное обеспечение лицензируется по количеству Живых хостов (на которых есть хотя бы 1 открытый порт).</p>
-<p>Алгоритм подсчёта:</p>
+<p>Программное обеспечение лицензируется по количеству Живых хостов.
+Живой Хост - это либо IP-адрес с хотя бы 1 открытым TCP/UDP портом, либо доменное имя (FQDN), которое резолвится в IP-адрес с хотя бы 1 открытым портом.</p>
+<doc-anchor-target id="алгоритм-подсчёта">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#алгоритм-подсчёта">#</doc-anchor-trigger>
+        <span>Алгоритм подсчёта:</span>
+    </h3>
+</doc-anchor-target>
 <ol>
-<li>Суммируются уникальные записи &quot;живые IP + живые домены&quot; из всех проектов за последние 90 дней</li>
-<li>Эта сумма пересчитывается в сторону Заказчика по формуле &quot;если на 1 ип расположено 10 доменов, то это считается не как 1+10=11 хостов, а как 10&quot;</li>
+<li>Суммируются уникальные записи &quot;живые IP + живые домены&quot; из всех Проектов в Личном Кабинете за последние 90 дней</li>
+<li>Эта сумма пересчитывается в сторону Заказчика по формуле: &quot;если на 1 IP расположено 10 доменов, то это не (1 IP) + (10 доменов) = 11 хостов, а мы считаем, что это 10 хостов&quot;</li>
 </ol>
+<doc-anchor-target id="пример">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#пример">#</doc-anchor-trigger>
+        <span>Пример:</span>
+    </h3>
+</doc-anchor-target>
+<p><a href="http://www.site.ru">www.site.ru</a>, который резолвится в IP 1.2.3.4, и имеет один открытый порт 443 - это 1 живой хост, и 1 лицензия</p>
 
                                 
                                 <!-- Required only on API pages -->
