@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.779449321748">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.779526603629">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -30,12 +30,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.5.0.779449321748" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.5.0.779526603629" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.779449321748" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.779526603629" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.779449321748" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.779449321748" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.779526603629" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.779526603629" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -185,7 +185,7 @@
 <pre class="language-bash"><code v-pre class="language-bash">curl --location --request POST 'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token' \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=&lt;Поддомен вашего ЛК&gt;' \
+  --data-urlencode 'client_id=&lt;Поддомен вашего ЛК без .sf-cloud.ru&gt;' \
   --data-urlencode 'username=test@test.com' \
   --data-urlencode 'password=password' \
   --data-urlencode 'grant_type=password'</code></pre>
@@ -202,7 +202,7 @@ password='password'
 auth_token = requests.post(
   'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token',
   data={
-      &quot;client_id&quot;: &quot;&lt;Поддомен вашего ЛК&gt;&quot;,  # &lt;prefix&gt;.sf-cloud.ru
+      &quot;client_id&quot;: &quot;&lt;Поддомен вашего ЛК без .sf-cloud.ru&gt;&quot;,
       &quot;username&quot;: login,
       &quot;password&quot;: password,
       &quot;grant_type&quot;: &quot;password&quot;
@@ -221,7 +221,7 @@ auth_token = requests.post(
 
 $login = 'test@test.com';
 $password = 'password';
-$address_prefix = '&lt;Поддомен вашего ЛК&gt;'; // &lt;prefix&gt;.sf-cloud.ru
+$address_prefix = '&lt;Поддомен вашего ЛК без .sf-cloud.ru&gt;';
 $url = 'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token';
 
 $data = http_build_query([
@@ -255,7 +255,7 @@ require 'json'
 
 login = 'test@test.com'
 password = 'password'
-address_prefix = '&lt;Поддомен вашего ЛК&gt;'  # &lt;prefix&gt;.sf-cloud.ru
+address_prefix = '&lt;Поддомен вашего ЛК без .sf-cloud.ru&gt;'
 url = URI(&quot;https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token&quot;)
 
 response = Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
