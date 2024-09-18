@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.780012944308">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.780012972487">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.6.0">
@@ -30,12 +30,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.6.0.780012944308" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.6.0.780012972487" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.780012944308" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.780012972487" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.780012944308" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.780012944308" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.780012972487" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.780012972487" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -285,6 +285,8 @@ auth_token = JSON.parse(response.body)['access_token'] || nil</code></pre>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">curl https://&lt;CLIENT&gt;.sf-cloud.ru/api/admin/agent-token -H &quot;Accept: application/json&quot;  -H &quot;Authorization: Bearer &lt;АВТОРИЗАЦИОННЫЙ_12_ЧАСОВОЙ_ТОКЕН_С_ПРЕДЫДУЩЕГО_ШАГА&gt;&quot;</code></pre>
 </doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
 <doc-anchor-target id="получить-список-живых-хостов">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#получить-список-живых-хостов">#</doc-anchor-trigger>
@@ -292,7 +294,7 @@ auth_token = JSON.parse(response.body)['access_token'] || nil</code></pre>
     </h3>
 </doc-anchor-target>
 <p><code v-pre>/api/hosts/?alive=1&amp;hidden=0</code></p>
-</doc-tab>
+<doc-tabs>
 <doc-tab v-cloak id="curl">
 <template #title>Curl</template>
 <div class="codeblock-wrapper"><doc-codeblock>
