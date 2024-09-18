@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.779526603629">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.780012797356">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.5.0">
+    <meta name="generator" content="Retype 3.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Документация по API</title>
     <meta name="title" content="Документация по API">
-    <meta name="description" content="Здесь описаны несколько полезных API-эндпоинтов для получения интересующих вас данных">
+    <meta name="description" content="Актуальный список API запросов, и параметров к ним, находится в Вашем Личном Кабинете. Ссылка на Swagger Docs: ">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.sf-cloud.ru/api-documentation/">
@@ -20,22 +20,22 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.sf-cloud.ru/api-documentation/">
     <meta property="og:title" content="Документация по API">
-    <meta property="og:description" content="Здесь описаны несколько полезных API-эндпоинтов для получения интересующих вас данных">
+    <meta property="og:description" content="Актуальный список API запросов, и параметров к ним, находится в Вашем Личном Кабинете. Ссылка на Swagger Docs: ">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.sf-cloud.ru/api-documentation/">
     <meta property="twitter:title" content="Документация по API">
-    <meta property="twitter:description" content="Здесь описаны несколько полезных API-эндпоинтов для получения интересующих вас данных">
+    <meta property="twitter:description" content="Актуальный список API запросов, и параметров к ним, находится в Вашем Личном Кабинете. Ссылка на Swagger Docs: ">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.5.0.779526603629" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.6.0.780012797356" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.5.0.779526603629" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.5.0.779526603629" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.5.0.779526603629" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.780012797356" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/retype.js?v=3.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.780012797356" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.780012797356" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -170,12 +170,12 @@
         <span>Документация по API</span>
     </h1>
 </doc-anchor-target>
-<p>Здесь описаны несколько полезных API-эндпоинтов для получения интересующих вас данных</p>
+<p>Актуальный список API запросов, и параметров к ним, находится в Вашем Личном Кабинете. Ссылка на Swagger Docs: <a href="https://xn--__-6kccfb0audgmi1ag0f8cn3d.sf-cloud.ru/api/docs">https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs</a></p>
 <hr>
-<doc-anchor-target id="получить-api-токен">
+<doc-anchor-target id="получить-авторизационный-токен-срок-жизни---12-часов">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#получить-api-токен">#</doc-anchor-trigger>
-        <span>Получить API токен</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#получить-авторизационный-токен-срок-жизни---12-часов">#</doc-anchor-trigger>
+        <span>Получить Авторизационный токен (срок жизни - 12 часов)</span>
     </h2>
 </doc-anchor-target>
 <doc-tabs>
@@ -199,7 +199,7 @@
 login='test@test.com'
 password='password'
 
-auth_token = requests.post(
+АВТОРИЗАЦИОННЫЙ_ТОКЕН = requests.post(
   'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token',
   data={
       &quot;client_id&quot;: &quot;&lt;Поддомен вашего ЛК без .sf-cloud.ru&gt;&quot;,
@@ -241,7 +241,7 @@ $options = [
 ];
 
 $response = file_get_contents($url, false, stream_context_create($options));
-$auth_token = json_decode($response, true)['access_token'] ?? null;
+$АВТОРИЗАЦИОННЫЙ_ТОКЕН = json_decode($response, true)['access_token'] ?? null;
 
 ?&gt;</code></pre>
 </doc-codeblock></div>
@@ -269,25 +269,35 @@ response = Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
   http.request(request)
 end
 
-auth_token = JSON.parse(response.body)['access_token'] || nil</code></pre>
+АВТОРИЗАЦИОННЫЙ_ТОКЕН = JSON.parse(response.body)['access_token'] || nil</code></pre>
 </doc-codeblock></div>
 </doc-tab>
 </doc-tabs>
+<doc-anchor-target id="получить-годовой-авторизационный-токен-например-для-telegram-бота">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#получить-годовой-авторизационный-токен-например-для-telegram-бота">#</doc-anchor-trigger>
+        <span>Получить Годовой Авторизационный токен (например, для Telegram-бота)</span>
+    </h2>
+</doc-anchor-target>
+<doc-tabs>
+<doc-tab v-cloak id="curl">
+<template #title>Curl</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">curl https://&lt;CLIENT&gt;.sf-cloud.ru/api/admin/agent-token -H &quot;Accept: application/json&quot;  -H &quot;Authorization: Bearer &lt;АВТОРИЗАЦИОННЫЙ_12_ЧАСОВОЙ_ТОКЕН_С_ПРЕДЫДУЩЕГО_ШАГА&gt;&quot;</code></pre>
+</doc-codeblock></div>
 <doc-anchor-target id="получить-список-живых-хостов">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#получить-список-живых-хостов">#</doc-anchor-trigger>
         <span>Получить список живых хостов</span>
     </h2>
 </doc-anchor-target>
-<p>Необходимо авторизоваться, зайти по вашей ссылке scanfactory <code v-pre>/api/hosts/?alive=1&amp;hidden=0</code>:</p>
-<p><a href="https://test.sf-cloud.ru/api/hosts/?alive=1&amp;hidden=0"><code v-pre>https://test.sf-cloud.ru/api/hosts/?alive=1&amp;hidden=0</code></a></p>
-<p>Или выполнить следующий код</p>
-<doc-tabs>
+<p><code v-pre>/api/hosts/?alive=1&amp;hidden=0</code></p>
+</doc-tab>
 <doc-tab v-cloak id="curl">
 <template #title>Curl</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">curl -X 'GET' \
-  'https://test.sf-cloud.ru/api/hosts/?alive=1&amp;hidden=0&amp;token=&lt;your_api_token&gt;' \
+  'https://&lt;CLIENT&gt;.sf-cloud.ru/api/hosts/?alive=1&amp;hidden=0&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;' \
   -H 'accept: application/json'</code></pre>
 </doc-codeblock></div>
 </doc-tab>
@@ -296,8 +306,8 @@ auth_token = JSON.parse(response.body)['access_token'] || nil</code></pre>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-python"><code v-pre class="language-python">import requests
 
-url = 'https://test.sf-cloud.ru/api/hosts/'
-params = {'alive': 1, 'token': '&lt;your_api_token&gt;'}
+url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/hosts/'
+params = {'alive': 1, 'token': '&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'}
 
 headers = {'Accept': 'application/json'}
 alive_hosts = requests.get(url, params=params, headers=headers).json()</code></pre>
@@ -308,7 +318,7 @@ alive_hosts = requests.get(url, params=params, headers=headers).json()</code></p
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-php"><code v-pre class="language-php">&lt;?php
 
-$url = 'https://test.sf-cloud.ru/api/hosts/?alive=1&amp;hidden=0&amp;token=&lt;your_api_token&gt;';
+$url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/hosts/?alive=1&amp;hidden=0&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;';
 $options = array(
   'http' =&gt; array(
     'header' =&gt; 'accept: application/json'
@@ -327,8 +337,8 @@ $data = json_decode($response, true);
 require 'uri'
 require 'json'
 
-url = URI('https://test.sf-cloud.ru/api/hosts/')
-params = { alive: 1, token: '&lt;your_api_token&gt;' }
+url = URI('https://&lt;CLIENT&gt;.sf-cloud.ru/api/hosts/')
+params = { alive: 1, token: '&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;' }
 
 url.query = URI.encode_www_form(params)
 
@@ -502,7 +512,7 @@ alive_hosts = JSON.parse(response.body)</code></pre>
     </h2>
 </doc-anchor-target>
 <p>Необходимо авторизоваться, зайти по вашей ссылке scanfactory <code v-pre>/api/alerts/?active=1</code>:</p>
-<p><a href="https://test.sf-cloud.ru/api/alerts/?active=1"><code v-pre>https://test.sf-cloud.ru/api/alerts/?active=1</code></a></p>
+<p><a href="https://%3CCLIENT%3E.sf-cloud.ru/api/alerts/?active=1"><code v-pre>https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1</code></a></p>
 <p>Или выполнить следующий код</p>
 <doc-tabs>
 <doc-tab v-cloak id="curl">
@@ -510,7 +520,7 @@ alive_hosts = JSON.parse(response.body)</code></pre>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">curl</div>
 <pre class="language-none"><code v-pre class="language-none">curl -X 'GET' \
-  https://test.sf-cloud.ru/api/alerts/\?active\=1\&amp;gt-last_seen\=&quot;$(date +%s --date '7 days ago')&quot;\&amp;sort=-last_seen&amp;token=&lt;your_api_token&gt; \
+  https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/\?active\=1\&amp;gt-last_seen\=&quot;$(date +%s --date '7 days ago')&quot;\&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt; \
   -H 'accept: application/json'</code></pre>
 </doc-codeblock></div>
 </doc-tab>
@@ -520,7 +530,7 @@ alive_hosts = JSON.parse(response.body)</code></pre>
 <pre class="language-python"><code v-pre class="language-python">import requests
 import time
 
-url = 'https://test.sf-cloud.ru/api/alerts/?active=1&amp;gt-last_seen={}&amp;sort=-last_seen&amp;token=&lt;your_api_token&gt;'.format(int(time.time()) - 7*24*60*60)
+url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;gt-last_seen={}&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'.format(int(time.time()) - 7*24*60*60)
 headers = {'accept': 'application/json'}
 response = requests.get(url, headers=headers)
 
@@ -531,7 +541,7 @@ alerts = response.json()</code></pre>
 <template #title>PHP</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-php"><code v-pre class="language-php">&lt;?php
-$url = 'https://test.sf-cloud.ru/api/alerts/?active=1&amp;gt-last_seen=' . (time() - 7 * 24 * 60 * 60) . '&amp;sort=-last_seen&amp;token=&lt;your_api_token&gt;';
+$url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;gt-last_seen=' . (time() - 7 * 24 * 60 * 60) . '&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;';
 $options = array(
     'http' =&gt; array(
         'header' =&gt; 'accept: application/json'
@@ -549,7 +559,7 @@ $alerts = json_decode($response, true);
 require 'json'
 require 'time'
 
-url = URI('https://test.sf-cloud.ru/api/alerts/?active=1&amp;gt-last_seen=' + (Time.now.to_i - 7 * 24 * 60 * 60).to_s + '&amp;sort=-last_seen&amp;token=&lt;your_api_token&gt;')
+url = URI('https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;gt-last_seen=' + (Time.now.to_i - 7 * 24 * 60 * 60).to_s + '&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;')
 headers = {
   'accept' =&gt; 'application/json'
 }
@@ -685,7 +695,7 @@ data = JSON.parse(response.body)</code></pre>
         <span>Добавление хостов в проект</span>
     </h2>
 </doc-anchor-target>
-<p>Чтобы добавить хосты в проект, необходимо выполнить <code v-pre>POST</code> запрос на <code v-pre>https://test.sf-cloud.ru/api/projects/&lt;project_UUID&gt;/scope-extension/</code>
+<p>Чтобы добавить хосты в проект, необходимо выполнить <code v-pre>POST</code> запрос на <code v-pre>https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_UUID&gt;/scope-extension/</code>
 Новые домены будут дописываться в конец уже существующего скоупа.</p>
 <doc-anchor-target id="body-запроса">
     <h3>
@@ -731,7 +741,7 @@ data = JSON.parse(response.body)</code></pre>
 <template #title>Curl</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">curl -X POST \
-  https://test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-extension/?token=&lt;your_api_token&gt; \
+  https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-extension/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt; \
   -H 'Content-Type: application/json' \
   -H 'accept: application/json' \
   -d 'PAYLOAD FROM &quot;Body запроса&quot; SECTION'
@@ -744,7 +754,7 @@ data = JSON.parse(response.body)</code></pre>
 <pre class="language-python"><code v-pre class="language-python">import requests
 import json
 
-url = 'https://test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-extension/?token=&lt;your_api_token&gt;'
+url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-extension/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'
 headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
 payload = {'PAYLOAD FROM &quot;Body запроса&quot; SECTION'}
 response = requests.post(url, headers=headers, data=json.dumps(payload))
@@ -758,7 +768,7 @@ project_config = response.json()
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-php"><code v-pre class="language-php">&lt;?php
 
-$url = 'https://test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-extension/?token=&lt;your_api_token&gt;';
+$url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-extension/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;';
 $data = ['PAYLOAD FROM &quot;Body запроса&quot; SECTION'];
 
 $options = [
@@ -784,7 +794,7 @@ $response = json_decode($result);
 <pre class="language-ruby"><code v-pre class="language-ruby">require 'net/http'
 require 'json'
 
-url = URI('https://test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-extension/?token=&lt;your_api_token&gt;')
+url = URI('https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-extension/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;')
 headers = {
   'Content-Type' =&gt; 'application/json',
   'accept' =&gt; 'application/json'
@@ -841,7 +851,7 @@ data = JSON.parse(response.body)</code></pre>
         <span>Удаление хостов из проекта</span>
     </h2>
 </doc-anchor-target>
-<p>Чтобы удалить хост из проекта, необходимо выполнить <code v-pre>POST</code> запрос на <code v-pre>https://test.sf-cloud.ru/api/projects/&lt;project_UUID&gt;/scope-deletion</code></p>
+<p>Чтобы удалить хост из проекта, необходимо выполнить <code v-pre>POST</code> запрос на <code v-pre>https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_UUID&gt;/scope-deletion</code></p>
 <doc-anchor-target id="body-запроса-1">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#body-запроса-1">#</doc-anchor-trigger>
@@ -886,7 +896,7 @@ data = JSON.parse(response.body)</code></pre>
 <template #title>Curl</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">curl -X POST \
-  https://test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;your_api_token&gt; \
+  https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt; \
   -H 'Content-Type: application/json' \
   -H 'accept: application/json' \
   -d 'PAYLOAD FROM &quot;Body запроса&quot; SECTION'
@@ -899,7 +909,7 @@ data = JSON.parse(response.body)</code></pre>
 <pre class="language-python"><code v-pre class="language-python">import requests
 import json
 
-url = 'https://test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;your_api_token&gt;'
+url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'
 headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
 payload = {'PAYLOAD FROM &quot;Body запроса&quot; SECTION'}
 response = requests.post(url, headers=headers, data=json.dumps(payload))
@@ -913,7 +923,7 @@ project_config = response.json()
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-php"><code v-pre class="language-php">&lt;?php
 
-$url = 'https://test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;your_api_token&gt;';
+$url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;';
 $data = ['PAYLOAD FROM &quot;Body запроса&quot; SECTION'];
 
 $options = [
@@ -939,7 +949,7 @@ $response = json_decode($result);
 <pre class="language-ruby"><code v-pre class="language-ruby">require 'net/http'
 require 'json'
 
-url = URI('https://test.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;your_api_token&gt;')
+url = URI('https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;')
 headers = {
   'Content-Type' =&gt; 'application/json',
   'accept' =&gt; 'application/json'
