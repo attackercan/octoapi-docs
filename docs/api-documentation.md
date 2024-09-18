@@ -30,7 +30,7 @@ import requests
 login='test@test.com'
 password='password'
 
-АВТОРИЗАЦИОННЫЙ_ТОКЕН = requests.post(
+auth_token = requests.post(
   'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token',
   data={
       "client_id": "<Поддомен вашего ЛК без .sf-cloud.ru>",
@@ -72,7 +72,7 @@ $options = [
 ];
 
 $response = file_get_contents($url, false, stream_context_create($options));
-$АВТОРИЗАЦИОННЫЙ_ТОКЕН = json_decode($response, true)['access_token'] ?? null;
+$auth_token = json_decode($response, true)['access_token'] ?? null;
 
 ?>
 ```
@@ -100,7 +100,7 @@ response = Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
   http.request(request)
 end
 
-АВТОРИЗАЦИОННЫЙ_ТОКЕН = JSON.parse(response.body)['access_token'] || nil
+auth_token = JSON.parse(response.body)['access_token'] || nil
 ```
 
 +++
