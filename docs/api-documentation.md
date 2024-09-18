@@ -8,7 +8,7 @@ order: 96
 
 ---
 
-## Получить Авторизационный токен (срок жизни - 12 часов)
+### Получить Авторизационный токен (срок жизни - 12 часов)
 
 +++ Curl
 
@@ -106,7 +106,7 @@ auth_token = JSON.parse(response.body)['access_token'] || nil
 +++
 
 
-## Получить Годовой Авторизационный токен (например, для Telegram-бота)
+### Получить Годовой Авторизационный токен (например, для Telegram-бота)
 
 +++ Curl
 
@@ -115,7 +115,7 @@ curl https://<CLIENT>.sf-cloud.ru/api/admin/agent-token -H "Accept: application/
 ```
 
 
-## Получить список живых хостов
+### Получить список живых хостов
 
 `/api/hosts/?alive=1&hidden=0`
 
@@ -274,7 +274,7 @@ Parameter | Value | Description
 
 ===
 
-## Получить уязвимости за неделю
+### Получить уязвимости за неделю
 
 Необходимо авторизоваться, зайти по вашей ссылке scanfactory `/api/alerts/?active=1`:  
 
@@ -428,12 +428,12 @@ Parameter | Value | Description
 
 ===
 
-## Добавление хостов в проект
+### Добавление хостов в проект
 
 Чтобы добавить хосты в проект, необходимо выполнить `POST` запрос на `https://<CLIENT>.sf-cloud.ru/api/projects/<project_UUID>/scope-extension/`
 Новые домены будут дописываться в конец уже существующего скоупа.
 
-### Body запроса
+#### Body запроса
 
 +++ Домены
 
@@ -462,7 +462,7 @@ Parameter | Value | Description
 
 +++
 
-### Код
+#### Код
 
 +++ Curl
 
@@ -574,11 +574,11 @@ data = JSON.parse(response.body)
 
 ===
 
-## Удаление хостов из проекта
+### Удаление хостов из проекта
 
 Чтобы удалить хост из проекта, необходимо выполнить `POST` запрос на `https://<CLIENT>.sf-cloud.ru/api/projects/<project_UUID>/scope-deletion`
 
-### Body запроса
+#### Body запроса
 
 +++ Домены
 
