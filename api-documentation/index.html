@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.780012972487">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.780013114814">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.6.0">
@@ -30,12 +30,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.6.0.780012972487" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.6.0.780013114814" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.780012972487" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.780013114814" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.780012972487" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.780012972487" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.780013114814" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.780013114814" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -513,16 +513,14 @@ alive_hosts = JSON.parse(response.body)</code></pre>
         <span>Получить уязвимости за неделю</span>
     </h3>
 </doc-anchor-target>
-<p>Необходимо авторизоваться, зайти по вашей ссылке scanfactory <code v-pre>/api/alerts/?active=1</code>:</p>
-<p><a href="https://%3CCLIENT%3E.sf-cloud.ru/api/alerts/?active=1"><code v-pre>https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1</code></a></p>
-<p>Или выполнить следующий код</p>
+<p><code v-pre>/api/alerts/?active=1&amp;limit=10000</code></p>
 <doc-tabs>
 <doc-tab v-cloak id="curl">
 <template #title>Curl</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">curl</div>
 <pre class="language-none"><code v-pre class="language-none">curl -X 'GET' \
-  https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/\?active\=1\&amp;gt-last_seen\=&quot;$(date +%s --date '7 days ago')&quot;\&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt; \
+  https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/\?active\=1\&amp;limit\=10000\&amp;gt-last_seen\=&quot;$(date +%s --date '7 days ago')&quot;\&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt; \
   -H 'accept: application/json'</code></pre>
 </doc-codeblock></div>
 </doc-tab>
@@ -532,7 +530,7 @@ alive_hosts = JSON.parse(response.body)</code></pre>
 <pre class="language-python"><code v-pre class="language-python">import requests
 import time
 
-url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;gt-last_seen={}&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'.format(int(time.time()) - 7*24*60*60)
+url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;gt-last_seen={}&amp;limit=10000&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'.format(int(time.time()) - 7*24*60*60)
 headers = {'accept': 'application/json'}
 response = requests.get(url, headers=headers)
 
@@ -543,7 +541,7 @@ alerts = response.json()</code></pre>
 <template #title>PHP</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-php"><code v-pre class="language-php">&lt;?php
-$url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;gt-last_seen=' . (time() - 7 * 24 * 60 * 60) . '&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;';
+$url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;limit=10000&amp;gt-last_seen=' . (time() - 7 * 24 * 60 * 60) . '&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;';
 $options = array(
     'http' =&gt; array(
         'header' =&gt; 'accept: application/json'
@@ -561,7 +559,7 @@ $alerts = json_decode($response, true);
 require 'json'
 require 'time'
 
-url = URI('https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;gt-last_seen=' + (Time.now.to_i - 7 * 24 * 60 * 60).to_s + '&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;')
+url = URI('https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;limit=10000&amp;gt-last_seen=' + (Time.now.to_i - 7 * 24 * 60 * 60).to_s + '&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;')
 headers = {
   'accept' =&gt; 'application/json'
 }
@@ -580,6 +578,8 @@ data = JSON.parse(response.body)</code></pre>
 <doc-panels>
    <doc-panel id="параметры" collapsed>
        <template #title>Параметры</template>
+<p>Актуальный список параметров находится в Swagger в Вашем Личном Кабинете. Ссылка на Swagger: <a href="https://xn--__-6kccfb0audgmi1ag0f8cn3d.sf-cloud.ru/api/docs">https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs</a></p>
+<p>Ниже приведён краткий пример, какие параметры возможно передать</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
