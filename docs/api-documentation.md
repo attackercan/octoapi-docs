@@ -114,6 +114,8 @@ auth_token = JSON.parse(response.body)['access_token'] || nil
 curl https://<CLIENT>.sf-cloud.ru/api/admin/agent-token -H "Accept: application/json"  -H "Authorization: Bearer <АВТОРИЗАЦИОННЫЙ_12_ЧАСОВОЙ_ТОКЕН_С_ПРЕДЫДУЩЕГО_ШАГА>"
 ```
 
++++
+
 
 ### Получить список живых хостов
 
