@@ -278,17 +278,13 @@ Parameter | Value | Description
 
 ### Получить уязвимости за неделю
 
-Необходимо авторизоваться, зайти по вашей ссылке scanfactory `/api/alerts/?active=1`:  
-
-[`https://<CLIENT>.sf-cloud.ru/api/alerts/?active=1`](https://<CLIENT>.sf-cloud.ru/api/alerts/?active=1)
-
-Или выполнить следующий код
+`/api/alerts/?active=1&limit=10000`   
 
 +++ Curl
 
 ```curl
 curl -X 'GET' \
-  https://<CLIENT>.sf-cloud.ru/api/alerts/\?active\=1\&gt-last_seen\="$(date +%s --date '7 days ago')"\&sort=-last_seen&token=<АВТОРИЗАЦИОННЫЙ_ТОКЕН> \
+  https://<CLIENT>.sf-cloud.ru/api/alerts/\?active\=1\&limit\=10000\&gt-last_seen\="$(date +%s --date '7 days ago')"\&sort=-last_seen&token=<АВТОРИЗАЦИОННЫЙ_ТОКЕН> \
   -H 'accept: application/json'
 ```
 
@@ -298,7 +294,7 @@ curl -X 'GET' \
 import requests
 import time
 
-url = 'https://<CLIENT>.sf-cloud.ru/api/alerts/?active=1&gt-last_seen={}&sort=-last_seen&token=<АВТОРИЗАЦИОННЫЙ_ТОКЕН>'.format(int(time.time()) - 7*24*60*60)
+url = 'https://<CLIENT>.sf-cloud.ru/api/alerts/?active=1&gt-last_seen={}&limit=10000&sort=-last_seen&token=<АВТОРИЗАЦИОННЫЙ_ТОКЕН>'.format(int(time.time()) - 7*24*60*60)
 headers = {'accept': 'application/json'}
 response = requests.get(url, headers=headers)
 
@@ -309,7 +305,7 @@ alerts = response.json()
 
 ```php
 <?php
-$url = 'https://<CLIENT>.sf-cloud.ru/api/alerts/?active=1&gt-last_seen=' . (time() - 7 * 24 * 60 * 60) . '&sort=-last_seen&token=<АВТОРИЗАЦИОННЫЙ_ТОКЕН>';
+$url = 'https://<CLIENT>.sf-cloud.ru/api/alerts/?active=1&limit=10000&gt-last_seen=' . (time() - 7 * 24 * 60 * 60) . '&sort=-last_seen&token=<АВТОРИЗАЦИОННЫЙ_ТОКЕН>';
 $options = array(
     'http' => array(
         'header' => 'accept: application/json'
@@ -327,7 +323,7 @@ require 'net/http'
 require 'json'
 require 'time'
 
-url = URI('https://<CLIENT>.sf-cloud.ru/api/alerts/?active=1&gt-last_seen=' + (Time.now.to_i - 7 * 24 * 60 * 60).to_s + '&sort=-last_seen&token=<АВТОРИЗАЦИОННЫЙ_ТОКЕН>')
+url = URI('https://<CLIENT>.sf-cloud.ru/api/alerts/?active=1&limit=10000&gt-last_seen=' + (Time.now.to_i - 7 * 24 * 60 * 60).to_s + '&sort=-last_seen&token=<АВТОРИЗАЦИОННЫЙ_ТОКЕН>')
 headers = {
   'accept' => 'application/json'
 }
@@ -345,6 +341,10 @@ data = JSON.parse(response.body)
 +++
 
 ==- Параметры
+
+Актуальный список параметров находится в Swagger в Вашем Личном Кабинете. Ссылка на Swagger: https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs   
+
+Ниже приведён краткий пример, какие параметры возможно передать   
 
 Parameter | Value | Description
 --- | --- | ---
