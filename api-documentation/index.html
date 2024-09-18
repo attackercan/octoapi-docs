@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.780012905680">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.780012944308">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.6.0">
@@ -30,12 +30,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.6.0.780012905680" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.6.0.780012944308" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.780012905680" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.780012944308" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.780012905680" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.780012905680" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.780012944308" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.780012944308" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -173,10 +173,10 @@
 <p>Актуальная документация по API находится по ссылке: <a href="https://xn--__-6kccfb0audgmi1ag0f8cn3d.sf-cloud.ru/api/docs">https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs</a></p>
 <hr>
 <doc-anchor-target id="получить-авторизационный-токен-срок-жизни---12-часов">
-    <h2>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#получить-авторизационный-токен-срок-жизни---12-часов">#</doc-anchor-trigger>
         <span>Получить Авторизационный токен (срок жизни - 12 часов)</span>
-    </h2>
+    </h3>
 </doc-anchor-target>
 <doc-tabs>
 <doc-tab v-cloak id="curl">
@@ -274,10 +274,10 @@ auth_token = JSON.parse(response.body)['access_token'] || nil</code></pre>
 </doc-tab>
 </doc-tabs>
 <doc-anchor-target id="получить-годовой-авторизационный-токен-например-для-telegram-бота">
-    <h2>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#получить-годовой-авторизационный-токен-например-для-telegram-бота">#</doc-anchor-trigger>
         <span>Получить Годовой Авторизационный токен (например, для Telegram-бота)</span>
-    </h2>
+    </h3>
 </doc-anchor-target>
 <doc-tabs>
 <doc-tab v-cloak id="curl">
@@ -286,10 +286,10 @@ auth_token = JSON.parse(response.body)['access_token'] || nil</code></pre>
 <pre class="language-bash"><code v-pre class="language-bash">curl https://&lt;CLIENT&gt;.sf-cloud.ru/api/admin/agent-token -H &quot;Accept: application/json&quot;  -H &quot;Authorization: Bearer &lt;АВТОРИЗАЦИОННЫЙ_12_ЧАСОВОЙ_ТОКЕН_С_ПРЕДЫДУЩЕГО_ШАГА&gt;&quot;</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="получить-список-живых-хостов">
-    <h2>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#получить-список-живых-хостов">#</doc-anchor-trigger>
         <span>Получить список живых хостов</span>
-    </h2>
+    </h3>
 </doc-anchor-target>
 <p><code v-pre>/api/hosts/?alive=1&amp;hidden=0</code></p>
 </doc-tab>
@@ -506,10 +506,10 @@ alive_hosts = JSON.parse(response.body)</code></pre>
    </doc-panel>
 </doc-panels>
 <doc-anchor-target id="получить-уязвимости-за-неделю">
-    <h2>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#получить-уязвимости-за-неделю">#</doc-anchor-trigger>
         <span>Получить уязвимости за неделю</span>
-    </h2>
+    </h3>
 </doc-anchor-target>
 <p>Необходимо авторизоваться, зайти по вашей ссылке scanfactory <code v-pre>/api/alerts/?active=1</code>:</p>
 <p><a href="https://%3CCLIENT%3E.sf-cloud.ru/api/alerts/?active=1"><code v-pre>https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1</code></a></p>
@@ -690,18 +690,18 @@ data = JSON.parse(response.body)</code></pre>
    </doc-panel>
 </doc-panels>
 <doc-anchor-target id="добавление-хостов-в-проект">
-    <h2>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#добавление-хостов-в-проект">#</doc-anchor-trigger>
         <span>Добавление хостов в проект</span>
-    </h2>
+    </h3>
 </doc-anchor-target>
 <p>Чтобы добавить хосты в проект, необходимо выполнить <code v-pre>POST</code> запрос на <code v-pre>https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_UUID&gt;/scope-extension/</code>
 Новые домены будут дописываться в конец уже существующего скоупа.</p>
 <doc-anchor-target id="body-запроса">
-    <h3>
+    <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#body-запроса">#</doc-anchor-trigger>
         <span>Body запроса</span>
-    </h3>
+    </h4>
 </doc-anchor-target>
 <doc-tabs>
 <doc-tab v-cloak id="домены">
@@ -731,10 +731,10 @@ data = JSON.parse(response.body)</code></pre>
 </doc-tab>
 </doc-tabs>
 <doc-anchor-target id="код">
-    <h3>
+    <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#код">#</doc-anchor-trigger>
         <span>Код</span>
-    </h3>
+    </h4>
 </doc-anchor-target>
 <doc-tabs>
 <doc-tab v-cloak id="curl">
@@ -846,17 +846,17 @@ data = JSON.parse(response.body)</code></pre>
 </doc-codeblock></div>
 </doc-panel>
 <doc-anchor-target id="удаление-хостов-из-проекта">
-    <h2>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#удаление-хостов-из-проекта">#</doc-anchor-trigger>
         <span>Удаление хостов из проекта</span>
-    </h2>
+    </h3>
 </doc-anchor-target>
 <p>Чтобы удалить хост из проекта, необходимо выполнить <code v-pre>POST</code> запрос на <code v-pre>https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_UUID&gt;/scope-deletion</code></p>
 <doc-anchor-target id="body-запроса-1">
-    <h3>
+    <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#body-запроса-1">#</doc-anchor-trigger>
         <span>Body запроса</span>
-    </h3>
+    </h4>
 </doc-anchor-target>
 <doc-tabs>
 <doc-tab v-cloak id="домены">
