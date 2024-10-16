@@ -12,34 +12,44 @@ order: 97
 
 - **Коммерческий Веб-сканер #1**
   - Поиск уязвимостей на веб-сайтах методом чёрного ящика
-- **Коммерческий Веб-сканер #2**
-  - Поиск OWASP Top 10 уязвимостей в API-запросах
 - **Коммерческий Сканер Инфраструктуры**
   - Поиск CVE-уязвимостей, PCI DSS сканирование
 
 ### OSINT
 
+- Пассивный поиск:
 - **[amass](https://github.com/OWASP/Amass)**
-  - Пассивный поиск поддоменов по открытым источникам
+  - Пассивный поиск поддоменов по платным и бесплатным источникам
 - **[subfinder](https://github.com/projectdiscovery/subfinder)**
-  - Пассивный поиск поддоменов по открытым источникам
+  - Пассивный поиск поддоменов по платным и бесплатным источникам
+
+- Активный поиск:
 - **[goaltnds](https://github.com/subfinder/goaltdns)**
   - Активный поиск поддоменов, методом брутфорса по словарю
+- **[alterx](https://github.com/projectdiscovery/alterx)**
+  - Активный поиск поддоменов, методом пермутаций результатов
+- **[dnsx](https://github.com/projectdiscovery/dnsx)**
+  - Активный поиск поддоменов, очистка результатов методом резолвинга
+- **[massdns](https://github.com/blechschmidt/massdns)**
+  - Активный поиск поддоменов, очистка результатов методом резолвинга результатов
+
 
 ### Opensource инструменты
 
 - **[nuclei](https://github.com/projectdiscovery/nuclei)**
-  - Поиск популярных уязвимостей. Регулярно разрабатываем собственные плагины
+  - Поиск популярных уязвимостей. Более 9000 плагинов. Регулярно разрабатываем собственные плагины
 - **[nmap](https://nmap.org/)**
   - Поиск открытых портов и определение запущенных сервисов
+- **[masscan](https://github.com/robertdavidgraham/masscan)**
+  - Поиск открытых портов
+- **[OWASP ZAP](https://github.com/zaproxy/zaproxy)**
+  - Поиск OWASP Top 10 уязвимостей на веб-сайтах
 - **brute**
   - Перебор паролей к веб-формам, а также сетевым сервисам ftp, ftps, mssql, postgres, radmin2, rdp, redis, amqp, smb, snmp, ssh, vnc, telnet
 - **[sdto](https://github.com/scanfactory/sdto)**
   - Проверка перехвата поддомена
 - **[dirsearch](https://github.com/maurosoria/dirsearch)**
   - Поиск скрытых файлов и папок
-- **Chrome crawler**
-  - Рекурсивный обход веб-сайтов, сбор HTTP-запросов
 - **[crawlergo](https://github.com/Qianlitp/crawlergo)**
   - Рекурсивный обход веб-сайтов, сбор HTTP-запросов
 - **[fuzzuli](https://github.com/musana/fuzzuli)**
