@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.780013114814">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.782400241972">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.6.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.6.0.780013114814" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.6.0.782400241972" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.780013114814" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.782400241972" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.780013114814" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.782400241972" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -183,11 +183,6 @@
 <li>Поиск уязвимостей на веб-сайтах методом чёрного ящика</li>
 </ul>
 </li>
-<li><strong>Коммерческий Веб-сканер #2</strong>
-<ul>
-<li>Поиск OWASP Top 10 уязвимостей в API-запросах</li>
-</ul>
-</li>
 <li><strong>Коммерческий Сканер Инфраструктуры</strong>
 <ul>
 <li>Поиск CVE-уязвимостей, PCI DSS сканирование</li>
@@ -201,19 +196,38 @@
     </h3>
 </doc-anchor-target>
 <ul>
-<li><strong><a href="https://github.com/OWASP/Amass">amass</a></strong>
+<li><p>Пассивный поиск:</p>
+</li>
+<li><p><strong><a href="https://github.com/OWASP/Amass">amass</a></strong></p>
 <ul>
-<li>Пассивный поиск поддоменов по открытым источникам</li>
+<li>Пассивный поиск поддоменов по платным и бесплатным источникам</li>
 </ul>
 </li>
-<li><strong><a href="https://github.com/projectdiscovery/subfinder">subfinder</a></strong>
+<li><p><strong><a href="https://github.com/projectdiscovery/subfinder">subfinder</a></strong></p>
 <ul>
-<li>Пассивный поиск поддоменов по открытым источникам</li>
+<li>Пассивный поиск поддоменов по платным и бесплатным источникам</li>
 </ul>
 </li>
-<li><strong><a href="https://github.com/subfinder/goaltdns">goaltnds</a></strong>
+<li><p>Активный поиск:</p>
+</li>
+<li><p><strong><a href="https://github.com/subfinder/goaltdns">goaltnds</a></strong></p>
 <ul>
 <li>Активный поиск поддоменов, методом брутфорса по словарю</li>
+</ul>
+</li>
+<li><p><strong><a href="https://github.com/projectdiscovery/alterx">alterx</a></strong></p>
+<ul>
+<li>Активный поиск поддоменов, методом пермутаций результатов</li>
+</ul>
+</li>
+<li><p><strong><a href="https://github.com/projectdiscovery/dnsx">dnsx</a></strong></p>
+<ul>
+<li>Активный поиск поддоменов, очистка результатов методом резолвинга</li>
+</ul>
+</li>
+<li><p><strong><a href="https://github.com/blechschmidt/massdns">massdns</a></strong></p>
+<ul>
+<li>Активный поиск поддоменов, очистка результатов методом резолвинга результатов</li>
 </ul>
 </li>
 </ul>
@@ -226,12 +240,22 @@
 <ul>
 <li><strong><a href="https://github.com/projectdiscovery/nuclei">nuclei</a></strong>
 <ul>
-<li>Поиск популярных уязвимостей. Регулярно разрабатываем собственные плагины</li>
+<li>Поиск популярных уязвимостей. Более 9000 плагинов. Регулярно разрабатываем собственные плагины</li>
 </ul>
 </li>
 <li><strong><a href="https://nmap.org/">nmap</a></strong>
 <ul>
 <li>Поиск открытых портов и определение запущенных сервисов</li>
+</ul>
+</li>
+<li><strong><a href="https://github.com/robertdavidgraham/masscan">masscan</a></strong>
+<ul>
+<li>Поиск открытых портов</li>
+</ul>
+</li>
+<li><strong><a href="https://github.com/zaproxy/zaproxy">OWASP ZAP</a></strong>
+<ul>
+<li>Поиск OWASP Top 10 уязвимостей на веб-сайтах</li>
 </ul>
 </li>
 <li><strong>brute</strong>
@@ -247,11 +271,6 @@
 <li><strong><a href="https://github.com/maurosoria/dirsearch">dirsearch</a></strong>
 <ul>
 <li>Поиск скрытых файлов и папок</li>
-</ul>
-</li>
-<li><strong>Chrome crawler</strong>
-<ul>
-<li>Рекурсивный обход веб-сайтов, сбор HTTP-запросов</li>
 </ul>
 </li>
 <li><strong><a href="https://github.com/Qianlitp/crawlergo">crawlergo</a></strong>
