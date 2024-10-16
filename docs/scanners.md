@@ -44,10 +44,10 @@ order: 97
   - Поиск открытых портов
 - **[OWASP ZAP](https://github.com/zaproxy/zaproxy)**
   - Поиск OWASP Top 10 уязвимостей на веб-сайтах
+- **[sdto](https://github.com/scanfactory/sdto)**
+  - Проверка перехвата поддомена (собственная разработка)
 - **brute**
   - Перебор паролей к веб-формам, а также сетевым сервисам ftp, ftps, mssql, postgres, radmin2, rdp, redis, amqp, smb, snmp, ssh, vnc, telnet
-- **[sdto](https://github.com/scanfactory/sdto)**
-  - Проверка перехвата поддомена
 - **screenshooter**
   - Создание скриншота главной страницы сайта (собственная разработка)
 - **[dirsearch](https://github.com/maurosoria/dirsearch)**
