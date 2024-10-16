@@ -17,13 +17,13 @@ order: 97
 
 ### OSINT
 
-- Пассивный поиск:
+#### Пассивный поиск:
 - **[amass](https://github.com/OWASP/Amass)**
   - Пассивный поиск поддоменов по платным и бесплатным источникам
 - **[subfinder](https://github.com/projectdiscovery/subfinder)**
   - Пассивный поиск поддоменов по платным и бесплатным источникам
 
-- Активный поиск:
+#### Активный поиск:
 - **[goaltnds](https://github.com/subfinder/goaltdns)**
   - Активный поиск поддоменов, методом брутфорса по словарю
 - **[alterx](https://github.com/projectdiscovery/alterx)**
