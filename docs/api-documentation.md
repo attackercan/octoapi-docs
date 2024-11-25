@@ -13,7 +13,7 @@ order: 96
 +++ Curl
 
 ```bash
-curl --location --request POST 'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token' \
+curl --location --request POST 'https://auth.sf-cloud.ru/auth/realms/factory/protocol/openid-connect/token' \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id=<Поддомен вашего ЛК без .sf-cloud.ru>' \
@@ -31,7 +31,7 @@ login='test@test.com'
 password='password'
 
 auth_token = requests.post(
-  'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token',
+  'https://auth.sf-cloud.ru/auth/realms/factory/protocol/openid-connect/token',
   data={
       "client_id": "<Поддомен вашего ЛК без .sf-cloud.ru>",
       "username": login,
@@ -53,7 +53,7 @@ auth_token = requests.post(
 $login = 'test@test.com';
 $password = 'password';
 $address_prefix = '<Поддомен вашего ЛК без .sf-cloud.ru>';
-$url = 'https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token';
+$url = 'https://auth.sf-cloud.ru/auth/realms/factory/protocol/openid-connect/token';
 
 $data = http_build_query([
     'client_id' => $address_prefix,
@@ -87,7 +87,7 @@ require 'json'
 login = 'test@test.com'
 password = 'password'
 address_prefix = '<Поддомен вашего ЛК без .sf-cloud.ru>'
-url = URI("https://keycloak.sf-cloud.ru/auth/realms/scanfactory/protocol/openid-connect/token")
+url = URI("https://auth.sf-cloud.ru/auth/realms/factory/protocol/openid-connect/token")
 
 response = Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
   request = Net::HTTP::Post.new(url)
