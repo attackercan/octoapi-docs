@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.787152278648">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.787780180325">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.6.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Документация по API</title>
     <meta name="title" content="Документация по API">
-    <meta name="description" content="Актуальная документация по API находится по ссылке: https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs">
+    <meta name="description" content="Документация по API находится по ссылке: https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.sf-cloud.ru/api-documentation/">
@@ -20,22 +20,22 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.sf-cloud.ru/api-documentation/">
     <meta property="og:title" content="Документация по API">
-    <meta property="og:description" content="Актуальная документация по API находится по ссылке: https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs">
+    <meta property="og:description" content="Документация по API находится по ссылке: https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.sf-cloud.ru/api-documentation/">
     <meta property="twitter:title" content="Документация по API">
-    <meta property="twitter:description" content="Актуальная документация по API находится по ссылке: https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs">
+    <meta property="twitter:description" content="Документация по API находится по ссылке: https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.6.0.787152278648" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.6.0.787780180325" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.787152278648" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.787780180325" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.787152278648" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.787152278648" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.787780180325" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.787780180325" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -170,14 +170,15 @@
         <span>Документация по API</span>
     </h1>
 </doc-anchor-target>
-<p>Актуальная документация по API находится по ссылке: <a href="https://xn--__-6kccfb0audgmi1ag0f8cn3d.sf-cloud.ru/api/docs">https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs</a></p>
+<p>Документация по API находится по ссылке: <code v-pre>https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs</code></p>
 <hr>
 <doc-anchor-target id="получить-авторизационный-токен-срок-жизни---12-часов">
-    <h3>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#получить-авторизационный-токен-срок-жизни---12-часов">#</doc-anchor-trigger>
         <span>Получить Авторизационный токен (срок жизни - 12 часов)</span>
-    </h3>
+    </h2>
 </doc-anchor-target>
+<p><code v-pre>POST</code> <code v-pre>https://auth.sf-cloud.ru/realms/factory/protocol/openid-connect/token</code></p>
 <doc-tabs>
 <doc-tab v-cloak id="curl">
 <template #title>Curl</template>
@@ -214,38 +215,6 @@ auth_token = requests.post(
 ).json().get(&quot;access_token&quot;, None)</code></pre>
 </doc-codeblock></div>
 </doc-tab>
-<doc-tab v-cloak id="php">
-<template #title>PHP</template>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">&lt;?php
-
-$login = 'test@test.com';
-$password = 'password';
-$address_prefix = '&lt;Поддомен вашего ЛК без .sf-cloud.ru&gt;';
-$url = 'https://auth.sf-cloud.ru/realms/factory/protocol/openid-connect/token';
-
-$data = http_build_query([
-    'client_id' =&gt; $address_prefix,
-    'username' =&gt; $login,
-    'password' =&gt; $password,
-    'grant_type' =&gt; 'password'
-]);
-
-$options = [
-    'http' =&gt; [
-        'header'  =&gt; &quot;Content-Type: application/x-www-form-urlencoded\r\n&quot; .
-                     &quot;Accept: application/json\r\n&quot;,
-        'method'  =&gt; 'POST',
-        'content' =&gt; $data
-    ]
-];
-
-$response = file_get_contents($url, false, stream_context_create($options));
-$auth_token = json_decode($response, true)['access_token'] ?? null;
-
-?&gt;</code></pre>
-</doc-codeblock></div>
-</doc-tab>
 <doc-tab v-cloak id="ruby">
 <template #title>Ruby</template>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -274,10 +243,10 @@ auth_token = JSON.parse(response.body)['access_token'] || nil</code></pre>
 </doc-tab>
 </doc-tabs>
 <doc-anchor-target id="получить-годовой-авторизационный-токен-например-для-telegram-бота">
-    <h3>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#получить-годовой-авторизационный-токен-например-для-telegram-бота">#</doc-anchor-trigger>
         <span>Получить Годовой Авторизационный токен (например, для Telegram-бота)</span>
-    </h3>
+    </h2>
 </doc-anchor-target>
 <doc-tabs>
 <doc-tab v-cloak id="curl">
@@ -288,19 +257,20 @@ auth_token = JSON.parse(response.body)['access_token'] || nil</code></pre>
 </doc-tab>
 </doc-tabs>
 <doc-anchor-target id="получить-список-живых-хостов">
-    <h3>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#получить-список-живых-хостов">#</doc-anchor-trigger>
         <span>Получить список живых хостов</span>
-    </h3>
+    </h2>
 </doc-anchor-target>
-<p><code v-pre>/api/hosts/?alive=1&amp;hidden=0</code></p>
+<p><code v-pre>GET</code> <code v-pre>/api/hosts/?alive=1&amp;hidden=0</code></p>
 <doc-tabs>
 <doc-tab v-cloak id="curl">
 <template #title>Curl</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">curl -X 'GET' \
-  'https://&lt;CLIENT&gt;.sf-cloud.ru/api/hosts/?alive=1&amp;hidden=0&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;' \
-  -H 'accept: application/json'</code></pre>
+  'https://&lt;CLIENT&gt;.sf-cloud.ru/api/hosts/?alive=1&amp;hidden=0' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer &lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'</code></pre>
 </doc-codeblock></div>
 </doc-tab>
 <doc-tab v-cloak id="python">
@@ -309,27 +279,10 @@ auth_token = JSON.parse(response.body)['access_token'] || nil</code></pre>
 <pre class="language-python"><code v-pre class="language-python">import requests
 
 url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/hosts/'
-params = {'alive': 1, 'token': '&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'}
+params = {'alive': 1, 'hidden': 0}
 
-headers = {'Accept': 'application/json'}
+headers = {'Accept': 'application/json', 'Authorization': 'Bearer &lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'}
 alive_hosts = requests.get(url, params=params, headers=headers).json()</code></pre>
-</doc-codeblock></div>
-</doc-tab>
-<doc-tab v-cloak id="php">
-<template #title>PHP</template>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">&lt;?php
-
-$url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/hosts/?alive=1&amp;hidden=0&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;';
-$options = array(
-  'http' =&gt; array(
-    'header' =&gt; 'accept: application/json'
-  )
-);
-
-$response = file_get_contents($url, false, stream_context_create($options));
-$data = json_decode($response, true);
-?&gt;</code></pre>
 </doc-codeblock></div>
 </doc-tab>
 <doc-tab v-cloak id="ruby">
@@ -340,11 +293,11 @@ require 'uri'
 require 'json'
 
 url = URI('https://&lt;CLIENT&gt;.sf-cloud.ru/api/hosts/')
-params = { alive: 1, token: '&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;' }
+params = { alive: 1, hidden: 0 }
 
 url.query = URI.encode_www_form(params)
 
-headers = { 'Accept': 'application/json' }
+headers = { 'Accept': 'application/json', 'Authorization': '&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;' }
 response = Net::HTTP.get_response(url, headers)
 
 alive_hosts = JSON.parse(response.body)</code></pre>
@@ -354,7 +307,7 @@ alive_hosts = JSON.parse(response.body)</code></pre>
 <doc-panels>
    <doc-panel id="параметры" collapsed>
        <template #title>Параметры</template>
-<p>Актуальный список параметров находится в Swagger в Вашем Личном Кабинете. Ссылка на Swagger: <a href="https://xn--__-6kccfb0audgmi1ag0f8cn3d.sf-cloud.ru/api/docs">https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs</a></p>
+<p>Полный список параметров находится в Swagger в Вашем Личном Кабинете. Ссылка на Swagger: <code v-pre>https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs</code></p>
 <p>Ниже приведён краткий пример, какие параметры возможно передать</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -377,6 +330,11 @@ alive_hosts = JSON.parse(response.body)</code></pre>
 <td>Поиск живых или мертвых хостов</td>
 </tr>
 <tr>
+<td><code v-pre>hidden</code></td>
+<td>1 or 0</td>
+<td>Отображение скрытых хостов - всегда нужно передавать 0</td>
+</tr>
+<tr>
 <td><code v-pre>address</code></td>
 <td>IP string</td>
 <td>Поиск хостов с указанным IP. Формат: <code v-pre>127.0.0.1</code></td>
@@ -387,19 +345,9 @@ alive_hosts = JSON.parse(response.body)</code></pre>
 <td>Поиск хостов с указанными доменными именами. Формат: &#x27;google.com&#x27;</td>
 </tr>
 <tr>
-<td><code v-pre>pending</code></td>
-<td>True/1 or string/int</td>
-<td>Поиск ожидающих хостов (True или 1), поиск активных (любое дргугое значение)</td>
-</tr>
-<tr>
-<td><code v-pre>hidden</code></td>
-<td>1 or 0</td>
-<td>Отображение скрытых хостов - всегда нужно передавать 0</td>
-</tr>
-<tr>
-<td><code v-pre>include_dead_ports</code></td>
-<td>1 or 0</td>
-<td>Включить в ответ порты, помеченные &quot;мёртвыми&quot;, по умолчанию - 0</td>
+<td><code v-pre>port_last_seen</code></td>
+<td>int seconds</td>
+<td>Включить в ответ хосты, порты которых были замечены в период от указанной даты до текущего момента</td>
 </tr>
 <tr>
 <td><code v-pre>ports.port_number</code></td>
@@ -412,19 +360,19 @@ alive_hosts = JSON.parse(response.body)</code></pre>
 <td>Сортировка хостов. Варианты: <code v-pre>host</code>, <code v-pre>last_seen</code>, <code v-pre>mdate</code>, <code v-pre>alert_count</code>. По умолчанию <code v-pre>host</code>. Каждое значение может быть с перфиксом <code v-pre>-</code>, что означает сортировку в обратном порядке: <code v-pre>-last_seen</code></td>
 </tr>
 <tr>
-<td><code v-pre>skip</code></td>
-<td>int</td>
-<td>Количество хостов, которое будет пропущено для пагинации</td>
-</tr>
-<tr>
 <td><code v-pre>limit</code></td>
 <td>int</td>
 <td>Количество хостов, которое будет показано на одной странице</td>
 </tr>
 <tr>
+<td><code v-pre>skip</code></td>
+<td>int</td>
+<td>Количество хостов, которое будет пропущено для пагинации</td>
+</tr>
+<tr>
 <td><code v-pre>all</code></td>
 <td>1</td>
-<td>Если указано <code v-pre>skip</code> и <code v-pre>limit</code> игнорируется, запрашивает все хосты</td>
+<td>Если указано - <code v-pre>skip</code> и <code v-pre>limit</code> игнорируются, запрашивает все хосты</td>
 </tr>
 </tbody>
 </table>
@@ -437,91 +385,85 @@ alive_hosts = JSON.parse(response.body)</code></pre>
 </span></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-json"><code v-pre class="language-json">{
-  &quot;count&quot;: 1,
-  &quot;items&quot;: [
-    {
-      &quot;ipv4&quot;: &quot;51.32.2.0&quot;,
-      &quot;domains&quot;: [
+    &quot;count&quot;: 1,
+    &quot;items&quot;: [
         {
-          &quot;domain&quot;: &quot;foo.bar.com&quot;,
-          &quot;found_by&quot;: [
-            &quot;altdns-4&quot;
-          ],
-          &quot;alert_stats&quot;: {
-            &quot;critical&quot;: 0,
-            &quot;high&quot;: 0,
-            &quot;medium&quot;: 0
-          }
+            &quot;id&quot;: &quot;78aaf796-690d-11ef-97d2-ff886da63cd5&quot;,
+            &quot;ipv4&quot;: &quot;1.1.1.1&quot;,
+            &quot;domains&quot;: [],
+            &quot;ports&quot;: [
+                {
+                    &quot;tlp&quot;: &quot;tcp&quot;,
+                    &quot;port_number&quot;: 443,
+                    &quot;open&quot;: true,
+                    &quot;found_by&quot;: [
+                        &quot;infrascan-1057&quot;,
+                        &quot;nmap-1051&quot;
+                    ],
+                    &quot;protocol&quot;: &quot;tcpwrapped&quot;,
+                    &quot;info&quot;: {
+                        &quot;conf&quot;: &quot;8&quot;,
+                        &quot;name&quot;: &quot;tcpwrapped&quot;,
+                        &quot;method&quot;: &quot;probed&quot;,
+                        &quot;cpelist&quot;: []
+                    },
+                    &quot;last_seen&quot;: &quot;2024-12-13T15:17:36.202215+00:00&quot;,
+                    &quot;history&quot;: [
+                        {
+                            &quot;open&quot;: true,
+                            &quot;at&quot;: &quot;2024-09-03T09:50:14.810007+00:00&quot;,
+                            &quot;task_id&quot;: null
+                        }
+                    ],
+                    &quot;banned&quot;: false,
+                    &quot;cdate&quot;: &quot;2024-09-03T09:50:14.810007+00:00&quot;,
+                    &quot;mdate&quot;: &quot;2024-12-13T15:17:36.202215+00:00&quot;
+                }
+            ],
+            &quot;project_id&quot;: &quot;77ce5908-690d-11ef-97d2-5bfbdf422a92&quot;,
+            &quot;found_by&quot;: [],
+            &quot;hidden&quot;: false,
+            &quot;scope_status&quot;: 2,
+            &quot;cdate&quot;: &quot;2024-09-02T09:26:43.064509+00:00&quot;,
+            &quot;mdate&quot;: &quot;2024-12-13T04:17:27.370275+00:00&quot;,
+            &quot;last_seen&quot;: &quot;2024-12-13T15:17:36.202215+00:00&quot;,
+            &quot;ping_ok&quot;: true,
+            &quot;whois&quot;: {
+                &quot;HUGE WHOIS SKIPPED&quot;: &quot;EXAMPLE&quot;
+            },
+            &quot;alert_stats&quot;: {
+                &quot;medium&quot;: 0,
+                &quot;high&quot;: 0,
+                &quot;critical&quot;: 0
+            },
+            &quot;latest_infrascan_report&quot;: &quot;/link/report.pdf&quot;,
+            &quot;pin&quot;: null,
+            &quot;comment&quot;: null,
+            &quot;capacity&quot;: null,
+            &quot;scope_history&quot;: [],
+            &quot;storing_reason&quot;: &quot;in root scope&quot;,
+            &quot;originator&quot;: &quot;user&quot;
         }
-      ],
-      &quot;ports&quot;: [
-        {
-          &quot;port_number&quot;: 0,
-          &quot;found_by&quot;: [
-            &quot;nmap-5&quot;
-          ],
-          &quot;open&quot;: true,
-          &quot;protocol&quot;: &quot;string&quot;,
-          &quot;info&quot;: {
-            &quot;name&quot;: &quot;ssh&quot;,
-            &quot;product&quot;: &quot;OpenSSH&quot;,
-            &quot;version&quot;: &quot;7.9p1 Debian 10+deb10u2&quot;,
-            &quot;extrainfo&quot;: &quot;protocol 2.0&quot;,
-            &quot;ostype&quot;: &quot;Linux&quot;,
-            &quot;method&quot;: &quot;probed&quot;,
-            &quot;conf&quot;: &quot;10&quot;,
-            &quot;cpelist&quot;: [
-              &quot;cpe:/a:openbsd:openssh:7.9p1&quot;,
-              &quot;cpe:/o:linux:linux_kernel&quot;
-            ]
-          },
-          &quot;history&quot;: [
-            {
-              &quot;open&quot;: true,
-              &quot;at&quot;: &quot;2022-06-14T17:27:25.024141&quot;,
-              &quot;task_id&quot;: &quot;&lt;project_id: uuid | str&gt;&quot;
-            }
-          ],
-          &quot;last_seen&quot;: &quot;2022-06-14T17:27:25.024141&quot;,
-          &quot;cdate&quot;: &quot;2022-06-14T17:27:25.024141&quot;,
-          &quot;mdate&quot;: &quot;2022-06-14T17:27:25.024141&quot;
-        }
-      ],
-      &quot;project_id&quot;: &quot;&lt;project_id: uuid | str&gt;&quot;,
-      &quot;found_by&quot;: &quot;altdns&quot;,
-      &quot;pending&quot;: true,
-      &quot;hidden&quot;: true,
-      &quot;ping_ok&quot;: true,
-      &quot;cdate&quot;: &quot;2022-06-14T17:27:25.024141&quot;,
-      &quot;mdate&quot;: &quot;2022-06-14T17:27:25.024141&quot;,
-      &quot;last_seen&quot;: &quot;2022-06-14T17:27:25.024141&quot;,
-      &quot;alert_stats&quot;: {
-        &quot;critical&quot;: 0,
-        &quot;high&quot;: 0,
-        &quot;medium&quot;: 0
-      },
-      &quot;whois&quot;: {}
-    }
-  ]
+    ]
 }</code></pre>
 </doc-codeblock></div>
    </doc-panel>
 </doc-panels>
 <doc-anchor-target id="получить-уязвимости-за-неделю">
-    <h3>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#получить-уязвимости-за-неделю">#</doc-anchor-trigger>
         <span>Получить уязвимости за неделю</span>
-    </h3>
+    </h2>
 </doc-anchor-target>
-<p><code v-pre>/api/alerts/?active=1&amp;limit=10000</code></p>
+<p><code v-pre>GET</code> <code v-pre>/api/alerts/?active=1&amp;limit=1000</code></p>
 <doc-tabs>
 <doc-tab v-cloak id="curl">
 <template #title>Curl</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">curl</div>
-<pre class="language-none"><code v-pre class="language-none">curl -X 'GET' \
-  https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/\?active\=1\&amp;limit\=10000\&amp;gt-last_seen\=&quot;$(date +%s --date '7 days ago')&quot;\&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt; \
-  -H 'accept: application/json'</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">curl -X GET &quot;https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;limit=1000&amp;gt-last_seen=$(date +%s --date '7 days ago')&amp;sort=-last_seen&quot; \
+  -H &quot;accept: application/json&quot; \
+  -H &quot;Authorization: Bearer &lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;&quot;
+</code></pre>
 </doc-codeblock></div>
 </doc-tab>
 <doc-tab v-cloak id="python">
@@ -529,27 +471,14 @@ alive_hosts = JSON.parse(response.body)</code></pre>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-python"><code v-pre class="language-python">import requests
 import time
+from datetime import datetime, timezone, timedelta
 
-url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;gt-last_seen={}&amp;limit=10000&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'.format(int(time.time()) - 7*24*60*60)
-headers = {'accept': 'application/json'}
+from_ = int((datetime.now(tz=timezone.utc) - timedelta(days=7)).timestamp())
+url = f&quot;https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;gt-last_seen={from_}&amp;limit=10000&amp;sort=-last_seen&quot;
+headers = {'accept': 'application/json', 'Authorization': 'Bearer &lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'}
 response = requests.get(url, headers=headers)
 
 alerts = response.json()</code></pre>
-</doc-codeblock></div>
-</doc-tab>
-<doc-tab v-cloak id="php">
-<template #title>PHP</template>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">&lt;?php
-$url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;limit=10000&amp;gt-last_seen=' . (time() - 7 * 24 * 60 * 60) . '&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;';
-$options = array(
-    'http' =&gt; array(
-        'header' =&gt; 'accept: application/json'
-    )
-);
-$response = file_get_contents($url, false, stream_context_create($options));
-$alerts = json_decode($response, true);
-?&gt;</code></pre>
 </doc-codeblock></div>
 </doc-tab>
 <doc-tab v-cloak id="ruby">
@@ -559,17 +488,9 @@ $alerts = json_decode($response, true);
 require 'json'
 require 'time'
 
-url = URI('https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;limit=10000&amp;gt-last_seen=' + (Time.now.to_i - 7 * 24 * 60 * 60).to_s + '&amp;sort=-last_seen&amp;token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;')
-headers = {
-  'accept' =&gt; 'application/json'
-}
-response = Net::HTTP.start(url.host, url.port, :use_ssl =&gt; true) do |http|
-  request = Net::HTTP::Get.new(url)
-  headers.each do |key, value|
-    request[key] = value
-  end
-  http.request(request)
-end
+url = URI('https://&lt;CLIENT&gt;.sf-cloud.ru/api/alerts/?active=1&amp;limit=1000&amp;gt-last_seen=' + (Time.now.to_i - 7 * 24 * 60 * 60).to_s + '&amp;sort=-last_seen')
+headers = { 'Accept': 'application/json', 'Authorization': '&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;' }
+response = Net::HTTP.get_response(url, headers)
 
 data = JSON.parse(response.body)</code></pre>
 </doc-codeblock></div>
@@ -578,7 +499,7 @@ data = JSON.parse(response.body)</code></pre>
 <doc-panels>
    <doc-panel id="параметры" collapsed>
        <template #title>Параметры</template>
-<p>Актуальный список параметров находится в Swagger в Вашем Личном Кабинете. Ссылка на Swagger: <a href="https://xn--__-6kccfb0audgmi1ag0f8cn3d.sf-cloud.ru/api/docs">https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs</a></p>
+<p>Полный список параметров находится в Swagger в Вашем Личном Кабинете. Ссылка на Swagger: <code v-pre>https://ВАШ_ЛИЧНЫЙ_КАБИНЕТ.sf-cloud.ru/api/docs</code></p>
 <p>Ниже приведён краткий пример, какие параметры возможно передать</p>
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
@@ -624,67 +545,82 @@ data = JSON.parse(response.body)</code></pre>
   &quot;count&quot;: 1,
   &quot;items&quot;: [
     {
-      &quot;ipv4&quot;: &quot;51.32.2.0&quot;,
-      &quot;domains&quot;: [
+      &quot;id&quot;: &quot;4bb2361c-9fb0-11ef-be26-d785a4534483&quot;,
+      &quot;title&quot;: &quot;Open Port Re-check&quot;,
+      &quot;severity&quot;: 10,
+      &quot;current_generators&quot;: [
         {
-          &quot;domain&quot;: &quot;foo.bar.com&quot;,
-          &quot;found_by&quot;: [
-            &quot;altdns-4&quot;
-          ],
-          &quot;alert_stats&quot;: {
-            &quot;critical&quot;: 0,
-            &quot;high&quot;: 0,
-            &quot;medium&quot;: 0
-          }
+          &quot;id&quot;: &quot;8e1f7ac0-80b4-11ef-b80d-a77d69e3e153&quot;,
+          &quot;template&quot;: &quot;infrascan-1057&quot;,
+          &quot;tool&quot;: &quot;infrascan&quot;,
+          &quot;hidden&quot;: false
         }
       ],
-      &quot;ports&quot;: [
+      &quot;all_generators&quot;: [
         {
-          &quot;port_number&quot;: 0,
-          &quot;found_by&quot;: [
-            &quot;nmap-5&quot;
-          ],
-          &quot;open&quot;: true,
-          &quot;protocol&quot;: &quot;string&quot;,
-          &quot;info&quot;: {
-            &quot;name&quot;: &quot;ssh&quot;,
-            &quot;product&quot;: &quot;OpenSSH&quot;,
-            &quot;version&quot;: &quot;7.9p1 Debian 10+deb10u2&quot;,
-            &quot;extrainfo&quot;: &quot;protocol 2.0&quot;,
-            &quot;ostype&quot;: &quot;Linux&quot;,
-            &quot;method&quot;: &quot;probed&quot;,
-            &quot;conf&quot;: &quot;10&quot;,
-            &quot;cpelist&quot;: [
-              &quot;cpe:/a:openbsd:openssh:7.9p1&quot;,
-              &quot;cpe:/o:linux:linux_kernel&quot;
-            ]
-          },
-          &quot;history&quot;: [
-            {
-              &quot;open&quot;: true,
-              &quot;at&quot;: &quot;2022-06-14T17:27:25.024141&quot;,
-              &quot;task_id&quot;: &quot;&lt;project_id: uuid | str&gt;&quot;
-            }
-          ],
-          &quot;last_seen&quot;: &quot;2022-06-14T17:27:25.024141&quot;,
-          &quot;cdate&quot;: &quot;2022-06-14T17:27:25.024141&quot;,
-          &quot;mdate&quot;: &quot;2022-06-14T17:27:25.024141&quot;
+          &quot;id&quot;: &quot;8e1f7ac0-80b4-11ef-b80d-a77d69e3e153&quot;,
+          &quot;template&quot;: &quot;infrascan-1057&quot;,
+          &quot;tool&quot;: &quot;infrascan&quot;,
+          &quot;hidden&quot;: false
         }
       ],
-      &quot;project_id&quot;: &quot;&lt;project_id: uuid | str&gt;&quot;,
-      &quot;found_by&quot;: &quot;altdns&quot;,
-      &quot;pending&quot;: true,
-      &quot;hidden&quot;: true,
-      &quot;ping_ok&quot;: true,
-      &quot;cdate&quot;: &quot;2022-06-14T17:27:25.024141&quot;,
-      &quot;mdate&quot;: &quot;2022-06-14T17:27:25.024141&quot;,
-      &quot;last_seen&quot;: &quot;2022-06-14T17:27:25.024141&quot;,
-      &quot;alert_stats&quot;: {
-        &quot;critical&quot;: 0,
-        &quot;high&quot;: 0,
-        &quot;medium&quot;: 0
+      &quot;description&quot;: &quot;detailed description&quot;,
+      &quot;project&quot;: {
+        &quot;id&quot;: &quot;77ce5908-690d-11ef-97d2-5bfbdf422a92&quot;,
+        &quot;name&quot;: &quot;Project Name&quot;
       },
-      &quot;whois&quot;: {}
+      &quot;last_seen&quot;: &quot;2024-12-13T02:52:16.886892+00:00&quot;,
+      &quot;last_rediscovery&quot;: &quot;2024-12-13T02:52:16.886892+00:00&quot;,
+      &quot;comment&quot;: &quot;example&quot;,
+      &quot;content_digest&quot;: &quot;60afe804b722ad4919f51c41f590ec9c&quot;,
+      &quot;issue_detail&quot;: &quot;&quot;,
+      &quot;recommendation&quot;: &quot;Steps to resolve this issue include : steps. . .&quot;,
+      &quot;recommendation_detail&quot;: &quot;&quot;,
+      &quot;extra&quot;: {
+        &quot;port&quot;: &quot;0 / tcp / &quot;,
+        &quot;vuln_hostname&quot;: &quot;1.1.1.1&quot;,
+        &quot;severity&quot;: 0,
+        &quot;pluginname&quot;: &quot;Open Port Re-check&quot;,
+        &quot;description&quot;: &quot;description&quot;,
+        &quot;plugin_raw_output&quot;: &quot;Port 443 was detected as being open but is now unresponsive\n&quot;,
+        &quot;cve_details&quot;: [],
+        &quot;solution&quot;: &quot;Steps to resolve this issue include : steps. . .&quot;,
+        &quot;risk_information&quot;: {
+          &quot;risk_factor&quot;: &quot;None&quot;
+        },
+        &quot;ref_information&quot;: {
+          &quot;reference_values_EXAMPLE&quot;: []
+        },
+        &quot;plugin_information&quot;: {
+          &quot;example&quot;: 1
+        },
+        &quot;vuln_information&quot;: null,
+        &quot;see_also&quot;: null,
+        &quot;vuln_ip&quot;: &quot;1.1.1.1&quot;
+      },
+      &quot;status&quot;: &quot;VERIFIED&quot;,
+      &quot;verified&quot;: true,
+      &quot;active&quot;: true,
+      &quot;masked&quot;: false,
+      &quot;recurring&quot;: false,
+      &quot;masks&quot;: [],
+      &quot;host&quot;: &quot;1.1.1.1&quot;,
+      &quot;affected_ipv4&quot;: [],
+      &quot;affected_domains&quot;: [],
+      &quot;netloc&quot;: null,
+      &quot;categories&quot;: [],
+      &quot;cvss3&quot;: null,
+      &quot;cvss2&quot;: null,
+      &quot;cvss2_vector&quot;: null,
+      &quot;cvss3_vector&quot;: null,
+      &quot;exploit_available&quot;: null,
+      &quot;cve_id&quot;: null,
+      &quot;bdu_id&quot;: null,
+      &quot;cdate&quot;: &quot;2024-11-10T22:08:20.357296+00:00&quot;,
+      &quot;mdate&quot;: &quot;2024-12-13T02:52:16.886892+00:00&quot;,
+      &quot;unfound_by&quot;: [],
+      &quot;deactivation_reason&quot;: null,
+      &quot;deactivation_reason_detail&quot;: null
     }
   ]
 }</code></pre>
@@ -692,18 +628,18 @@ data = JSON.parse(response.body)</code></pre>
    </doc-panel>
 </doc-panels>
 <doc-anchor-target id="добавление-хостов-в-проект">
-    <h3>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#добавление-хостов-в-проект">#</doc-anchor-trigger>
         <span>Добавление хостов в проект</span>
-    </h3>
+    </h2>
 </doc-anchor-target>
-<p>Чтобы добавить хосты в проект, необходимо выполнить <code v-pre>POST</code> запрос на <code v-pre>https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_UUID&gt;/scope-extension/</code>
+<p><code v-pre>POST</code> <code v-pre>https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_UUID&gt;/scope-extension/</code><br />
 Новые домены будут дописываться в конец уже существующего скоупа.</p>
 <doc-anchor-target id="body-запроса">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#body-запроса">#</doc-anchor-trigger>
         <span>Body запроса</span>
-    </h4>
+    </h3>
 </doc-anchor-target>
 <doc-tabs>
 <doc-tab v-cloak id="домены">
@@ -733,21 +669,21 @@ data = JSON.parse(response.body)</code></pre>
 </doc-tab>
 </doc-tabs>
 <doc-anchor-target id="код">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#код">#</doc-anchor-trigger>
         <span>Код</span>
-    </h4>
+    </h3>
 </doc-anchor-target>
 <doc-tabs>
 <doc-tab v-cloak id="curl">
 <template #title>Curl</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">curl -X POST \
-  https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-extension/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt; \
+  https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid str&gt;/scope-extension/ \
   -H 'Content-Type: application/json' \
   -H 'accept: application/json' \
-  -d 'PAYLOAD FROM &quot;Body запроса&quot; SECTION'
-</code></pre>
+  -H 'Authorization: Bearer &lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;' \
+  -d '{&quot;root_domains&quot;: [&quot;domain.com&quot;, &quot;some.domain.com&quot;]}'</code></pre>
 </doc-codeblock></div>
 </doc-tab>
 <doc-tab v-cloak id="python">
@@ -756,38 +692,12 @@ data = JSON.parse(response.body)</code></pre>
 <pre class="language-python"><code v-pre class="language-python">import requests
 import json
 
-url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-extension/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'
-headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
-payload = {'PAYLOAD FROM &quot;Body запроса&quot; SECTION'}
+url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-extension/'
+headers = {'Content-Type': 'application/json', 'accept': 'application/json', 'Authorization': 'Bearer &lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'}
+payload = {&quot;root_domains&quot;: [&quot;domain.com&quot;, &quot;some.domain.com&quot;]}
 response = requests.post(url, headers=headers, data=json.dumps(payload))
 
-project_config = response.json()
-</code></pre>
-</doc-codeblock></div>
-</doc-tab>
-<doc-tab v-cloak id="php">
-<template #title>PHP</template>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">&lt;?php
-
-$url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-extension/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;';
-$data = ['PAYLOAD FROM &quot;Body запроса&quot; SECTION'];
-
-$options = [
-    'http' =&gt; [
-        'header' =&gt; &quot;Content-type: application/json\r\n&quot; .
-                    &quot;Accept: application/json\r\n&quot;,
-        'method' =&gt; 'POST',
-        'content' =&gt; json_encode($data)
-    ]
-];
-
-$context = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
-
-$response = json_decode($result);
-?&gt;
-</code></pre>
+scope_settings = response.json()</code></pre>
 </doc-codeblock></div>
 </doc-tab>
 <doc-tab v-cloak id="ruby">
@@ -796,14 +706,12 @@ $response = json_decode($result);
 <pre class="language-ruby"><code v-pre class="language-ruby">require 'net/http'
 require 'json'
 
-url = URI('https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-extension/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;')
-headers = {
-  'Content-Type' =&gt; 'application/json',
-  'accept' =&gt; 'application/json'
-}
-data = {'PAYLOAD FROM &quot;Body запроса&quot; SECTION'}
+url = URI('https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-extension/')
+headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': '&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;' }
+data = {&quot;root_domains&quot;: [&quot;domain.com&quot;, &quot;some.domain.com&quot;]}
+
 response = Net::HTTP.start(url.host, url.port, :use_ssl =&gt; true) do |http|
-  request = Net::HTTP::POST.new(url)
+  request = Net::HTTP::Post.new(url)
   headers.each do |key, value|
     request[key] = value
   end
@@ -822,87 +730,77 @@ data = JSON.parse(response.body)</code></pre>
 </span></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-json"><code v-pre class="language-json">{
-    &quot;scope_settings&quot;: {
-        &quot;root_domains&quot;: [&quot;домен.который.уже.был.в.настройках&quot;, &quot;domain.com&quot;, &quot;some.domain.com&quot;],
-        &quot;root_ips&quot;: [&quot;44.0.1.1&quot; &quot;25.65.9.0&quot;, &quot;44.43.1.0&quot;],
-        &quot;blacklist&quot;: {
-            &quot;domains&quot;: [],
-            &quot;ipv4&quot;: [],
-            &quot;ipv6&quot;: [],
-            &quot;url&quot;: [&quot;http://somedomain.com/?\\?path=([^&amp;=?]+)&quot;],
-            &quot;url_exceptions&quot;: [],
-            &quot;domains_exceptions&quot;: [],
-            &quot;ipv4_exceptions&quot;: []
-        },
-        &quot;manual_ip_approve&quot;: false,
-        &quot;exclude_private_ips&quot;: true,
-        &quot;hide_unreachable&quot;: false
-    }
+    &quot;root_domains&quot;: [
+        &quot;example.domain&quot;
+    ],
+    &quot;root_ips&quot;: [
+        &quot;1.1.1.1&quot;
+    ],
+    &quot;blacklist&quot;: {
+        &quot;domains&quot;: [],
+        &quot;ipv4&quot;: [],
+        &quot;ipv6&quot;: [],
+        &quot;url&quot;: [],
+        &quot;netlocs&quot;: [],
+        &quot;url_exceptions&quot;: [],
+        &quot;domains_exceptions&quot;: [],
+        &quot;ipv4_exceptions&quot;: []
+    },
+    &quot;manual_ip_approve&quot;: false,
+    &quot;hide_unreachable&quot;: false,
+    &quot;number_of_domains&quot;: 1,
+    &quot;number_of_wildcards&quot;: 0,
+    &quot;number_of_ips&quot;: 1,
+    &quot;number_of_subnets&quot;: 0,
+    &quot;number_of_ips_in_subnets&quot;: 0
 }</code></pre>
 </doc-codeblock></div>
 <p><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-red-600 bg-red-100 h-6 px-2 text-xs rounded-md">
     <span>Status code: 400</span>
 </span></p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">{&quot;error&quot;:&quot;bad request body&quot;,&quot;field&quot;:&quot;scope_settings.root_ips: 127.0.0.1 is not allowed (private IP)&quot;}</code></pre>
+<pre class="language-json"><code v-pre class="language-json">{
+    &quot;detail&quot;: [
+        {
+            &quot;type&quot;: &quot;ip_v4_address&quot;,
+            &quot;loc&quot;: [...],
+            &quot;msg&quot;: &quot;Input is not a valid IPv4 address&quot;,
+            &quot;input&quot;: &quot;1&quot;
+        },
+        {
+            &quot;type&quot;: &quot;ip_v4_network&quot;,
+            &quot;loc&quot;: [...],
+            &quot;msg&quot;: &quot;Input is not a valid IPv4 network&quot;,
+            &quot;input&quot;: &quot;1&quot;
+        }
+    ]
+}</code></pre>
 </doc-codeblock></div>
 </doc-panel>
 <doc-anchor-target id="удаление-хостов-из-проекта">
-    <h3>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#удаление-хостов-из-проекта">#</doc-anchor-trigger>
         <span>Удаление хостов из проекта</span>
-    </h3>
+    </h2>
 </doc-anchor-target>
-<p>Чтобы удалить хост из проекта, необходимо выполнить <code v-pre>POST</code> запрос на <code v-pre>https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_UUID&gt;/scope-deletion</code></p>
-<doc-anchor-target id="body-запроса-1">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#body-запроса-1">#</doc-anchor-trigger>
-        <span>Body запроса</span>
-    </h4>
-</doc-anchor-target>
-<doc-tabs>
-<doc-tab v-cloak id="домены">
-<template #title>Домены</template>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">{
-    &quot;root_domains&quot;: [&quot;domain.com&quot;, &quot;some.domain.com&quot;]
-}</code></pre>
-</doc-codeblock></div>
-</doc-tab>
-<doc-tab v-cloak id="ip-адреса">
-<template #title>IP-адреса</template>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">{
-    &quot;root_ips&quot;: [&quot;25.65.9.0&quot;, &quot;44.43.1.0&quot;]
-}</code></pre>
-</doc-codeblock></div>
-</doc-tab>
-<doc-tab v-cloak id="домены-и-ip">
-<template #title>Домены и IP</template>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">{
-    &quot;root_domains&quot;: [&quot;domain.com&quot;, &quot;some.domain.com&quot;],
-    &quot;root_ips&quot;: [&quot;25.65.9.0&quot;, &quot;44.43.1.0&quot;]
-}</code></pre>
-</doc-codeblock></div>
-</doc-tab>
-</doc-tabs>
+<p><code v-pre>POST</code> <code v-pre>https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_UUID&gt;/scope-deletion</code><br />
+Тело запроса точно такое же, как и у Scope extension</p>
 <doc-anchor-target id="код-1">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#код-1">#</doc-anchor-trigger>
         <span>Код</span>
-    </h4>
+    </h3>
 </doc-anchor-target>
 <doc-tabs>
 <doc-tab v-cloak id="curl">
 <template #title>Curl</template>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">curl -X POST \
-  https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt; \
+  https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid str&gt;/scope-deletion/ \
   -H 'Content-Type: application/json' \
   -H 'accept: application/json' \
-  -d 'PAYLOAD FROM &quot;Body запроса&quot; SECTION'
-</code></pre>
+  -H 'Authorization: Bearer &lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;' \
+  -d '{&quot;root_domains&quot;: [&quot;domain.com&quot;, &quot;some.domain.com&quot;]}'</code></pre>
 </doc-codeblock></div>
 </doc-tab>
 <doc-tab v-cloak id="python">
@@ -911,38 +809,12 @@ data = JSON.parse(response.body)</code></pre>
 <pre class="language-python"><code v-pre class="language-python">import requests
 import json
 
-url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'
-headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
-payload = {'PAYLOAD FROM &quot;Body запроса&quot; SECTION'}
+url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/'
+headers = {'Content-Type': 'application/json', 'accept': 'application/json', 'Authorization': 'Bearer &lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'}
+payload = {&quot;root_domains&quot;: [&quot;domain.com&quot;, &quot;some.domain.com&quot;]}
 response = requests.post(url, headers=headers, data=json.dumps(payload))
 
-project_config = response.json()
-</code></pre>
-</doc-codeblock></div>
-</doc-tab>
-<doc-tab v-cloak id="php">
-<template #title>PHP</template>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">&lt;?php
-
-$url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;';
-$data = ['PAYLOAD FROM &quot;Body запроса&quot; SECTION'];
-
-$options = [
-    'http' =&gt; [
-        'header' =&gt; &quot;Content-type: application/json\r\n&quot; .
-                    &quot;Accept: application/json\r\n&quot;,
-        'method' =&gt; 'POST',
-        'content' =&gt; json_encode($data)
-    ]
-];
-
-$context = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
-
-$response = json_decode($result);
-?&gt;
-</code></pre>
+scope_settings = response.json()</code></pre>
 </doc-codeblock></div>
 </doc-tab>
 <doc-tab v-cloak id="ruby">
@@ -951,14 +823,12 @@ $response = json_decode($result);
 <pre class="language-ruby"><code v-pre class="language-ruby">require 'net/http'
 require 'json'
 
-url = URI('https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/?token=&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;')
-headers = {
-  'Content-Type' =&gt; 'application/json',
-  'accept' =&gt; 'application/json'
-}
-data = {'PAYLOAD FROM &quot;Body запроса&quot; SECTION'}
+url = URI('https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/')
+headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': '&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;' }
+data = {&quot;root_domains&quot;: [&quot;domain.com&quot;, &quot;some.domain.com&quot;]}
+
 response = Net::HTTP.start(url.host, url.port, :use_ssl =&gt; true) do |http|
-  request = Net::HTTP::POST.new(url)
+  request = Net::HTTP::Post.new(url)
   headers.each do |key, value|
     request[key] = value
   end
@@ -977,29 +847,30 @@ data = JSON.parse(response.body)</code></pre>
 </span></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-json"><code v-pre class="language-json">{
-    &quot;scope_settings&quot;: {
-        &quot;root_domains&quot;: [&quot;оставшиеся домены&quot;, ...],
-        &quot;root_ips&quot;: [&quot;оставшиеся айпи&quot;, ...],
-        &quot;blacklist&quot;: {
-            &quot;domains&quot;: [],
-            &quot;ipv4&quot;: [],
-            &quot;ipv6&quot;: [],
-            &quot;url&quot;: [&quot;http://somedomain.com/?\\?path=([^&amp;=?]+)&quot;],
-            &quot;url_exceptions&quot;: [],
-            &quot;domains_exceptions&quot;: [],
-            &quot;ipv4_exceptions&quot;: []
-        },
-        &quot;manual_ip_approve&quot;: false,
-        &quot;exclude_private_ips&quot;: true,
-        &quot;hide_unreachable&quot;: false
-    }
+    &quot;root_domains&quot;: [
+        &quot;example.domain&quot;
+    ],
+    &quot;root_ips&quot;: [
+        &quot;1.1.1.1&quot;
+    ],
+    &quot;blacklist&quot;: {
+        &quot;domains&quot;: [],
+        &quot;ipv4&quot;: [],
+        &quot;ipv6&quot;: [],
+        &quot;url&quot;: [],
+        &quot;netlocs&quot;: [],
+        &quot;url_exceptions&quot;: [],
+        &quot;domains_exceptions&quot;: [],
+        &quot;ipv4_exceptions&quot;: []
+    },
+    &quot;manual_ip_approve&quot;: false,
+    &quot;hide_unreachable&quot;: false,
+    &quot;number_of_domains&quot;: 1,
+    &quot;number_of_wildcards&quot;: 0,
+    &quot;number_of_ips&quot;: 1,
+    &quot;number_of_subnets&quot;: 0,
+    &quot;number_of_ips_in_subnets&quot;: 0
 }</code></pre>
-</doc-codeblock></div>
-<p><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-red-600 bg-red-100 h-6 px-2 text-xs rounded-md">
-    <span>Status code: 404</span>
-</span></p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">{&quot;error&quot;: &quot;project &lt;project_id&gt; not found&quot;}</code></pre>
 </doc-codeblock></div>
 </doc-panel>
 
@@ -1021,10 +892,10 @@ data = JSON.parse(response.body)</code></pre>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../task_status/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../licence/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Статусы задач</span>
+                                                <span class="block mt-1">Алгоритм подсчёта лицензии</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>

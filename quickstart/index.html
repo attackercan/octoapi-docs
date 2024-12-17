@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.787152278648">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.787780180325">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.6.0">
@@ -32,11 +32,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.6.0.787152278648" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.6.0.787780180325" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.787152278648" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.787780180325" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.787152278648" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.787780180325" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -418,7 +418,18 @@
         </div>
     </div>
 </div>
-<p>Таблица поддерживает фильтрацию по шаблону, по статусам сканов; сортировку по времени создания и обновления задачи, а также поиск по хостам и ID задачи. В столбце <code v-pre>Вывод</code> можно скачать отчет, созданный сканером или результат его работы. В конце строки каждой задачи можно нажать кнопку перезапуска, это действие создаст идентичную задачу с максимальным приоритетом. Строки задач можно раскрывать и просмативать ход сканирования, это статусы задач и их изменение с привязкой ко времени.</p>
+<p>Таблица поддерживает фильтрацию по шаблону, по статусам сканов; сортировку по времени создания и обновления задачи, а также поиск по хостам и ID задачи. В столбце <code v-pre>Вывод</code> можно скачать отчет, созданный сканером или результат его работы. В конце строки каждой задачи можно нажать кнопку перезапуска, это действие создаст идентичную задачу с максимальным приоритетом. Строки задач можно раскрывать и просмативать ход сканирования, это <doc-anchor-trigger to="#%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D1%8B-%D0%B7%D0%B0%D0%B4%D0%B0%D1%87">статусы задач</doc-anchor-trigger> и их изменение с привязкой ко времени.</p>
+<doc-panel id="статусы-задач" collapsed>
+    <template #title>Статусы задач</template>
+<ul>
+<li><code v-pre>На паузе</code> — задача ожидает выхода проекта из сна для продолжения работы.</li>
+<li><code v-pre>Готова</code> — задача создана и готова к выполнению.</li>
+<li><code v-pre>Опубликована</code> — задача находится в очереди на выполнение.</li>
+<li><code v-pre>В работе</code> — идёт процесс сканирования.</li>
+<li><code v-pre>Завершена</code> — проверка успешно завершена.</li>
+<li><code v-pre>Провалена</code> — сканирование не завершилось успешно по причинам, указанным в карточке задачи.</li>
+</ul>
+</doc-panel>
 <p><figure class="content-center">
     <img src="../static/9-1.png" alt="Рис. 9.1">
     <figcaption class="caption">Рис. 9.1</figcaption>
