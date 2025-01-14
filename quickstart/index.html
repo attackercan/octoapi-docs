@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.787780180325">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.790192443109">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.6.0">
@@ -32,11 +32,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.6.0.787780180325" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.6.0.790192443109" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.787780180325" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.790192443109" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.787780180325" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.790192443109" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -227,14 +227,16 @@
 <ul>
 <li><strong>Домены:</strong> домены (например, <code v-pre>yandex.ru</code>) и вайлдкарды (например, <code v-pre>*.yandex.ru</code>). Вайлдкард <code v-pre>*.yandex.ru</code> означает, что сканированию подлежит домен <code v-pre>yandex.ru</code> и все его поддомены.</li>
 <li><strong>IP и подсети:</strong> адреса IPv4 и подсети (например, <code v-pre>11.22.33.44/24</code>).</li>
-<li><strong>Blacklist скоупа:</strong> черный список, где могут быть указаны домены, вайлдкарды, регулярные выражения (для доменов), IPv4 адреса и подсети и регулярные выражения для HTTP ссылок.
-Примеры:
-<ul>
-<li><code v-pre>re:xyz.u\d+.domain.com</code></li>
-<li><code v-pre>domain.com</code></li>
-<li><code v-pre>*.sub.domain.com</code></li>
-<li><code v-pre>https?://domain.com/foo/\w+</code></li>
-</ul>
+<li><strong>Blacklist скоупа:</strong> черный список, где могут быть указаны
+<ol>
+<li>Домены: <code v-pre>domain.com</code></li>
+<li>Вайлдкарды: <code v-pre>*.sub.domain.com</code></li>
+<li>Регулярные выражения для доменов: <code v-pre>re:xyz.u\d+.domain.com</code></li>
+<li>IPv4 адреса: <code v-pre>127.0.0.1</code></li>
+<li>Подсети: <code v-pre>192.168.1.0/25</code></li>
+<li>Регулярные выражения для HTTP ссылок: <code v-pre>https?://domain.com/foo/\w+</code></li>
+<li>Порты: <code v-pre>8.8.8.8:443</code> или <code v-pre>domain.com:80</code></li>
+</ol>
 </li>
 <li><strong>Исключения из blacklist-a:</strong> Здесь можно указать исключения из черного списка. Могут быть указаны домены, вайлдкарды, регулярные выражения (для доменов), IPv4 адреса и подсети и регулярные выражения для HTTP ссылок.</li>
 <li>Переключатель <strong>&quot;Ручное подтверждение новых активов, которые не входят в скоуп&quot;</strong> означает, ни один домен не будет просканирован пока его IP-адреса не будут занесены вами в <strong>IP и подсети</strong>.</li>
@@ -482,7 +484,7 @@
                                     <ul class="flex flex-wrap items-center text-sm">
                                     </ul>
                                 </div>
-                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2024. All rights reserved.</p></div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2025. All rights reserved.</p></div>
                             </footer>
                         </div>
                     </div>
