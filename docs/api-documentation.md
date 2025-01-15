@@ -600,7 +600,7 @@ data = JSON.parse(response.body)
 
 ===
 
-## Добавление swager endpoint
+## Добавление swagger endpoint
 
 `POST` `https://<CLIENT>.sf-cloud.ru/api/httpreqs/`  
 
