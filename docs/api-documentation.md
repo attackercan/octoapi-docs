@@ -599,3 +599,77 @@ data = JSON.parse(response.body)
 ```
 
 ===
+
+## Добавление swager endpoint
+
+`POST` `https://<CLIENT>.sf-cloud.ru/api/httpreqs/`  
+
+### Код
+
++++ Curl
+
+```bash
+
+curl -X 'POST' \
+    'https://<CLIENT>.sf-cloud.ru/api/httpreqs/' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer <АВТОРИЗАЦИОННЫЙ_ТОКЕН>' \
+    -d '{
+    "project id": "<project-id>",
+    "url": "https://your.domain.com/api/openapi.json",
+    "method": "GET",
+    "request_headers": {},
+    "request_body": ""
+}'
+```
+
++++ Python
+
+```python
+import requests
+import json
+
+url = 'https://<CLIENT>.sf-cloud.ru/api/httpreqs/'
+headers = {'Content-Type': 'application/json', 'accept': 'application/json', 'Authorization': 'Bearer <АВТОРИЗАЦИОННЫЙ_ТОКЕН>'}
+payload = {"project id": "<project-id>", "url": "https://your.domain.com/api/openapi.json", "method": "GET", "request_headers": {}, "request_body": ""}
+response = requests.post(url, headers=headers, data=json.dumps(payload))
+
+scope_settings = response.json()
+```
+
++++ Ruby
+
+```ruby
+require 'net/http'
+require 'json'
+
+url = URI('https://<CLIENT>.sf-cloud.ru/api/projects/<project_id: uuid | str>/scope-deletion/')
+headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': '<АВТОРИЗАЦИОННЫЙ_ТОКЕН>' }
+data = {"project id": "<project-id>", "url": "https://your.domain.com/api/openapi.json", "method": "GET", "request_headers": {}, "request_body": ""}
+
+response = Net::HTTP.start(url.host, url.port, :use_ssl => true) do |http|
+  request = Net::HTTP::Post.new(url)
+  headers.each do |key, value|
+    request[key] = value
+  end
+  request.body = data.to_json
+  http.request(request)
+end
+
+data = JSON.parse(response.body)
+```
+
++++
+
+==- Пример ответа
+
+[!badge size="m" text="Status code: 200" variant="success"]
+
+```json
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+===
