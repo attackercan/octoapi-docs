@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.790192443109">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.790256806258">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.6.0">
@@ -30,12 +30,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.6.0.790192443109" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.6.0.790256806258" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.790192443109" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.790256806258" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.790192443109" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.790192443109" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.790256806258" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.790256806258" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -870,6 +870,86 @@ data = JSON.parse(response.body)</code></pre>
     &quot;number_of_ips&quot;: 1,
     &quot;number_of_subnets&quot;: 0,
     &quot;number_of_ips_in_subnets&quot;: 0
+}</code></pre>
+</doc-codeblock></div>
+</doc-panel>
+<doc-anchor-target id="добавление-swager-endpoint">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#добавление-swager-endpoint">#</doc-anchor-trigger>
+        <span>Добавление swager endpoint</span>
+    </h2>
+</doc-anchor-target>
+<p><code v-pre>POST</code> <code v-pre>https://&lt;CLIENT&gt;.sf-cloud.ru/api/httpreqs/</code></p>
+<doc-anchor-target id="код-2">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#код-2">#</doc-anchor-trigger>
+        <span>Код</span>
+    </h3>
+</doc-anchor-target>
+<doc-tabs>
+<doc-tab v-cloak id="curl">
+<template #title>Curl</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">
+curl -X 'POST' \
+    'https://&lt;CLIENT&gt;.sf-cloud.ru/api/httpreqs/' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer &lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;' \
+    -d '{
+    &quot;project id&quot;: &quot;&lt;project-id&gt;&quot;,
+    &quot;url&quot;: &quot;https://your.domain.com/api/openapi.json&quot;,
+    &quot;method&quot;: &quot;GET&quot;,
+    &quot;request_headers&quot;: {},
+    &quot;request_body&quot;: &quot;&quot;
+}'</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="python">
+<template #title>Python</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">import requests
+import json
+
+url = 'https://&lt;CLIENT&gt;.sf-cloud.ru/api/httpreqs/'
+headers = {'Content-Type': 'application/json', 'accept': 'application/json', 'Authorization': 'Bearer &lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;'}
+payload = {&quot;project id&quot;: &quot;&lt;project-id&gt;&quot;, &quot;url&quot;: &quot;https://your.domain.com/api/openapi.json&quot;, &quot;method&quot;: &quot;GET&quot;, &quot;request_headers&quot;: {}, &quot;request_body&quot;: &quot;&quot;}
+response = requests.post(url, headers=headers, data=json.dumps(payload))
+
+scope_settings = response.json()</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="ruby">
+<template #title>Ruby</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-ruby"><code v-pre class="language-ruby">require 'net/http'
+require 'json'
+
+url = URI('https://&lt;CLIENT&gt;.sf-cloud.ru/api/projects/&lt;project_id: uuid | str&gt;/scope-deletion/')
+headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': '&lt;АВТОРИЗАЦИОННЫЙ_ТОКЕН&gt;' }
+data = {&quot;project id&quot;: &quot;&lt;project-id&gt;&quot;, &quot;url&quot;: &quot;https://your.domain.com/api/openapi.json&quot;, &quot;method&quot;: &quot;GET&quot;, &quot;request_headers&quot;: {}, &quot;request_body&quot;: &quot;&quot;}
+
+response = Net::HTTP.start(url.host, url.port, :use_ssl =&gt; true) do |http|
+  request = Net::HTTP::Post.new(url)
+  headers.each do |key, value|
+    request[key] = value
+  end
+  request.body = data.to_json
+  http.request(request)
+end
+
+data = JSON.parse(response.body)</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<doc-panel id="пример-ответа" collapsed>
+    <template #title>Пример ответа</template>
+<p><span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-green-700 bg-green-100 h-6 px-2 text-xs rounded-md">
+    <span>Status code: 200</span>
+</span></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;id&quot;: &quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;
 }</code></pre>
 </doc-codeblock></div>
 </doc-panel>
