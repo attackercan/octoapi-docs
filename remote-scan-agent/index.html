@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.791932973791">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.792000869897">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.6.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Remote Scan Agent</title>
     <meta name="title" content="Remote Scan Agent">
-    <meta name="description" content="Пользователям ScanFactory Cloud доступна функциональность Удалённого сканирования:">
+    <meta name="description" content="Пользователям ScanFactory Cloud доступна функциональность Удалённого сканирования.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.sf-cloud.ru/remote-scan-agent/">
@@ -20,21 +20,22 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.sf-cloud.ru/remote-scan-agent/">
     <meta property="og:title" content="Remote Scan Agent">
-    <meta property="og:description" content="Пользователям ScanFactory Cloud доступна функциональность Удалённого сканирования:">
+    <meta property="og:description" content="Пользователям ScanFactory Cloud доступна функциональность Удалённого сканирования.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.sf-cloud.ru/remote-scan-agent/">
     <meta property="twitter:title" content="Remote Scan Agent">
-    <meta property="twitter:description" content="Пользователям ScanFactory Cloud доступна функциональность Удалённого сканирования:">
+    <meta property="twitter:description" content="Пользователям ScanFactory Cloud доступна функциональность Удалённого сканирования.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.6.0.791932973791" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.6.0.792000869897" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.791932973791" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.792000869897" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.791932973791" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.792000869897" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.792000869897" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -169,7 +170,7 @@
         <span>Remote Scan Agent</span>
     </h1>
 </doc-anchor-target>
-<p>Пользователям ScanFactory Cloud доступна функциональность <strong>Удалённого сканирования</strong>:</p>
+<p>Пользователям ScanFactory Cloud доступна функциональность <strong>Удалённого сканирования</strong>.</p>
 <p>Используя свой Личный Кабинет в ScanFactory Cloud, Вы сможете сканировать не только ресурсы, доступные на периметре (в сети Internet), но также и ресурсы, расположенные в изолированой корпоративной среде.</p>
 <doc-anchor-target id="как-это-работает">
     <h2>
@@ -191,14 +192,33 @@
         <span>Что потребуется для использования?</span>
     </h2>
 </doc-anchor-target>
-<p>В закрытом сегменте сети потребуется создать виртуальную машину под управлением OS Debian 12.</p>
-<p>Минимальные требования к вычислительным ресурсам ВМ:</p>
-<ul>
-<li>2 vCPU,</li>
-<li>2 Gb Ram,</li>
-<li>10 Gb Disk.</li>
-</ul>
-<p>Поместить файл <em>openvpn-config</em> в директорию XXX, и запустить скрипт, выполняющий необходимую настройку.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">Минимальные требования к вычислительным ресурсам ВМ:
+- 2 vCPU
+- 2 GB Ram
+- 20 GB Disk </code></pre>
+</doc-codeblock></div>
+<ol>
+<li><p>В закрытом сегменте сети потребуется создать виртуальную машину (далее - ВМ) под управлением OS Debian 12.</p>
+</li>
+<li><p>Проверить, что у этой ВМ есть сетевой доступ до локальных ресурсов, подлежащих сканированию</p>
+</li>
+<li><p>Обратиться в техническую поддержку Вендора, и получить:
+а) IP-адрес и порт в облаке Вендора (ScanFactory Cloud)
+б) файл <code v-pre>client.conf</code>
+в) файл <code v-pre>run.sh</code></p>
+</li>
+<li><p>Разрешить сетевой доступ от ВМ, на IP-адрес и порт ScanFactory Cloud (пункт 3а)</p>
+</li>
+<li><p>Разместить файл <code v-pre>client.conf</code> в директории <code v-pre>/etc/openvpn/client.conf</code> на ВМ (пункт 3б)</p>
+</li>
+<li><p>Запустить на созданной ВМ скрипт <code v-pre>run.sh</code> (пункт 3в) и убедиться, что он выполнился успешно (для выполнения требуются root
+права):</p>
+</li>
+</ol>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">sudo bash ./run.sh</code></pre>
+</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -265,6 +285,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Remote Scan Agent", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Remote Scan Agent", level: 1, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
