@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.792000869897">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.794419297374">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.6.0">
@@ -21,21 +21,22 @@
     <meta property="og:url" content="https://docs.sf-cloud.ru/remote-scan-agent/">
     <meta property="og:title" content="Remote Scan Agent">
     <meta property="og:description" content="Пользователям ScanFactory Cloud доступна функциональность Удалённого сканирования.">
+    <meta property="og:image" content="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfL_WIc6hF4-qHb07BVcY16c6GClsR5kJ23Euldsstq-kbSasaW5tI10ee0Fz3HvgLy8aXEVuXzQ8VbwPoA0AyDAzqfNDTgl6OJ4UXlyuXf40vJU3d2ey7vWK6Xn88meH4tVHv8Yg?key=oRYn6Vwi1nD2B82tlMycVG7I">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.sf-cloud.ru/remote-scan-agent/">
     <meta property="twitter:title" content="Remote Scan Agent">
     <meta property="twitter:description" content="Пользователям ScanFactory Cloud доступна функциональность Удалённого сканирования.">
+    <meta property="twitter:image" content="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfL_WIc6hF4-qHb07BVcY16c6GClsR5kJ23Euldsstq-kbSasaW5tI10ee0Fz3HvgLy8aXEVuXzQ8VbwPoA0AyDAzqfNDTgl6OJ4UXlyuXf40vJU3d2ey7vWK6Xn88meH4tVHv8Yg?key=oRYn6Vwi1nD2B82tlMycVG7I">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.6.0.792000869897" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.6.0.794419297374" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.792000869897" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.794419297374" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.792000869897" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.792000869897" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.794419297374" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -172,53 +173,81 @@
 </doc-anchor-target>
 <p>Пользователям ScanFactory Cloud доступна функциональность <strong>Удалённого сканирования</strong>.</p>
 <p>Используя свой Личный Кабинет в ScanFactory Cloud, Вы сможете сканировать не только ресурсы, доступные на периметре (в сети Internet), но также и ресурсы, расположенные в изолированой корпоративной среде.</p>
-<doc-anchor-target id="как-это-работает">
+<doc-anchor-target id="требования-для-установки">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#как-это-работает">#</doc-anchor-trigger>
-        <span>Как это работает?</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#требования-для-установки">#</doc-anchor-trigger>
+        <span>Требования для установки</span>
     </h2>
 </doc-anchor-target>
-<ol>
-<li><p>В инфраструктуре Заказчика, в целевом сканируемом сегменте, разворачивается <strong>виртуальная машина</strong> (см. ниже).</p>
-</li>
-<li><p>Между Виртуальной Машиной на стороне Заказчика, и облаком ScanFactory, создаётся <strong>OpenVPN Tunnel</strong>.</p>
-</li>
-<li><p>В Личном Кабинете ScanFactory, при создании нового Проекта, указывается имя узла, через которое будет проходить сканирование.</p>
-</li>
-</ol>
-<doc-anchor-target id="что-потребуется-для-использования">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#что-потребуется-для-использования">#</doc-anchor-trigger>
-        <span>Что потребуется для использования?</span>
-    </h2>
-</doc-anchor-target>
+<p>Remote Scan Agent устанавливается на виртуальной машине под управлением OS Debian 12.9 со следующими техническими характеристиками:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">Минимальные требования к вычислительным ресурсам ВМ:
-- 2 vCPU
+<pre class="language-none"><code v-pre class="language-none">- 2 vCPU
 - 2 GB Ram
 - 20 GB Disk </code></pre>
 </doc-codeblock></div>
+<p>Разместите виртуальную машину в закрытом сегменте сети, который планируется к сканированию, без использования межсетевого экрана между узлами. Важно проверить сетевой доступ с этой ВМ до сканируемых ресурсов.</p>
+<doc-anchor-target id="установка-remote-scan-agent">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#установка-remote-scan-agent">#</doc-anchor-trigger>
+        <span>Установка Remote Scan Agent</span>
+    </h2>
+</doc-anchor-target>
 <ol>
-<li><p>В закрытом сегменте сети потребуется создать виртуальную машину (далее - ВМ) под управлением OS Debian 12.</p>
+<li>Для установки Remote Scan Agent необходимо обратиться в техническую поддержку:</li>
+</ol>
+<p>Сообщить:</p>
+<ul>
+<li>сканируемую подсеть, например, <em>192.168.0.0/16</em></li>
+</ul>
+<p>В ответ от поддержки Вы получаете:</p>
+<ul>
+<li>IP-адрес и порт в облаке SF Cloud для подключения к VPN-серверу;</li>
+<li>файл client.conf;</li>
+<li>файл run.sh;</li>
+<li>наименование вашего QTAG;</li>
+</ul>
+<ol start="2">
+<li><p>Следующим шагом необходимо разрешить сетевой доступ виртуальной машины до полученного в поддержке IP-адреса и порта SF Cloud и проверить его доступность.</p>
 </li>
-<li><p>Проверить, что у этой ВМ есть сетевой доступ до локальных ресурсов, подлежащих сканированию</p>
-</li>
-<li><p>Обратиться в техническую поддержку Вендора, и получить:
-а) IP-адрес и порт в облаке Вендора (ScanFactory Cloud)
-б) файл <code v-pre>client.conf</code>
-в) файл <code v-pre>run.sh</code></p>
-</li>
-<li><p>Разрешить сетевой доступ от ВМ, на IP-адрес и порт ScanFactory Cloud (пункт 3а)</p>
-</li>
-<li><p>Разместить файл <code v-pre>client.conf</code> в директории <code v-pre>/etc/openvpn/client.conf</code> на ВМ (пункт 3б)</p>
-</li>
-<li><p>Запустить на созданной ВМ скрипт <code v-pre>run.sh</code> (пункт 3в) и убедиться, что он выполнился успешно (для выполнения требуются root
-права):</p>
+<li><p>Для работы Remote Scan Agent, на вашей локальной ВМ, следует установить OpenVPN с помощью команды:</p>
 </li>
 </ol>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">sudo bash ./run.sh</code></pre>
+<pre class="language-none"><code v-pre class="language-none">sudo apt install openvpn -y</code></pre>
 </doc-codeblock></div>
+<p><figure class="content-center">
+    <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfL_WIc6hF4-qHb07BVcY16c6GClsR5kJ23Euldsstq-kbSasaW5tI10ee0Fz3HvgLy8aXEVuXzQ8VbwPoA0AyDAzqfNDTgl6OJ4UXlyuXf40vJU3d2ey7vWK6Xn88meH4tVHv8Yg?key=oRYn6Vwi1nD2B82tlMycVG7I" alt="">
+    <figcaption class="caption"></figcaption>
+</figure>
+<em>Рисунок 1. Установка OpenVPN</em></p>
+<ol start="4">
+<li><p>Разместить полученный у поддержки файл client.conf в директории /etc/openvpn/ на виртуальной машине Remote Scan Agent</p>
+</li>
+<li><p>Запускаем полученный у поддержки скрипт run.sh и убеждаемся, что он выполнился успешно. Команда:</p>
+</li>
+</ol>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">sudo bash ./run.sh</code></pre>
+</doc-codeblock></div>
+<p><figure class="content-center">
+    <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcJVw8h6nt35Svd5NDKeQWu1TOstyC0rswriFWefSHzWq2-E9mdTNy9aDaH1OymBwikj6r7hBmgW6Z-eenPLRSkfCF_RYc-kAchH7LHSrdfegwFziFCwAMMCCzr9w_PTFSZHwpgHA?key=oRYn6Vwi1nD2B82tlMycVG7I" alt="">
+    <figcaption class="caption"></figcaption>
+</figure>
+<em>Рисунок 2. Настройка VM с OpenVPN завершена успешно</em></p>
+<ol start="6">
+<li>В Личном Кабинете, создаем новый Проект, вводим скоуп (IP или домен), и QTAG сканирующей ноды:</li>
+</ol>
+<p><figure class="content-center">
+    <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcmSR25ripXSteil0X6hV4ERNP78P9JzIrljcheZDAPGHODctiO5nJLSWCRV1m5EMVl8lSh_SK09lmvyLkjZ53W7w1TEZiVJD8vjdfWmg2-B1qBYaF_gEPBiFu5oPUyVuSmHQ95Bg?key=oRYn6Vwi1nD2B82tlMycVG7I" alt="">
+    <figcaption class="caption"></figcaption>
+</figure>
+<em>Рисунок 3. Создание сканирования закрытого сегмента корпоративной сети</em></p>
+<p>После создания проекта, наименованиее QTAG сканирующей ноды будет указано рядом с Проектом, далее работа с SF Cloud продолжается полностью аналогично сканированию внешнего периметра: настраивается проект и пул сканеров, запуск сканирования, работа с результатами сканирования.</p>
+<p><figure class="content-center">
+    <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdxaIv3pA547ubFLvoLZ_cIpX_liQ1rknd_60ixOW0oZ6d6TPM484FLuy0RbIGkGSdBbZLfVhBlNzgvjImBV5F4nxDuPDZqemU42l8cEg0SUp8nXJMbalwNiheRr9A89ji2h4NMvQ?key=oRYn6Vwi1nD2B82tlMycVG7I" alt="">
+    <figcaption class="caption"></figcaption>
+</figure>
+<em>Рисунок 4. Обозначение проекта, работающего через Remote Scan Agent в общем пуле проектов</em>.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -285,6 +314,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Remote Scan Agent", level: 1, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Remote Scan Agent", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
