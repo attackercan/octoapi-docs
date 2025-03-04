@@ -41,26 +41,26 @@ Remote Scan Agent устанавливается на виртуальной м�
 sudo apt install openvpn -y
 ```
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfL_WIc6hF4-qHb07BVcY16c6GClsR5kJ23Euldsstq-kbSasaW5tI10ee0Fz3HvgLy8aXEVuXzQ8VbwPoA0AyDAzqfNDTgl6OJ4UXlyuXf40vJU3d2ey7vWK6Xn88meH4tVHv8Yg?key=oRYn6Vwi1nD2B82tlMycVG7I)
-*Рисунок 1. Установка OpenVPN*
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfL_WIc6hF4-qHb07BVcY16c6GClsR5kJ23Euldsstq-kbSasaW5tI10ee0Fz3HvgLy8aXEVuXzQ8VbwPoA0AyDAzqfNDTgl6OJ4UXlyuXf40vJU3d2ey7vWK6Xn88meH4tVHv8Yg?key=oRYn6Vwi1nD2B82tlMycVG7I). 
+*Рисунок 1. Установка OpenVPN*. 
 
-4. Разместить полученный у поддержки файл client.conf в директории /etc/openvpn/ на виртуальной машине Remote Scan Agent
+4. Разместить полученный у поддержки файл client.conf в директории /etc/openvpn/ на виртуальной машине Remote Scan Agent. 
 
-5. Запускаем полученный у поддержки скрипт run.sh и убеждаемся, что он выполнился успешно. Команда:
+5. Запускаем полученный у поддержки скрипт run.sh и убеждаемся, что он выполнился успешно. Команда:  
 
 ```
 sudo bash ./run.sh
 ```
   
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcJVw8h6nt35Svd5NDKeQWu1TOstyC0rswriFWefSHzWq2-E9mdTNy9aDaH1OymBwikj6r7hBmgW6Z-eenPLRSkfCF_RYc-kAchH7LHSrdfegwFziFCwAMMCCzr9w_PTFSZHwpgHA?key=oRYn6Vwi1nD2B82tlMycVG7I)
-*Рисунок 2. Настройка VM с OpenVPN завершена успешно*
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcJVw8h6nt35Svd5NDKeQWu1TOstyC0rswriFWefSHzWq2-E9mdTNy9aDaH1OymBwikj6r7hBmgW6Z-eenPLRSkfCF_RYc-kAchH7LHSrdfegwFziFCwAMMCCzr9w_PTFSZHwpgHA?key=oRYn6Vwi1nD2B82tlMycVG7I)  
+*Рисунок 2. Настройка VM с OpenVPN завершена успешно*. 
 
 6. В Личном Кабинете, создаем новый Проект, вводим скоуп (IP или домен), и QTAG сканирующей ноды:
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcmSR25ripXSteil0X6hV4ERNP78P9JzIrljcheZDAPGHODctiO5nJLSWCRV1m5EMVl8lSh_SK09lmvyLkjZ53W7w1TEZiVJD8vjdfWmg2-B1qBYaF_gEPBiFu5oPUyVuSmHQ95Bg?key=oRYn6Vwi1nD2B82tlMycVG7I)
-*Рисунок 3. Создание сканирования закрытого сегмента корпоративной сети* 
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcmSR25ripXSteil0X6hV4ERNP78P9JzIrljcheZDAPGHODctiO5nJLSWCRV1m5EMVl8lSh_SK09lmvyLkjZ53W7w1TEZiVJD8vjdfWmg2-B1qBYaF_gEPBiFu5oPUyVuSmHQ95Bg?key=oRYn6Vwi1nD2B82tlMycVG7I)  
+*Рисунок 3. Создание сканирования закрытого сегмента корпоративной сети*  
 
-После создания проекта, наименованиее QTAG сканирующей ноды будет указано рядом с Проектом, далее работа с SF Cloud продолжается полностью аналогично сканированию внешнего периметра: настраивается проект и пул сканеров, запуск сканирования, работа с результатами сканирования.
+После создания проекта, наименованиее QTAG сканирующей ноды будет указано рядом с Проектом, далее работа с SF Cloud продолжается полностью аналогично сканированию внешнего периметра: настраивается проект и пул сканеров, запуск сканирования, работа с результатами сканирования.  
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdxaIv3pA547ubFLvoLZ_cIpX_liQ1rknd_60ixOW0oZ6d6TPM484FLuy0RbIGkGSdBbZLfVhBlNzgvjImBV5F4nxDuPDZqemU42l8cEg0SUp8nXJMbalwNiheRr9A89ji2h4NMvQ?key=oRYn6Vwi1nD2B82tlMycVG7I)
-*Рисунок 4. Обозначение проекта, работающего через Remote Scan Agent в общем пуле проектов*. 
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdxaIv3pA547ubFLvoLZ_cIpX_liQ1rknd_60ixOW0oZ6d6TPM484FLuy0RbIGkGSdBbZLfVhBlNzgvjImBV5F4nxDuPDZqemU42l8cEg0SUp8nXJMbalwNiheRr9A89ji2h4NMvQ?key=oRYn6Vwi1nD2B82tlMycVG7I)  
+*Рисунок 4. Обозначение проекта, работающего через Remote Scan Agent в общем пуле проектов*.  
