@@ -54,4 +54,5 @@ sudo bash ./run.sh
 ![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcJVw8h6nt35Svd5NDKeQWu1TOstyC0rswriFWefSHzWq2-E9mdTNy9aDaH1OymBwikj6r7hBmgW6Z-eenPLRSkfCF_RYc-kAchH7LHSrdfegwFziFCwAMMCCzr9w_PTFSZHwpgHA?key=oRYn6Vwi1nD2B82tlMycVG7I)  
 *Рисунок 2. Настройка VM с OpenVPN завершена успешно*. 
 
-6. В Личном Кабинете, создаем новый Проект, вводим скоуп (IP или домен): далее работа с SF Cloud продолжается полностью аналогично сканированию внешнего периметра: настраивается проект и пул сканеров, запуск сканирования, работа с результатами сканирования.  
+6. Далее работа с ЛК продолжается в обычном режиме: в Личном Кабинете, создаем новый Проект, вводим скоуп (IP или домены), и проводим сканирование
+
